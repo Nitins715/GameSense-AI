@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricSense | IPL Live Season Dashboard & AI Simulator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="stadium-overlay"></div>
+    
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <nav class="glass-nav glass-card">
+            <div class="nav-brand">
+                <span class="logo-badge">LIVE SEASON DATA</span>
+                <span class="nav-title">CRICSENSE <span class="accent-text">DASHBOARD</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Home Dashboard</a>
+                <a href="/simulator" class="nav-link simulate-link-nav">⚡ GameSense AI Simulator</a>
+                <a href="/ground-analysis" class="nav-link ground-link-nav">🏟️ Ground Analysis</a>
+            </div>
+        </nav>
+
+        <!-- Main Banner CTA to GameSense AI Simulator -->
+        <section class="simulator-promo-banner glass-card">
+            <div class="promo-content">
+                <div class="promo-text-side">
+                    <span class="promo-badge">AI MICRO-SIMULATOR</span>
+                    <h2 class="promo-title">GAMESENSE <span class="accent-text">AI BATTLEGROUND</span></h2>
+                    <p class="promo-desc">Simulate head-to-head batter vs. bowler matchups using our advanced in-memory AI engine trained on over 293,000+ legal IPL deliveries since 2008!</p>
+                </div>
+                <div class="promo-action-side">
+                    <a href="/simulator" class="promo-cta-btn">⚡ ENTER SIMULATOR</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Core Grid -->
+        <main class="dashboard-core-grid">
+            
+            <div class="dashboard-left-col">
+                <!-- Left Side: Points Table -->
+                <section class="points-table-section glass-card">
+                    <h3 class="card-subtitle"><span class="accent-text">IPL Standings</span> - Points Table</h3>
+                    <div class="table-responsive">
+                        <table class="standings-table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Pos</th>
+                                    <th>Team</th>
+                                    <th class="text-center">P</th>
+                                    <th class="text-center">W</th>
+                                    <th class="text-center">L</th>
+                                    <th class="text-center">NR</th>
+                                    <th class="text-center">NRR</th>
+                                    <th class="text-center highlight-header">Pts</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for team in standings %}
+                                <tr class="table-row-hover">
+                                    <td class="text-center font-bold">{{ loop.index }}</td>
+                                    <td>
+                                        <div class="team-cell">
+                                            <span class="team-badge-mini" style="background-color: {{ team.color }}"></span>
+                                            <span class="team-fullname">{{ team.name }}</span>
+                                            <span class="team-shortname">({{ team.code }})</span>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">{{ team.played }}</td>
+                                    <td class="text-center success-text">{{ team.won }}</td>
+                                    <td class="text-center danger-text">{{ team.lost }}</td>
+                                    <td class="text-center text-muted">{{ team.no_result }}</td>
+                                    <td class="text-center">{{ team.nrr }}</td>
+                                    <td class="text-center highlight-cell">{{ team.points }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Left Side: Playoffs Schedule & Arena -->
+                <section class="playoffs-section glass-card">
+                    <div class="section-header-row">
+                        <span class="logo-badge" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; font-weight: 800; font-size: 10px; padding: 3px 8px; border-radius: 4px;">PLAYOFFS ARENA</span>
+                        <h3 class="card-subtitle" style="margin: 0;"><span class="accent-text">IPL 2026</span> - Playoff Schedule</h3>
+                    </div>
+                    
+                    <div class="playoffs-grid">
+                        <!-- Qualifier 1 -->
+                        <div class="playoff-match-card live-today">
+                            <div class="match-badge badge-today">TONIGHT - 7:30 PM</div>
+                            <div class="match-stage">QUALIFIER 1</div>
+                            <div class="match-teams">
+                                <div class="playoff-team">
+                                    <span class="team-stripe" style="background-color: #ec1c24;"></span>
+                                    <span class="team-name">Bengaluru</span>
+                                    <span class="team-code">RCB</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="playoff-team">
+                                    <span class="team-stripe" style="background-color: #0b1e36;"></span>
+                                    <span class="team-name">Gujarat</span>
+                                    <span class="team-code">GT</span>
+                                </div>
+                            </div>
+                            <div class="match-footer">
+                                <span class="match-venue">📍 Ahmedabad</span>
+                                <span class="match-info" style="color: #f97316;">Winner to Final | Loser to Q2</span>
+                            </div>
+                        </div>
+
+                        <!-- Eliminator -->
+                        <div class="playoff-match-card">
+                            <div class="match-badge badge-upcoming">MAY 27 - 7:30 PM</div>
+                            <div class="match-stage">ELIMINATOR</div>
+                            <div class="match-teams">
+                                <div class="playoff-team">
+                                    <span class="team-stripe" style="background-color: #f26522;"></span>
+                                    <span class="team-name">Hyderabad</span>
+                                    <span class="team-code">SRH</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="playoff-team">
+                                    <span class="team-stripe" style="background-color: #ea1a85;"></span>
+                                    <span class="team-name">Rajasthan</span>
+                                    <span class="team-code">RR</span>
+                                </div>
+                            </div>
+                            <div class="match-footer">
+                                <span class="match-venue">📍 Ahmedabad</span>
+                                <span class="match-info">Winner to Q2 | Loser out</span>
+                            </div>
+                        </div>
+
+                        <!-- Qualifier 2 -->
+                        <div class="playoff-match-card pending-card">
+                            <div class="match-badge badge-upcoming">MAY 29 - 7:30 PM</div>
+                            <div class="match-stage">QUALIFIER 2</div>
+                            <div class="match-teams">
+                                <div class="playoff-team placeholder-team">
+                                    <span class="team-stripe" style="background-color: rgba(255,255,255,0.2);"></span>
+                                    <span class="team-name">Loser of Q1</span>
+                                    <span class="team-code">TBD</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="playoff-team placeholder-team">
+                                    <span class="team-stripe" style="background-color: rgba(255,255,255,0.2);"></span>
+                                    <span class="team-name">Winner of Elim</span>
+                                    <span class="team-code">TBD</span>
+                                </div>
+                            </div>
+                            <div class="match-footer">
+                                <span class="match-venue">📍 Ahmedabad</span>
+                                <span class="match-info">Winner to Final</span>
+                            </div>
+                        </div>
+
+                        <!-- Grand Final -->
+                        <div class="playoff-match-card pending-card final-card">
+                            <div class="match-badge badge-final">MAY 31 - 7:30 PM</div>
+                            <div class="match-stage">🏆 GRAND FINAL</div>
+                            <div class="match-teams">
+                                <div class="playoff-team placeholder-team">
+                                    <span class="team-stripe" style="background-color: rgba(245, 158, 11, 0.5);"></span>
+                                    <span class="team-name">Winner of Q1</span>
+                                    <span class="team-code">TBD</span>
+                                </div>
+                                <div class="match-vs">VS</div>
+                                <div class="playoff-team placeholder-team">
+                                    <span class="team-stripe" style="background-color: rgba(245, 158, 11, 0.5);"></span>
+                                    <span class="team-name">Winner of Q2</span>
+                                    <span class="team-code">TBD</span>
+                                </div>
+                            </div>
+                            <div class="match-footer">
+                                <span class="match-venue">📍 Ahmedabad</span>
+                                <span class="match-info" style="color: #f59e0b; font-weight: 700;">Championship</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Side: Caps Leaders -->
+            <div class="caps-sidebar">
+                
+                <!-- Orange Cap Leaders -->
+                <section class="cap-section orange-cap-theme glass-card">
+                    <div class="cap-header">
+                        <span class="cap-badge orange-bg">ORANGE CAP</span>
+                        <h3 class="cap-title">Batting Leaders</h3>
+                    </div>
+                    
+                    <div class="cap-list">
+                        {% for player in orange_cap %}
+                        <div class="cap-player-row">
+                            <div class="player-rank">#{{ loop.index }}</div>
+                            <div class="cap-player-info">
+                                <span class="cap-player-name">{{ player.name }}</span>
+                                <span class="cap-player-sub">{{ player.team }} (Avg: {{ player.avg }}, SR: {{ player.sr }})</span>
+                            </div>
+                            <div class="cap-score">
+                                <span class="cap-score-num">{{ player.runs }}</span>
+                                <span class="cap-score-lbl">Runs</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+                <!-- Purple Cap Leaders -->
+                <section class="cap-section purple-cap-theme glass-card">
+                    <div class="cap-header">
+                        <span class="cap-badge purple-bg">PURPLE CAP</span>
+                        <h3 class="cap-title">Bowling Leaders</h3>
+                    </div>
+                    
+                    <div class="cap-list">
+                        {% for player in purple_cap %}
+                        <div class="cap-player-row">
+                            <div class="player-rank">#{{ loop.index }}</div>
+                            <div class="cap-player-info">
+                                <span class="cap-player-name">{{ player.name }}</span>
+                                <span class="cap-player-sub">{{ player.team }} (Econ: {{ player.econ }}, BBI: {{ player.bbi }})</span>
+                            </div>
+                            <div class="cap-score">
+                                <span class="cap-score-num">{{ player.wickets }}</span>
+                                <span class="cap-score-lbl">Wkts</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+</body>
+</html>

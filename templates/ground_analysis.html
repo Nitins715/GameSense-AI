@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricSense | IPL Stadium Pitch Profiler & Toss Strategist</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="stadium-overlay"></div>
+    
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <nav class="glass-nav glass-card">
+            <div class="nav-brand">
+                <span class="logo-badge" style="background: linear-gradient(135deg, #059669, #10b981); color: #fff; font-weight: 800;">GROUND INTELLIGENCE</span>
+                <span class="nav-title">CRICSENSE <span class="accent-text">ANALYSIS</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home Dashboard</a>
+                <a href="/simulator" class="nav-link simulate-link-nav">⚡ GameSense AI Simulator</a>
+                <a href="/ground-analysis" class="nav-link active">🏟️ Ground Analysis</a>
+            </div>
+        </nav>
+
+        <!-- Main Banner with Dropdown Selection -->
+        <section class="ground-selector-banner glass-card">
+            <div class="selector-content">
+                <div class="selector-text-side">
+                    <span class="promo-badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2);">VENUE INTEL</span>
+                    <h2 class="promo-title">IPL STADIUM <span class="accent-text" style="color: #10b981;">PITCH PROFILER</span></h2>
+                    <p class="promo-desc">Analyze historical toss decisions, chasing success ratios, night match dew patterns, and pace-vs-spin wicket splits across 1,235 matches since 2008!</p>
+                </div>
+                
+                <div class="selector-action-side">
+                    <label for="venue-select" class="selector-label">🏟️ SELECT VENUE</label>
+                    <div class="custom-select-wrapper">
+                        <select id="venue-select" class="stadium-dropdown">
+                            {% for venue in venues %}
+                            <option value="{{ venue }}" {% if venue == 'Wankhede Stadium, Mumbai' %}selected{% endif %}>{{ venue }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="hidden">
+            <div class="spinner-container">
+                <div class="loading-double-bounce">
+                    <div class="bounce1" style="background-color: #10b981;"></div>
+                    <div class="bounce2" style="background-color: #10b981;"></div>
+                </div>
+                <p class="loading-label">Analyzing Pitch Profiles & Wicket Splits...</p>
+            </div>
+        </div>
+
+        <!-- Venue Dashboard Grid -->
+        <main id="venue-dashboard" class="dashboard-core-grid">
+            
+            <!-- Left Column: Toss & Environmental Strategist -->
+            <div class="dashboard-left-col">
+                
+                <!-- Toss Strategist Card -->
+                <section class="toss-strategist-card glass-card">
+                    <div class="section-header-row">
+                        <span class="logo-badge" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 800; font-size: 10px; padding: 3px 8px; border-radius: 4px;">TOSS STRATEGIST</span>
+                        <h3 class="card-subtitle" style="margin: 0;"><span class="accent-text" style="color: #10b981;">Captain's Strategy</span> - Win the Toss & ...</h3>
+                    </div>
+                    
+                    <div class="toss-recommendation-alert" id="toss-recommendation-box">
+                        <div class="toss-icon-box">📢</div>
+                        <div class="toss-advice-text">
+                            <h4 id="toss-recommendation-title" class="toss-main-title">WIN TOSS & BOWL FIRST</h4>
+                            <p id="toss-recommendation-desc" class="toss-desc-p">Chasing teams have a high win percentage here. Grip is easier in the first innings, and dew simplifies batting in the second innings.</p>
+                        </div>
+                    </div>
+
+                    <!-- Split Progress Meter -->
+                    <div class="split-meter-container">
+                        <div class="split-labels">
+                            <span class="split-lbl">Batting 1st Wins</span>
+                            <span class="split-lbl">Chasing Wins</span>
+                        </div>
+                        <div class="comparison-bar">
+                            <div id="split-bat-fill" class="comp-fill comp-left-fill" style="width: 44.6%; background: linear-gradient(90deg, #ec1c24, #f43f5e);"></div>
+                            <div id="split-chase-fill" class="comp-fill comp-right-fill" style="width: 55.4%; background: linear-gradient(90deg, #10b981, #059669);"></div>
+                        </div>
+                        <div class="split-stats-row">
+                            <span id="split-bat-val" class="split-stat-num danger-text">58 matches (44.6%)</span>
+                            <span id="split-chase-val" class="split-stat-num success-text">72 matches (55.4%)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Environmental dew & day/night split -->
+                <section class="environmental-card glass-card" style="margin-top: 30px;">
+                    <h3 class="card-subtitle"><span class="accent-text" style="color: #10b981;">Environmental Intelligence</span> - Dew & Schedule</h3>
+                    
+                    <div class="env-stats-split">
+                        <!-- Left inside: Dew Speedometer Gauge -->
+                        <div class="dew-gauge-box">
+                            <span class="card-sub-lbl">Historical Dew Factor</span>
+                            
+                            <div class="gauge-wrapper">
+                                <svg class="win-gauge-svg" viewBox="0 0 100 50">
+                                    <path class="gauge-bg-path" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"></path>
+                                    <path id="dew-gauge-fill" class="gauge-fill-path" d="M 10 50 A 40 40 0 0 1 90 50" fill="none" stroke="#10b981" stroke-width="8" stroke-dasharray="126" stroke-dashoffset="45" style="transition: stroke-dashoffset 1s ease-in-out;"></path>
+                                </svg>
+                                <div class="gauge-needle" id="dew-gauge-needle" style="transform: rotate(25.2deg); background-color: #10b981; transition: transform 1s ease-in-out;"></div>
+                                <div class="gauge-readout">
+                                    <span id="dew-factor-pct" class="gauge-num" style="color: #10b981;">6.4</span>
+                                    <span id="dew-factor-lbl" class="gauge-lbl" style="font-size: 8px;">Dew Index</span>
+                                </div>
+                            </div>
+                            
+                            <div class="dew-badge-row">
+                                <span class="dew-intensity-title">Estimated Dew Intensity:</span>
+                                <span id="dew-intensity-badge" class="dew-level-badge level-moderate">Moderate</span>
+                            </div>
+                        </div>
+
+                        <!-- Right inside: Schedule distribution -->
+                        <div class="schedule-dist-box">
+                            <span class="card-sub-lbl">Match Timing Splits</span>
+                            
+                            <div class="schedule-bars">
+                                <div class="schedule-item">
+                                    <div class="schedule-header">
+                                        <span>☀️ Day Matches</span>
+                                        <span id="day-matches-count" class="font-bold">22</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div id="day-matches-bar" class="bar-fill" style="width: 17%; background-color: #f59e0b;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="schedule-item" style="margin-top: 15px;">
+                                    <div class="schedule-header">
+                                        <span>🌙 Night Matches</span>
+                                        <span id="night-matches-count" class="font-bold">109</span>
+                                    </div>
+                                    <div class="bar-container">
+                                        <div id="night-matches-bar" class="bar-fill" style="width: 83%; background-color: #3b82f6;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="schedule-caption">Matches played under standard evening humidity are more prone to second-innings dew advantage.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Pitch Index & Pace vs Spin Wickets -->
+            <div class="caps-sidebar" style="width: 100%; max-width: 100%;">
+                
+                <!-- Pitch Profile Card -->
+                <section class="pitch-archetype-card glass-card">
+                    <div class="cap-header" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px; margin-bottom: 15px;">
+                        <span id="pitch-profile-badge" class="cap-badge orange-bg" style="background: linear-gradient(135deg, #10b981, #059669);">🔥 BATTER'S PARADISE</span>
+                        <h3 class="cap-title" style="font-size: 16px;">Pitch Profile Archetype</h3>
+                    </div>
+                    
+                    <div class="archetype-info">
+                        <h4 id="pitch-archetype-title" class="archetype-title">Flat Batter's Paradise</h4>
+                        <p id="pitch-archetype-desc" class="archetype-desc">A batsman's dream. Minimal seam movement, little to no turn, fast outfield, and consistent bounce. Expect high-scoring shootouts!</p>
+                    </div>
+
+                    <!-- Stars Bounce Rating -->
+                    <div class="bounce-stars-row">
+                        <span class="card-sub-lbl">Estimated Pitch Assistance / Bounce:</span>
+                        <div class="stars-list" id="pitch-bounce-stars">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pace vs Spin Index Details -->
+                <section class="pace-spin-splits-card glass-card" style="margin-top: 30px;">
+                    <h3 class="card-subtitle"><span class="accent-text" style="color: #10b981;">Spin-vs-Pace Pitch Index</span> - Bowling Splits</h3>
+                    
+                    <!-- Pace vs Spin comparative wickets bar -->
+                    <div class="split-meter-container" style="margin-top: 15px;">
+                        <div class="split-labels">
+                            <span class="split-lbl">Pace Wickets</span>
+                            <span class="split-lbl">Spin Wickets</span>
+                        </div>
+                        <div class="comparison-bar" style="height: 10px; border-radius: 5px;">
+                            <div id="pace-wickets-fill" class="comp-fill comp-left-fill" style="width: 88.7%; background: linear-gradient(90deg, #f59e0b, #d97706);"></div>
+                            <div id="spin-wickets-fill" class="comp-fill comp-right-fill" style="width: 11.3%; background: linear-gradient(90deg, #10b981, #059669);"></div>
+                        </div>
+                        <div class="split-stats-row">
+                            <span id="pace-wickets-val" class="split-stat-num" style="color: #f59e0b;">1,301 wkts (88.7%)</span>
+                            <span id="spin-wickets-val" class="split-stat-num" style="color: #10b981;">165 wkts (11.3%)</span>
+                        </div>
+                    </div>
+
+                    <!-- Comparative economy rates -->
+                    <div class="economy-comparison" style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 20px;">
+                        <span class="card-sub-lbl" style="margin-bottom: 12px;">Average Economy Rate (RPO)</span>
+                        
+                        <div class="econ-bars">
+                            <div class="econ-item">
+                                <div class="econ-header">
+                                    <span>⚡ Pace Bowlers</span>
+                                    <span id="pace-economy-val" class="font-bold text-main">8.71 RPO</span>
+                                </div>
+                                <div class="bar-container" style="height: 6px;">
+                                    <div id="pace-economy-bar" class="bar-fill" style="width: 73%; background-color: #f59e0b;"></div>
+                                </div>
+                            </div>
+
+                            <div class="econ-item" style="margin-top: 15px;">
+                                <div class="econ-header">
+                                    <span>🥎 Spin Bowlers</span>
+                                    <span id="spin-economy-val" class="font-bold text-main">7.38 RPO</span>
+                                </div>
+                                <div class="bar-container" style="height: 6px;">
+                                    <div id="spin-economy-bar" class="bar-fill" style="width: 62%; background-color: #10b981;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Summary Statistics Footer Widgets -->
+        <section id="venue-summary-widgets" class="venue-summary-grid">
+            
+            <div class="summary-widget-card glass-card">
+                <span class="widget-label">Avg 1st Innings Score</span>
+                <span id="widget-avg-1st" class="widget-value accent-text" style="color: #10b981;">172.9</span>
+                <span class="widget-sub">Runs per match</span>
+            </div>
+
+            <div class="summary-widget-card glass-card">
+                <span class="widget-label">Avg 2nd Innings Score</span>
+                <span id="widget-avg-2nd" class="widget-value text-main">162.1</span>
+                <span class="widget-sub">Runs per match</span>
+            </div>
+
+            <div class="summary-widget-card glass-card">
+                <span class="widget-label">Total Matches Analyzed</span>
+                <span id="widget-matches" class="widget-value" style="color: #3b82f6;">131</span>
+                <span class="widget-sub">Matches in database</span>
+            </div>
+
+            <div class="summary-widget-card glass-card">
+                <span class="widget-label">Toss Win Success Rate</span>
+                <span id="widget-toss-success" class="widget-value" style="color: #f59e0b;">52.3%</span>
+                <span class="widget-sub">Toss winner match wins</span>
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- Frontend Interactive Logic Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const venueSelect = document.getElementById("venue-select");
+            const loadingSpinner = document.getElementById("loading-spinner");
+            const venueDashboard = document.getElementById("venue-dashboard");
+            const venueSummaryWidgets = document.getElementById("venue-summary-widgets");
+
+            // Trigger analysis when the selector changes
+            venueSelect.addEventListener("change", runVenueAnalysis);
+
+            // Run initial load for Wankhede Stadium
+            runVenueAnalysis();
+
+            function runVenueAnalysis() {
+                const venueName = venueSelect.value;
+                if (!venueName) return;
+
+                // Show spinner, hide dashboards
+                loadingSpinner.classList.remove("hidden");
+                venueDashboard.classList.add("hidden");
+                venueSummaryWidgets.classList.add("hidden");
+
+                const url = `/api/venue-stats?venue=${encodeURIComponent(venueName)}`;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (!data.status) {
+                            alert(`Venue Analysis Error: ${data.error}`);
+                            loadingSpinner.classList.add("hidden");
+                            return;
+                        }
+
+                        updateVenueUI(data);
+
+                        // Hide spinner, show dashboards with smooth transition
+                        loadingSpinner.classList.add("hidden");
+                        venueDashboard.classList.remove("hidden");
+                        venueSummaryWidgets.classList.remove("hidden");
+                    })
+                    .catch(err => {
+                        console.error("[Error] Failed to fetch venue stats:", err);
+                        alert("An error occurred while loading venue statistics. Please try again.");
+                        loadingSpinner.classList.add("hidden");
+                    });
+            }
+
+            function updateVenueUI(data) {
+                const splits = data.splits;
+                const avgs = data.averages;
+                const toss = data.toss_strategist;
+                const env = data.environmental;
+                const pitch = data.pitch_index;
+
+                // --- 1. Toss Strategist Card ---
+                const recommendationBox = document.getElementById("toss-recommendation-box");
+                const recommendationTitle = document.getElementById("toss-recommendation-title");
+                const recommendationDesc = document.getElementById("toss-recommendation-desc");
+                
+                recommendationTitle.textContent = toss.decision_label;
+                
+                if (toss.decision === "field") {
+                    recommendationBox.style.borderLeft = "4px solid #10b981";
+                    recommendationBox.style.background = "rgba(16, 185, 129, 0.05)";
+                    document.querySelector(".toss-icon-box").textContent = "📢";
+                    recommendationDesc.textContent = `Chasing teams win ${splits.chase_pct}% of completed matches here. Second innings dew and shorter boundaries often simplify targets.`;
+                } else {
+                    recommendationBox.style.borderLeft = "4px solid #ec1c24";
+                    recommendationBox.style.background = "rgba(236, 28, 36, 0.05)";
+                    document.querySelector(".toss-icon-box").textContent = "🛡️";
+                    recommendationDesc.textContent = `Batting first is historically advantageous, winning ${splits.bat_first_pct}% of completed matches. The pitch slow down or scoreboard pressure makes chasing tough.`;
+                }
+
+                // Splits Progress Bar
+                document.getElementById("split-bat-fill").style.width = `${splits.bat_first_pct}%`;
+                document.getElementById("split-chase-fill").style.width = `${splits.chase_pct}%`;
+                document.getElementById("split-bat-val").textContent = `${splits.bat_first_wins} matches (${splits.bat_first_pct}%)`;
+                document.getElementById("split-chase-val").textContent = `${splits.chase_wins} matches (${splits.chase_pct}%)`;
+
+                // --- 2. Environmental Intel Card ---
+                const dewIndex = env.dew_index;
+                const needle = document.getElementById("dew-gauge-needle");
+                const fill = document.getElementById("dew-gauge-fill");
+                const readoutPct = document.getElementById("dew-factor-pct");
+                const readoutIntensity = document.getElementById("dew-intensity-badge");
+
+                readoutPct.textContent = dewIndex;
+                
+                // Dew level styling
+                readoutIntensity.textContent = env.dew_level;
+                readoutIntensity.className = "dew-level-badge";
+                if (env.dew_level.includes("Severe")) {
+                    readoutIntensity.classList.add("level-severe");
+                    readoutPct.style.color = "#ec1c24";
+                    fill.style.stroke = "#ec1c24";
+                    needle.style.backgroundColor = "#ec1c24";
+                } else {
+                    readoutIntensity.classList.add("level-moderate");
+                    readoutPct.style.color = "#10b981";
+                    fill.style.stroke = "#10b981";
+                    needle.style.backgroundColor = "#10b981";
+                }
+
+                // Rotate needle: (dewIndex / 10) * 180 - 90
+                const rotation = (dewIndex / 10) * 180 - 90;
+                needle.style.transform = `rotate(${rotation}deg)`;
+
+                // Gauge Fill Dash Offset (circumference is 126)
+                const offset = 126 - (dewIndex / 10) * 126;
+                fill.style.strokeDashoffset = offset;
+
+                // Day vs Night counts
+                const dayMatches = env.day_matches;
+                const nightMatches = env.night_matches;
+                const totalMatches = dayMatches + nightMatches || 1;
+                
+                document.getElementById("day-matches-count").textContent = dayMatches;
+                document.getElementById("night-matches-count").textContent = nightMatches;
+                
+                document.getElementById("day-matches-bar").style.width = `${(dayMatches / totalMatches) * 100}%`;
+                document.getElementById("night-matches-bar").style.width = `${(nightMatches / totalMatches) * 100}%`;
+
+                // --- 3. Pitch Archetype Card ---
+                const badge = document.getElementById("pitch-profile-badge");
+                const archetypeTitle = document.getElementById("pitch-archetype-title");
+                const archetypeDesc = document.getElementById("pitch-archetype-desc");
+                const starsRow = document.getElementById("pitch-bounce-stars");
+
+                badge.textContent = pitch.badge;
+                archetypeTitle.textContent = pitch.archetype;
+                archetypeDesc.textContent = pitch.description;
+                
+                // Color badges according to pitch profiles
+                badge.className = "cap-badge";
+                if (pitch.badge.includes("PARADISE")) {
+                    badge.style.background = "linear-gradient(135deg, #10b981, #059669)";
+                } else if (pitch.badge.includes("DUSTBOWL")) {
+                    badge.style.background = "linear-gradient(135deg, #f59e0b, #d97706)";
+                } else if (pitch.badge.includes("SPEED")) {
+                    badge.style.background = "linear-gradient(135deg, #3b82f6, #1d4ed8)";
+                } else {
+                    badge.style.background = "linear-gradient(135deg, #a855f7, #7e22ce)";
+                }
+
+                // Bounce stars builder
+                let starsStr = "";
+                const starsCount = Math.round(pitch.bounce_stars);
+                for (let i = 0; i < 5; i++) {
+                    starsStr += (i < starsCount) ? "⭐" : "☆";
+                }
+                starsRow.textContent = starsStr;
+
+                // --- 4. Pace vs Spin splits ---
+                const pace = pitch.pace_split;
+                const spin = pitch.spin_split;
+
+                document.getElementById("pace-wickets-fill").style.width = `${pace.ratio}%`;
+                document.getElementById("spin-wickets-fill").style.width = `${spin.ratio}%`;
+                
+                document.getElementById("pace-wickets-val").textContent = `${pace.wickets.toLocaleString()} wkts (${pace.ratio}%)`;
+                document.getElementById("spin-wickets-val").textContent = `${spin.wickets.toLocaleString()} wkts (${spin.ratio}%)`;
+
+                document.getElementById("pace-economy-val").textContent = `${pace.economy} RPO`;
+                document.getElementById("spin-economy-val").textContent = `${spin.economy} RPO`;
+                
+                // Economy bars comparison (capped at 12 RPO max to scale correctly in percentage width)
+                const maxEconScale = 12.0;
+                document.getElementById("pace-economy-bar").style.width = `${(pace.economy / maxEconScale) * 100}%`;
+                document.getElementById("spin-economy-bar").style.width = `${(spin.economy / maxEconScale) * 100}%`;
+
+                // --- 5. Summary Widgets ---
+                document.getElementById("widget-avg-1st").textContent = avgs.avg_1st_score;
+                document.getElementById("widget-avg-2nd").textContent = avgs.avg_2nd_score;
+                document.getElementById("widget-matches").textContent = data.matches_played;
+                document.getElementById("widget-toss-success").textContent = `${toss.toss_win_rate}%`;
+            }
+        });
+    </script>
+</body>
+</html>
