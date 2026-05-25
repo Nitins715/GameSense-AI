@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSense AI | IPL Matchup Battleground Simulator</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="stadium-overlay"></div>
+    
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-badge">AI MODEL v1.0</span>
+                <h1 class="logo-text">GAMESENSE <span class="accent-text">AI</span></h1>
+            </div>
+            <p class="tagline">IPL Matchup Battleground & Micro-Simulator</p>
+        </header>
+
+        <!-- Main Selector Section -->
+        <section class="simulator-controls glass-card">
+            <h2 class="section-title">SIMULATE BATTLEGROUND</h2>
+            
+            <div class="preset-buttons">
+                <span class="preset-label">Quick Battles:</span>
+                <button class="preset-btn" data-batter="Virat Kohli" data-bowler="Jasprit Bumrah">Kohli vs Bumrah</button>
+                <button class="preset-btn" data-batter="MS Dhoni" data-bowler="Sunil Narine">Dhoni vs Narine</button>
+                <button class="preset-btn" data-batter="Rohit Sharma" data-bowler="Trent Boult">Rohit vs Boult</button>
+                <button class="preset-btn" data-batter="Glenn Maxwell" data-bowler="Rashid Khan">Maxwell vs Rashid</button>
+            </div>
+            
+            <div class="selectors-grid">
+                <!-- Batter Search -->
+                <div class="selector-box">
+                    <label for="batter-input" class="input-label">Select Batter</label>
+                    <div class="autocomplete-container">
+                        <input type="text" id="batter-input" placeholder="Type batter name (e.g. Kohli)..." autocomplete="off" class="text-input">
+                        <div id="batter-dropdown" class="autocomplete-dropdown hidden"></div>
+                    </div>
+                </div>
+
+                <!-- VS Badge -->
+                <div class="vs-badge-container">
+                    <span class="vs-glow-badge">VS</span>
+                </div>
+
+                <!-- Bowler Search -->
+                <div class="selector-box">
+                    <label for="bowler-input" class="input-label">Select Bowler</label>
+                    <div class="autocomplete-container">
+                        <input type="text" id="bowler-input" placeholder="Type bowler name (e.g. Bumrah)..." autocomplete="off" class="text-input">
+                        <div id="bowler-dropdown" class="autocomplete-dropdown hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="simulate-btn" class="simulate-cta">RUN MICRO-SIMULATOR</button>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loading-spinner" class="loading-area hidden">
+            <div class="dual-ring-spinner"></div>
+            <p class="loading-msg">AI is parsing 293,764 historical ball deliveries...</p>
+        </div>
+
+        <!-- Simulator Output Section (Hidden by Default) -->
+        <main id="matchup-dashboard" class="dashboard-grid hidden">
+            
+            <!-- Left Side: Batter Card -->
+            <div class="player-card glass-card batter-theme">
+                <div class="team-stripe" id="batter-stripe"></div>
+                <div class="player-header">
+                    <img id="batter-img" src="" alt="Batter Image" class="player-photo">
+                    <div class="player-meta">
+                        <h3 id="batter-name" class="player-title">Batter Name</h3>
+                        <span id="batter-team" class="player-sub">Team Name</span>
+                    </div>
+                </div>
+                
+                <div class="bio-grid">
+                    <div class="bio-item">
+                        <span class="bio-label">Born</span>
+                        <span id="batter-dob" class="bio-val">N/A</span>
+                    </div>
+                    <div class="bio-item">
+                        <span class="bio-label">Stance</span>
+                        <span id="batter-stance" class="bio-val">Right Hand</span>
+                    </div>
+                    <div class="bio-item">
+                        <span class="bio-label">Squad Role</span>
+                        <span id="batter-role" class="bio-val">Batsman</span>
+                    </div>
+                </div>
+
+                <div class="career-stats">
+                    <h4 class="card-subtitle">IPL Career Averages</h4>
+                    <div class="stats-grid">
+                        <div class="stat-bubble">
+                            <span id="batter-career-runs" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Runs</span>
+                        </div>
+                        <div class="stat-bubble">
+                            <span id="batter-career-balls" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Balls</span>
+                        </div>
+                        <div class="stat-bubble">
+                            <span id="batter-career-avg" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Average</span>
+                        </div>
+                        <div class="stat-bubble">
+                            <span id="batter-career-sr" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Strike Rate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Column: Battleground Stats (H2H) -->
+            <div class="battleground-card glass-card">
+                <h3 class="battle-title">HEAD-TO-HEAD DUEL</h3>
+                
+                <!-- Speedometer Win Probability -->
+                <div class="gauge-container">
+                    <svg viewBox="0 0 100 50" class="gauge-svg">
+                        <path d="M 10,50 A 40,40 0 0,1 90,50" class="gauge-bg" />
+                        <path d="M 10,50 A 40,40 0 0,1 90,50" class="gauge-fill" id="win-gauge-fill" />
+                        <line x1="50" y1="50" x2="50" y2="15" class="gauge-needle" id="win-gauge-needle" />
+                    </svg>
+                    <div class="gauge-center-text">
+                        <span id="win-probability-pct" class="gauge-big-num">50%</span>
+                        <span class="gauge-label">Batter Dominance Index</span>
+                    </div>
+                </div>
+
+                <div class="h2h-summary-strip">
+                    <div class="h2h-side left-align">
+                        <span id="h2h-runs" class="h2h-big">0</span>
+                        <span class="h2h-lbl">Runs Scored</span>
+                    </div>
+                    <div class="h2h-center-divider">
+                        <span id="h2h-balls" class="h2h-mid">0</span>
+                        <span class="h2h-lbl">Balls Faced</span>
+                    </div>
+                    <div class="h2h-side right-align">
+                        <span id="h2h-dismissals" class="h2h-big danger-text">0</span>
+                        <span class="h2h-lbl">Outs (Bowler Wickets)</span>
+                    </div>
+                </div>
+
+                <!-- Matchup Details Table -->
+                <div class="h2h-metrics-table">
+                    <div class="metric-row">
+                        <span class="metric-lbl">Batting Strike Rate</span>
+                        <span id="h2h-strike-rate" class="metric-val">0.00</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-lbl">Boundary Runs %</span>
+                        <span id="h2h-boundary-pct" class="metric-val">0.00%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-lbl">Fours / Sixes</span>
+                        <span id="h2h-boundaries" class="metric-val">0 / 0</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-lbl">Dot Balls Faced</span>
+                        <span id="h2h-dots" class="metric-val">0</span>
+                    </div>
+                </div>
+
+                <!-- Dismissal Types breakdown -->
+                <div id="dismissal-chart-container" class="dismissal-breakdown">
+                    <h4 class="card-subtitle center-text">Dismissal Mode Distribution</h4>
+                    <div id="dismissal-list" class="dismissal-list">
+                        <!-- Filled dynamically by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Bowler Card -->
+            <div class="player-card glass-card bowler-theme">
+                <div class="team-stripe" id="bowler-stripe"></div>
+                <div class="player-header">
+                    <div class="player-meta text-right-desktop">
+                        <h3 id="bowler-name" class="player-title">Bowler Name</h3>
+                        <span id="bowler-team" class="player-sub">Team Name</span>
+                    </div>
+                    <img id="bowler-img" src="" alt="Bowler Image" class="player-photo">
+                </div>
+                
+                <div class="bio-grid">
+                    <div class="bio-item">
+                        <span class="bio-label">Born</span>
+                        <span id="bowler-dob" class="bio-val">N/A</span>
+                    </div>
+                    <div class="bio-item">
+                        <span class="bio-label">Bowls</span>
+                        <span id="bowler-style" class="bio-val">Right Arm Fast</span>
+                    </div>
+                    <div class="bio-item">
+                        <span class="bio-label">Squad Role</span>
+                        <span id="bowler-role" class="bio-val">Bowler</span>
+                    </div>
+                </div>
+
+                <div class="career-stats">
+                    <h4 class="card-subtitle">IPL Career Averages</h4>
+                    <div class="stats-grid">
+                        <div class="stat-bubble">
+                            <span id="bowler-career-overs" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Overs</span>
+                        </div>
+                        <div class="stat-bubble">
+                            <span id="bowler-career-wickets" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Wickets</span>
+                        </div>
+                        <div class="stat-bubble">
+                            <span id="bowler-career-econ" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Economy</span>
+                        </div>
+                        <div class="stat-bubble">
+                            <span id="bowler-career-avg" class="bubble-val">-</span>
+                            <span class="bubble-lbl">Average</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Column: Skill vs. Skill Archetypes -->
+            <div class="archetype-card glass-card full-width">
+                <h3 class="battle-title text-center">🧠 GAME INTEL: SKILL VS. SKILL ARCHETYPES</h3>
+                <p class="archetype-desc">When they face similar matchups in general matches, the records tell a hidden story...</p>
+                
+                <div class="archetype-grid">
+                    <!-- Batter vs Bowl Style -->
+                    <div class="archetype-box">
+                        <h4 class="archetype-sub-title">Batter vs. <span id="archetype-style-label" class="highlight-text">Style</span></h4>
+                        <p class="archetype-lbl">How the batter fares against bowlers of this exact category:</p>
+                        
+                        <div class="archetype-metrics">
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Balls Faced</span>
+                                <span id="arch-batter-balls" class="arch-val">0</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Runs Scored</span>
+                                <span id="arch-batter-runs" class="arch-val">0</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Dismissals</span>
+                                <span id="arch-batter-outs" class="arch-val danger-text">0</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Batting Average</span>
+                                <span id="arch-batter-avg" class="arch-val">0.00</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Strike Rate</span>
+                                <span id="arch-batter-sr" class="arch-val">0.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bowler vs Stance -->
+                    <div class="archetype-box border-left-desk">
+                        <h4 class="archetype-sub-title">Bowler vs. <span id="archetype-stance-label" class="highlight-text">Stance</span></h4>
+                        <p class="archetype-lbl">How the bowler performs against batters of this exact stance:</p>
+                        
+                        <div class="archetype-metrics">
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Balls Bowled</span>
+                                <span id="arch-bowler-balls" class="arch-val">0</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Runs Conceded</span>
+                                <span id="arch-bowler-runs" class="arch-val">0</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Wickets Taken</span>
+                                <span id="arch-bowler-outs" class="arch-val success-text">0</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Economy Rate</span>
+                                <span id="arch-bowler-econ" class="arch-val">0.00</span>
+                            </div>
+                            <div class="arch-stat">
+                                <span class="arch-lbl">Bowling Strike Rate</span>
+                                <span id="arch-bowler-sr" class="arch-val">0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Frontend Script -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>

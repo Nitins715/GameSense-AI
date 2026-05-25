@@ -1,0 +1,4556 @@
+{
+  "scraped_at": "2026-05-25T19:38:29.519215Z",
+  "total_teams": 10,
+  "teams": {
+    "Chennai Super Kings": {
+      "code": "CSK",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "ambati-rayudu",
+            "name": "Ambati Rayudu",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/60.png"
+          },
+          {
+            "id": "suresh-raina",
+            "name": "Suresh Raina",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/14.png"
+          },
+          {
+            "id": "sarfaraz-khan",
+            "name": "Sarfaraz Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/139.png"
+          },
+          {
+            "id": "david-hussey",
+            "name": "David Hussey",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "murali-vijay",
+            "name": "Murali Vijay",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/7.png"
+          },
+          {
+            "id": "dhruv-shorey",
+            "name": "Dhruv Shorey",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/4946.png"
+          },
+          {
+            "id": "michael-hussey",
+            "name": "Michael Hussey",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "cheteshwar-pujara",
+            "name": "Cheteshwar Pujara",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/156.png"
+          },
+          {
+            "id": "justin-kemp",
+            "name": "Justin Kemp",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "matthew-hayden",
+            "name": "Matthew Hayden",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vidyut-sivaramakrishnan",
+            "name": "Vidyut Sivaramakrishnan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "stephen-fleming",
+            "name": "Stephen Fleming",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "hari-nishanth",
+            "name": "Hari Nishanth",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/7111.png"
+          },
+          {
+            "id": "chamara-kapugedera",
+            "name": "Chamara Kapugedera",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ravi-karthikeyan",
+            "name": "Ravi Karthikeyan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "eklak-ahmid",
+            "name": "Eklak Ahmid",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "viraj-kadbe",
+            "name": "Viraj Kadbe",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "hemang-badani",
+            "name": "Hemang Badani",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kuthethurshri-vasudevadas",
+            "name": "Kuthethurshri Vasudevadas",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "subhranshu-senapati",
+            "name": "Subhranshu Senapati",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/971.png"
+          },
+          {
+            "id": "kshitiz-sharma",
+            "name": "Kshitiz Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "napoleon-einstein",
+            "name": "Napoleon Einstein",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dewald-brevis",
+            "name": "Dewald Brevis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/797.png"
+          },
+          {
+            "id": "deepak-hooda",
+            "name": "Deepak Hooda",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/215.png"
+          },
+          {
+            "id": "ruturaj-gaikwad",
+            "name": "Ruturaj Gaikwad",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/102.png"
+          },
+          {
+            "id": "shaik-rasheed",
+            "name": "Shaik Rasheed",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/778.png"
+          },
+          {
+            "id": "andre-siddarth",
+            "name": "Andre Siddarth",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3157.png"
+          },
+          {
+            "id": "ayush-mhatre",
+            "name": "Ayush Mhatre",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3497.png"
+          },
+          {
+            "id": "kartik-sharma",
+            "name": "Kartik Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4540.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "kamlesh-nagarkoti",
+            "name": "Kamlesh Nagarkoti",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/192.png"
+          },
+          {
+            "id": "imran-tahir",
+            "name": "Imran Tahir",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/898.png"
+          },
+          {
+            "id": "monu-kumar",
+            "name": "Monu Kumar",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1560.png"
+          },
+          {
+            "id": "matt-henry",
+            "name": "Matt Henry",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/71.png"
+          },
+          {
+            "id": "ronit-more",
+            "name": "Ronit More",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dirk-nannes",
+            "name": "Dirk Nannes",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "nuwan-kulasekara",
+            "name": "Nuwan Kulasekara",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "yo-mahesh",
+            "name": "Yo Mahesh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "doug-bollinger",
+            "name": "Doug Bollinger",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "suraj-randiv",
+            "name": "Suraj Randiv",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bhagath-varma",
+            "name": "Bhagath Varma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/577.png"
+          },
+          {
+            "id": "makhaya-ntini",
+            "name": "Makhaya Ntini",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "harishankar-reddy",
+            "name": "Harishankar Reddy",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/9474.png"
+          },
+          {
+            "id": "palani-amarnath",
+            "name": "Palani  Amarnath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "imtiaz-ahmed",
+            "name": "Imtiaz Ahmed",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kanishk-seth",
+            "name": "Kanishk Seth",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "akeal-hosein",
+            "name": "Akeal Hosein",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/722.png"
+          },
+          {
+            "id": "shreyas-gopal",
+            "name": "Shreyas Gopal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/192.png"
+          },
+          {
+            "id": "sisanda-magala",
+            "name": "Sisanda Magala",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "nathan-ellis",
+            "name": "Nathan Ellis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/Default-Men.png"
+          },
+          {
+            "id": "syed-khaleel-ahmed",
+            "name": "Syed Khaleel Ahmed",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/8.png"
+          },
+          {
+            "id": "rahul-chahar",
+            "name": "Rahul Chahar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/171.png"
+          },
+          {
+            "id": "mukesh-choudhary",
+            "name": "Mukesh Choudhary",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/970.png"
+          },
+          {
+            "id": "noor-ahmad",
+            "name": "Noor Ahmad",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/975.png"
+          },
+          {
+            "id": "anshul-kamboj",
+            "name": "Anshul Kamboj",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3106.png"
+          },
+          {
+            "id": "gurjapneet-singh",
+            "name": "Gurjapneet Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2256.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "ben-stokes",
+            "name": "Ben Stokes",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/177.png"
+          },
+          {
+            "id": "dwayne-bravo",
+            "name": "Dwayne Bravo",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/25.png"
+          },
+          {
+            "id": "shane-watson",
+            "name": "Shane Watson",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/227.png"
+          },
+          {
+            "id": "chandrasekar-ganapathy",
+            "name": "Chandrasekar Ganapathy",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "joginder-sharma",
+            "name": "Joginder Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "scott-styris",
+            "name": "Scott Styris",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "andrew-flintoff",
+            "name": "Andrew Flintoff",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ganapathi-vignesh",
+            "name": "Ganapathi Vignesh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "chaitanya-bishnoi",
+            "name": "Chaitanya Bishnoi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dwaine-pretorius",
+            "name": "Dwaine Pretorius",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/289.png"
+          },
+          {
+            "id": "aman-hakim-khan",
+            "name": "Aman Hakim Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/979.png"
+          },
+          {
+            "id": "daryl-mitchell",
+            "name": "Daryl Mitchell",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/83.png"
+          },
+          {
+            "id": "matthew-short",
+            "name": "Matthew Short",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2032.png"
+          },
+          {
+            "id": "vijay-shankar",
+            "name": "Vijay Shankar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/61.png"
+          },
+          {
+            "id": "shivam-dube",
+            "name": "Shivam Dube",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/211.png"
+          },
+          {
+            "id": "ravichandran-ashwin",
+            "name": "Ravichandran Ashwin",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/45.png"
+          },
+          {
+            "id": "jamie-overton",
+            "name": "Jamie Overton",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1216.png"
+          },
+          {
+            "id": "ramakrishna-ghosh",
+            "name": "Ramakrishna Ghosh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3559.png"
+          },
+          {
+            "id": "prashant-veer",
+            "name": "Prashant Veer",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4541.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "ms-dhoni",
+            "name": "MS Dhoni",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/57.png"
+          },
+          {
+            "id": "robin-uthappa",
+            "name": "Robin Uthappa",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/127.png"
+          },
+          {
+            "id": "urvil-patel",
+            "name": "Urvil Patel",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1486.png"
+          },
+          {
+            "id": "aravelly-avanish",
+            "name": "Aravelly Avanish",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/2794.png"
+          },
+          {
+            "id": "devon-conway",
+            "name": "Devon Conway",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/601.png"
+          },
+          {
+            "id": "vansh-bedi",
+            "name": "Vansh Bedi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3558.png"
+          }
+        ]
+      }
+    },
+    "Delhi Capitals": {
+      "code": "DC",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "prithvi-shaw",
+            "name": "Prithvi Shaw",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/51.png"
+          },
+          {
+            "id": "priyam-garg",
+            "name": "Priyam Garg",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/3775.png"
+          },
+          {
+            "id": "steven-smith",
+            "name": "Steven Smith",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/271.png"
+          },
+          {
+            "id": "david-warner",
+            "name": "David Warner",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/214.png"
+          },
+          {
+            "id": "karun-nair",
+            "name": "Karun Nair",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/131.png"
+          },
+          {
+            "id": "colin-ingram",
+            "name": "Colin Ingram",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/168.png"
+          },
+          {
+            "id": "hanuma-vihari",
+            "name": "Hanuma Vihari",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1117.png"
+          },
+          {
+            "id": "colin-munro",
+            "name": "Colin Munro",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/773.png"
+          },
+          {
+            "id": "ankit-bawne",
+            "name": "Ankit Bawne",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "marlon-samuels",
+            "name": "Marlon Samuels",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "gautam-gambhir",
+            "name": "Gautam Gambhir",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/84.png"
+          },
+          {
+            "id": "ross-taylor",
+            "name": "Ross Taylor",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ben-rohrer",
+            "name": "Ben Rohrer",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mahela-jayawardene",
+            "name": "Mahela Jayawardene",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bharat-chipli",
+            "name": "Bharat Chipli",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sunny-gupta",
+            "name": "Sunny Gupta",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "travis-birt",
+            "name": "Travis Birt",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "gnaneswara-rao",
+            "name": "Gnaneswara Rao",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shoaib-ahmed",
+            "name": "Shoaib Ahmed",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "arjun-yadav",
+            "name": "Arjun Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mayank-tehlan",
+            "name": "Mayank Tehlan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "prashant-naik",
+            "name": "Prashant Naik",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shashi-ranjan",
+            "name": "Shashi Ranjan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "manjot-kalra",
+            "name": "Manjot Kalra",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "zafir-patel",
+            "name": "Zafir Patel",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "akhil-herwadkar",
+            "name": "Akhil Herwadkar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sujit-nayak",
+            "name": "Sujit Nayak",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "robin-bist",
+            "name": "Robin Bist",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aniruddha-joshi",
+            "name": "Aniruddha Joshi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tejashwi-yadav",
+            "name": "Tejashwi Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "gulam-bodi",
+            "name": "Gulam Bodi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ashwin-hebbar",
+            "name": "Ashwin Hebbar",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/0.png"
+          },
+          {
+            "id": "yash-dhull",
+            "name": "Yash Dhull",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/777.png"
+          },
+          {
+            "id": "sameer-rizvi",
+            "name": "Sameer Rizvi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1229.png"
+          },
+          {
+            "id": "faf-du-plessis",
+            "name": "Faf du Plessis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/94.png"
+          },
+          {
+            "id": "david-miller",
+            "name": "David Miller",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/128.png"
+          },
+          {
+            "id": "harry-brook",
+            "name": "Harry Brook",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1218.png"
+          },
+          {
+            "id": "tristan-stubbs",
+            "name": "Tristan Stubbs",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1017.png"
+          },
+          {
+            "id": "jake-fraser-mcgurk",
+            "name": "Jake Fraser-McGurk",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3115.png"
+          },
+          {
+            "id": "ashutosh-sharma",
+            "name": "Ashutosh Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3109.png"
+          },
+          {
+            "id": "sediqullah-atal",
+            "name": "Sediqullah Atal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pathum-nissanka",
+            "name": "Pathum Nissanka",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/618.png"
+          },
+          {
+            "id": "sahil-parakh",
+            "name": "Sahil Parakh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4542.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "ajit-agarkar",
+            "name": "Ajit Agarkar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kuldip-yadav",
+            "name": "Kuldip Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/593.png"
+          },
+          {
+            "id": "lukman-meriwala",
+            "name": "Lukman Meriwala",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/7803.png"
+          },
+          {
+            "id": "jhye-richardson",
+            "name": "Jhye Richardson",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/59.png"
+          },
+          {
+            "id": "kyle-jamieson",
+            "name": "Kyle Jamieson",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/382.png"
+          },
+          {
+            "id": "zaheer-khan",
+            "name": "Zaheer Khan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sandeep-lamichhane",
+            "name": "Sandeep Lamichhane",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3013.png"
+          },
+          {
+            "id": "liam-plunkett",
+            "name": "Liam Plunkett",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1842.png"
+          },
+          {
+            "id": "junior-dala",
+            "name": "Junior Dala",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/4277.png"
+          },
+          {
+            "id": "nathu-singh",
+            "name": "Nathu Singh",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3186.png"
+          },
+          {
+            "id": "domnic-muthuswami",
+            "name": "Domnic Muthuswami",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "gurinder-sandhu",
+            "name": "Gurinder Sandhu",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pawan-suyal",
+            "name": "Pawan Suyal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rahul-sharma",
+            "name": "Rahul Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ben-hilfenhaus",
+            "name": "Ben Hilfenhaus",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rahul-shukla",
+            "name": "Rahul Shukla",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aavishkar-salvi",
+            "name": "Aavishkar Salvi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mohammad-asif",
+            "name": "Mohammad Asif",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "glenn-mcgrath",
+            "name": "Glenn McGrath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "brett-geeves",
+            "name": "Brett Geeves",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "hs-sharath",
+            "name": "HS Sharath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pratyush-singh",
+            "name": "Pratyush Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sayan-ghosh",
+            "name": "Sayan Ghosh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "royston-dias",
+            "name": "Royston Dias",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vivek-yadav",
+            "name": "Vivek Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vikas-mishra",
+            "name": "Vikas Mishra",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bandaru-ayyappa",
+            "name": "Bandaru Ayyappa",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kk-jiyas",
+            "name": "KK Jiyas",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "t-natarajan",
+            "name": "T. Natarajan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/224.png"
+          },
+          {
+            "id": "mohit-sharma",
+            "name": "Mohit Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/100.png"
+          },
+          {
+            "id": "kuldeep-yadav",
+            "name": "Kuldeep Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/14.png"
+          },
+          {
+            "id": "mitchell-starc",
+            "name": "Mitchell Starc",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/31.png"
+          },
+          {
+            "id": "dushmantha-chameera",
+            "name": "Dushmantha Chameera",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/608.png"
+          },
+          {
+            "id": "mukesh-kumar",
+            "name": "Mukesh Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1462.png"
+          },
+          {
+            "id": "tripurana-vijay",
+            "name": "Tripurana Vijay",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3563.png"
+          },
+          {
+            "id": "auqib-nabi-dar",
+            "name": "Auqib Nabi Dar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4543.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "ripal-patel",
+            "name": "Ripal Patel",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/580.png"
+          },
+          {
+            "id": "lalit-yadav",
+            "name": "Lalit Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/538.png"
+          },
+          {
+            "id": "keemo-paul",
+            "name": "Keemo Paul",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3101.png"
+          },
+          {
+            "id": "angelo-mathews",
+            "name": "Angelo Mathews",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "jeevan-mendis",
+            "name": "Jeevan Mendis",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "doug-bracewell",
+            "name": "Doug Bracewell",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "roelof-van-der-merwe",
+            "name": "Roelof van der Merwe",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "jesse-ryder",
+            "name": "Jesse Ryder",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "yogesh-nagar",
+            "name": "Yogesh Nagar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "james-hopes",
+            "name": "James Hopes",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "paul-collingwood",
+            "name": "Paul Collingwood",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "farveez-maharoof",
+            "name": "Farveez Maharoof",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shoaib-malik",
+            "name": "Shoaib Malik",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "robert-frylinck",
+            "name": "Robert Frylinck",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kuldeep-raval",
+            "name": "Kuldeep Raval",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aristh-singhvi",
+            "name": "Aristh Singhvi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sumit-kumar",
+            "name": "Sumit Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1535.png"
+          },
+          {
+            "id": "axar-patel",
+            "name": "Axar Patel",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/110.png"
+          },
+          {
+            "id": "darshan-nalkande",
+            "name": "Darshan Nalkande",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/127.png"
+          },
+          {
+            "id": "ajay-mandal",
+            "name": "Ajay Mandal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1931.png"
+          },
+          {
+            "id": "vipraj-nigam",
+            "name": "Vipraj Nigam",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3560.png"
+          },
+          {
+            "id": "manvanth-kumar",
+            "name": "Manvanth Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3562.png"
+          },
+          {
+            "id": "madhav-tiwari",
+            "name": "Madhav Tiwari",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3561.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "alex-carey",
+            "name": "Alex Carey",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3882.png"
+          },
+          {
+            "id": "ricky-bhui",
+            "name": "Ricky Bhui",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/219.png"
+          },
+          {
+            "id": "naman-ojha",
+            "name": "Naman Ojha",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/52.png"
+          },
+          {
+            "id": "ankush-bains",
+            "name": "Ankush Bains",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "puneet-bisht",
+            "name": "Puneet Bisht",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shai-hope",
+            "name": "Shai Hope",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/268.png"
+          },
+          {
+            "id": "kl-rahul",
+            "name": "KL Rahul",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/19.png"
+          },
+          {
+            "id": "abishek-porel",
+            "name": "Abishek Porel",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1580.png"
+          }
+        ]
+      }
+    },
+    "Gujarat Titans": {
+      "code": "GT",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "kane-williamson",
+            "name": "Kane Williamson",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/65.png"
+          },
+          {
+            "id": "tom-banton",
+            "name": "Tom Banton",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/530.png"
+          },
+          {
+            "id": "gurkeerat-singh-mann",
+            "name": "Gurkeerat Singh Mann",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/253.png"
+          },
+          {
+            "id": "sai-sudharsan",
+            "name": "Sai Sudharsan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/976.png"
+          },
+          {
+            "id": "shahrukh-khan",
+            "name": "Shahrukh Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/590.png"
+          },
+          {
+            "id": "shubman-gill",
+            "name": "Shubman Gill",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/62.png"
+          },
+          {
+            "id": "mahipal-lomror",
+            "name": "Mahipal Lomror",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/184.png"
+          },
+          {
+            "id": "rahul-tewatia",
+            "name": "Rahul Tewatia",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/120.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "sandeep-warrier",
+            "name": "Sandeep Warrier",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/228.png"
+          },
+          {
+            "id": "varun-aaron",
+            "name": "Varun Aaron",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/61.png"
+          },
+          {
+            "id": "prithvi-raj-yarra",
+            "name": "Prithvi Raj Yarra",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/151.png"
+          },
+          {
+            "id": "kulwant-khejroliya",
+            "name": "Kulwant Khejroliya",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/204.png"
+          },
+          {
+            "id": "umesh-yadav",
+            "name": "Umesh Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/21.png"
+          },
+          {
+            "id": "pradeep-sangwan",
+            "name": "Pradeep Sangwan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/977.png"
+          },
+          {
+            "id": "sai-kishore",
+            "name": "Sai Kishore",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/544.png"
+          },
+          {
+            "id": "ashok-sharma",
+            "name": "Ashok Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "arshad-khan",
+            "name": "Arshad Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/988.png"
+          },
+          {
+            "id": "josh-little",
+            "name": "Josh Little",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/678.png"
+          },
+          {
+            "id": "gurnoor-singh-brar",
+            "name": "Gurnoor Singh Brar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1231.png"
+          },
+          {
+            "id": "luke-wood",
+            "name": "Luke Wood",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3116.png"
+          },
+          {
+            "id": "jayant-yadav",
+            "name": "Jayant Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/165.png"
+          },
+          {
+            "id": "rashid-khan",
+            "name": "Rashid Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/218.png"
+          },
+          {
+            "id": "kagiso-rabada",
+            "name": "Kagiso Rabada",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/116.png"
+          },
+          {
+            "id": "ishant-sharma",
+            "name": "Ishant Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/50.png"
+          },
+          {
+            "id": "mohammed-siraj",
+            "name": "Mohammed Siraj",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/63.png"
+          },
+          {
+            "id": "prasidh-krishna",
+            "name": "Prasidh Krishna",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/150.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "jason-holder",
+            "name": "Jason Holder",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/263.png"
+          },
+          {
+            "id": "dominic-drakes",
+            "name": "Dominic Drakes",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/5145.png"
+          },
+          {
+            "id": "odean-smith",
+            "name": "Odean Smith",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/863.png"
+          },
+          {
+            "id": "manav-suthar",
+            "name": "Manav Suthar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2443.png"
+          },
+          {
+            "id": "washington-sundar",
+            "name": "Washington Sundar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/20.png"
+          },
+          {
+            "id": "nishant-sindhu",
+            "name": "Nishant Sindhu",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/791.png"
+          },
+          {
+            "id": "karim-janat",
+            "name": "Karim Janat",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/247.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "wriddhiman-saha",
+            "name": "Wriddhiman Saha",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/225.png"
+          },
+          {
+            "id": "matthew-wade",
+            "name": "Matthew Wade",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/549.png"
+          },
+          {
+            "id": "br-sharath",
+            "name": "BR Sharath",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3117.png"
+          },
+          {
+            "id": "anuj-rawat",
+            "name": "Anuj Rawat",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/534.png"
+          },
+          {
+            "id": "kumar-kushagra",
+            "name": "Kumar Kushagra",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3101.png"
+          },
+          {
+            "id": "kusal-mendis",
+            "name": "Kusal Mendis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/276.png"
+          }
+        ]
+      }
+    },
+    "Kolkata Knight Riders": {
+      "code": "KKR",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "jason-roy",
+            "name": "Jason Roy",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1906.png"
+          },
+          {
+            "id": "eoin-morgan",
+            "name": "Eoin Morgan",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/197.png"
+          },
+          {
+            "id": "mandeep-singh",
+            "name": "Mandeep Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/132.png"
+          },
+          {
+            "id": "siddhesh-lad",
+            "name": "Siddhesh Lad",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/2739.png"
+          },
+          {
+            "id": "joe-denly",
+            "name": "Joe Denly",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3611.png"
+          },
+          {
+            "id": "aaron-finch",
+            "name": "Aaron Finch",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/167.png"
+          },
+          {
+            "id": "alex-hales",
+            "name": "Alex Hales",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/511.png"
+          },
+          {
+            "id": "ishank-jaggi",
+            "name": "Ishank Jaggi",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/37.png"
+          },
+          {
+            "id": "darren-bravo",
+            "name": "Darren Bravo",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rajagopal-sathish",
+            "name": "Rajagopal Sathish",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "azhar-mahmood",
+            "name": "Azhar Mahmood",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "anustup-mazumdar",
+            "name": "Anustup Mazumdar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rohan-gavaskar",
+            "name": "Rohan Gavaskar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shoaib-shaikh",
+            "name": "Shoaib Shaikh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aakash-chopra",
+            "name": "Aakash Chopra",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "arindam-ghosh-i",
+            "name": "Arindam Ghosh-I",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "salman-butt",
+            "name": "Salman Butt",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "apoorv-wankhade",
+            "name": "Apoorv Wankhade",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "saurasish-lahiri",
+            "name": "Saurasish Lahiri",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rohan-banerjee",
+            "name": "Rohan Banerjee",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aditya-garhwal",
+            "name": "Aditya Garhwal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "cameron-delport",
+            "name": "Cameron Delport",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abhijeet-tomar",
+            "name": "Abhijeet Tomar",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20580.png"
+          },
+          {
+            "id": "aarya-desai",
+            "name": "Aarya Desai",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "johnson-charles",
+            "name": "Johnson Charles",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ajinkya-rahane",
+            "name": "Ajinkya Rahane",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/44.png"
+          },
+          {
+            "id": "manish-pandey",
+            "name": "Manish Pandey",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/16.png"
+          },
+          {
+            "id": "rahul-tripathi",
+            "name": "Rahul Tripathi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/188.png"
+          },
+          {
+            "id": "rinku-singh",
+            "name": "Rinku Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/152.png"
+          },
+          {
+            "id": "ramandeep-singh",
+            "name": "Ramandeep Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/991.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "kartik-tyagi",
+            "name": "Kartik Tyagi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/536.png"
+          },
+          {
+            "id": "varun-chakaravarthy",
+            "name": "Varun Chakaravarthy",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/140.png"
+          },
+          {
+            "id": "chetan-sakariya",
+            "name": "Chetan Sakariya",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/592.png"
+          },
+          {
+            "id": "mustafizur-rahman",
+            "name": "Mustafizur Rahman",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/Default-Men.png"
+          },
+          {
+            "id": "harbhajan-singh",
+            "name": "Harbhajan Singh",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/103.png"
+          },
+          {
+            "id": "tim-southee",
+            "name": "Tim Southee",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/77.png"
+          },
+          {
+            "id": "javon-searles",
+            "name": "Javon Searles",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/4960.png"
+          },
+          {
+            "id": "harry-gurney",
+            "name": "Harry Gurney",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1737.png"
+          },
+          {
+            "id": "mitchell-johnson",
+            "name": "Mitchell Johnson",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/213.png"
+          },
+          {
+            "id": "vinay-kumar",
+            "name": "Vinay Kumar",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/166.png"
+          },
+          {
+            "id": "john-hastings",
+            "name": "John Hastings",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pravin-tambe",
+            "name": "Pravin Tambe",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "morne-morkel",
+            "name": "Morne Morkel",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sachin-rana",
+            "name": "Sachin Rana",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "johan-botha",
+            "name": "Johan Botha",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ryan-mclaren",
+            "name": "Ryan McLaren",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sachithra-senanayake",
+            "name": "Sachithra Senanayake",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "veer-pratap-singh",
+            "name": "Veer Pratap Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shaun-tait",
+            "name": "Shaun Tait",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "brett-lee",
+            "name": "Brett Lee",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mohnish-parmar",
+            "name": "Mohnish Parmar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sourav-sarkar",
+            "name": "Sourav Sarkar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "charl-langeveldt",
+            "name": "Charl Langeveldt",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shane-bond",
+            "name": "Shane Bond",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mashrafe-mortaza",
+            "name": "Mashrafe Mortaza",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "umar-gul",
+            "name": "Umar Gul",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shoaib-akhtar",
+            "name": "Shoaib Akhtar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "iresh-saxena",
+            "name": "Iresh Saxena",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ali-khan",
+            "name": "Ali Khan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "matthew-kelly",
+            "name": "Matthew Kelly",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "prashant-solanki",
+            "name": "Prashant Solanki",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/972.png"
+          },
+          {
+            "id": "ramesh-kumar",
+            "name": "Ramesh Kumar",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20582.png"
+          },
+          {
+            "id": "gus-atkinson",
+            "name": "Gus Atkinson",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vaibhav-arora",
+            "name": "Vaibhav Arora",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/583.png"
+          },
+          {
+            "id": "akash-deep",
+            "name": "Akash Deep",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/Default-Men.png"
+          },
+          {
+            "id": "harshit-rana",
+            "name": "Harshit Rana",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/Default-Men.png"
+          },
+          {
+            "id": "matheesha-pathirana",
+            "name": "Matheesha Pathirana",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1014.png"
+          },
+          {
+            "id": "shivam-shukla",
+            "name": "Shivam Shukla",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "jacques-kallis",
+            "name": "Jacques Kallis",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mohammad-hafeez",
+            "name": "Mohammad Hafeez",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shakib-al-hasan",
+            "name": "Shakib Al Hasan",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/201.png"
+          },
+          {
+            "id": "moeen-ali",
+            "name": "Moeen Ali",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/206.png"
+          },
+          {
+            "id": "chris-green",
+            "name": "Chris Green",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3803.png"
+          },
+          {
+            "id": "carlos-brathwaite",
+            "name": "Carlos Brathwaite",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/2722.png"
+          },
+          {
+            "id": "pawan-negi",
+            "name": "Pawan Negi",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/53.png"
+          },
+          {
+            "id": "david-wiese",
+            "name": "David Wiese",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/674.png"
+          },
+          {
+            "id": "brad-hogg",
+            "name": "Brad Hogg",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ryan-ten-doeschate",
+            "name": "Ryan ten Doeschate",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sumit-narwal",
+            "name": "Sumit Narwal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shrikant-mundhe",
+            "name": "Shrikant Mundhe",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "chirag-jani",
+            "name": "Chirag Jani",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "manan-sharma",
+            "name": "Manan Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sayan-mondal",
+            "name": "Sayan Mondal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "chamika-karunaratne",
+            "name": "Chamika Karunaratne",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20579.png"
+          },
+          {
+            "id": "cameron-green",
+            "name": "Cameron Green",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/550.png"
+          },
+          {
+            "id": "sunil-narine",
+            "name": "Sunil Narine",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/156.png"
+          },
+          {
+            "id": "andre-russell",
+            "name": "Andre Russell",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/141.png"
+          },
+          {
+            "id": "anukul-roy",
+            "name": "Anukul Roy",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/160.png"
+          },
+          {
+            "id": "rachin-ravindra",
+            "name": "Rachin Ravindra",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/724.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "kona-srikar-bharat",
+            "name": "Kona Srikar Bharat",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/365.png"
+          },
+          {
+            "id": "mark-boucher",
+            "name": "Mark Boucher",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tim-seifert",
+            "name": "Tim Seifert",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/82.png"
+          },
+          {
+            "id": "narayan-jagadeesan",
+            "name": "Narayan Jagadeesan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/97.png"
+          },
+          {
+            "id": "nikhil-naik",
+            "name": "Nikhil Naik",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/2732.png"
+          },
+          {
+            "id": "sam-billings",
+            "name": "Sam Billings",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/2756.png"
+          },
+          {
+            "id": "sheldon-jackson",
+            "name": "Sheldon Jackson",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/1116.png"
+          },
+          {
+            "id": "debabrata-das",
+            "name": "Debabrata Das",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "brad-haddin",
+            "name": "Brad Haddin",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "morne-van-wyk",
+            "name": "Morne van Wyk",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tatenda-taibu",
+            "name": "Tatenda Taibu",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "finn-allen",
+            "name": "Finn Allen",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/595.png"
+          },
+          {
+            "id": "baba-indrajith",
+            "name": "Baba Indrajith",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20578.png"
+          },
+          {
+            "id": "pratham-singh",
+            "name": "Pratham Singh",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20583.png"
+          },
+          {
+            "id": "luvnith-sisodia",
+            "name": "Luvnith Sisodia",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "litton-das",
+            "name": "Litton Das",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rahmanullah-gurbaz",
+            "name": "Rahmanullah Gurbaz",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/641.png"
+          },
+          {
+            "id": "angkrish-raghuvanshi",
+            "name": "Angkrish Raghuvanshi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/787.png"
+          },
+          {
+            "id": "tejasvi-dahiya",
+            "name": "Tejasvi Dahiya",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4281.png"
+          }
+        ]
+      }
+    },
+    "Lucknow Super Giants": {
+      "code": "LSG",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "evin-lewis",
+            "name": "Evin Lewis",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/872.png"
+          },
+          {
+            "id": "manan-vohra",
+            "name": "Manan Vohra",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/185.png"
+          },
+          {
+            "id": "ashton-turner",
+            "name": "Ashton Turner",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/86.png"
+          },
+          {
+            "id": "himmat-singh",
+            "name": "Himmat Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/203.png"
+          },
+          {
+            "id": "prerak-mankad",
+            "name": "Prerak Mankad",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/998.png"
+          },
+          {
+            "id": "abdul-samad",
+            "name": "Abdul Samad",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/525.png"
+          },
+          {
+            "id": "mitchell-marsh",
+            "name": "Mitchell Marsh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/40.png"
+          },
+          {
+            "id": "ayush-badoni",
+            "name": "Ayush Badoni",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/985.png"
+          },
+          {
+            "id": "matthew-breetzke",
+            "name": "Matthew Breetzke",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2805.png"
+          },
+          {
+            "id": "akshat-raghuwanshi",
+            "name": "Akshat Raghuwanshi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1487.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "amit-mishra",
+            "name": "Amit Mishra",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/107.png"
+          },
+          {
+            "id": "andrew-tye",
+            "name": "Andrew Tye",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/1480.png"
+          },
+          {
+            "id": "ankit-rajpoot",
+            "name": "Ankit Rajpoot",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/1106.png"
+          },
+          {
+            "id": "david-willey",
+            "name": "David Willey",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/90.png"
+          },
+          {
+            "id": "mark-wood",
+            "name": "Mark Wood",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/315.png"
+          },
+          {
+            "id": "amit-mishra",
+            "name": "Amit Mishra",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "naveen-ul-haq",
+            "name": "Naveen ul Haq",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/639.png"
+          },
+          {
+            "id": "arpit-guleria",
+            "name": "Arpit Guleria",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "akash-singh",
+            "name": "Akash Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/535.png"
+          },
+          {
+            "id": "avesh-khan",
+            "name": "Avesh Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/109.png"
+          },
+          {
+            "id": "anrich-nortje",
+            "name": "Anrich Nortje",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/142.png"
+          },
+          {
+            "id": "mohsin-khan",
+            "name": "Mohsin Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/541.png"
+          },
+          {
+            "id": "m-siddharth",
+            "name": "M. Siddharth",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/532.png"
+          },
+          {
+            "id": "mayank-yadav",
+            "name": "Mayank Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/987.png"
+          },
+          {
+            "id": "digvesh-singh-rathi",
+            "name": "Digvesh Singh Rathi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3565.png"
+          },
+          {
+            "id": "shamar-joseph",
+            "name": "Shamar Joseph",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3105.png"
+          },
+          {
+            "id": "prince-yadav",
+            "name": "Prince Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1225.png"
+          },
+          {
+            "id": "william-orourke",
+            "name": "William ORourke",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3398.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "wanindu-hasaranga",
+            "name": "Wanindu Hasaranga",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/377.png"
+          },
+          {
+            "id": "shahbaz-ahamad",
+            "name": "Shahbaz Ahamad",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/523.png"
+          },
+          {
+            "id": "shahbaz-nadeem",
+            "name": "Shahbaz Nadeem",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/57.png"
+          },
+          {
+            "id": "daniel-sams",
+            "name": "Daniel Sams",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/546.png"
+          },
+          {
+            "id": "krishnappa-gowtham",
+            "name": "Krishnappa Gowtham",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/179.png"
+          },
+          {
+            "id": "rajvardhan-hangargekar",
+            "name": "Rajvardhan  Hangargekar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/783.png"
+          },
+          {
+            "id": "kyle-mayers",
+            "name": "Kyle Mayers",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/726.png"
+          },
+          {
+            "id": "aiden-markram",
+            "name": "Aiden Markram",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/287.png"
+          },
+          {
+            "id": "arshin-kulkarni",
+            "name": "Arshin Kulkarni",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2788.png"
+          },
+          {
+            "id": "yuvraj-chaudhary",
+            "name": "Yuvraj Chaudhary",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3564.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "aryan-juyal",
+            "name": "Aryan Juyal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/990.png"
+          },
+          {
+            "id": "nicholas-pooran",
+            "name": "Nicholas Pooran",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/136.png"
+          },
+          {
+            "id": "rishabh-pant",
+            "name": "Rishabh Pant",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/18.png"
+          },
+          {
+            "id": "josh-inglis",
+            "name": "Josh Inglis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/647.png"
+          },
+          {
+            "id": "mukul-choudhary",
+            "name": "Mukul Choudhary",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4549.png"
+          }
+        ]
+      }
+    },
+    "Mumbai Indians": {
+      "code": "MI",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "saurabh-tiwary",
+            "name": "Saurabh Tiwary",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/163.png"
+          },
+          {
+            "id": "chris-lynn",
+            "name": "Chris Lynn",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/179.png"
+          },
+          {
+            "id": "ricky-ponting",
+            "name": "Ricky Ponting",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "lendl-simmons",
+            "name": "Lendl Simmons",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "yuvraj-singh",
+            "name": "Yuvraj Singh",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/113.png"
+          },
+          {
+            "id": "unmukt-chand",
+            "name": "Unmukt Chand",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aiden-blizzard",
+            "name": "Aiden Blizzard",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "richard-levi",
+            "name": "Richard Levi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sachin-tendulkar",
+            "name": "Sachin Tendulkar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "herschelle-gibbs",
+            "name": "Herschelle Gibbs",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "andre-nel",
+            "name": "Andre Nel",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "graham-napier",
+            "name": "Graham Napier",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sanath-jayasuriya",
+            "name": "Sanath Jayasuriya",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dominic-thornely",
+            "name": "Dominic Thornely",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vikrant-yeligati",
+            "name": "Vikrant Yeligati",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "musavir-khote",
+            "name": "Musavir Khote",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ashwell-prince",
+            "name": "Ashwell Prince",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "phillip-hughes",
+            "name": "Phillip Hughes",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sushant-marathe",
+            "name": "Sushant Marathe",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "syed-shahabuddin",
+            "name": "Syed Shahabuddin",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "chirag-pathak",
+            "name": "Chirag Pathak",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "parag-more",
+            "name": "Parag More",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sarul-kanwar",
+            "name": "Sarul Kanwar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "loots-bosman",
+            "name": "Loots Bosman",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sharad-lumba",
+            "name": "Sharad Lumba",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "n-tilak-varma",
+            "name": "N. Tilak Varma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/993.png"
+          },
+          {
+            "id": "rahul-buddhi",
+            "name": "Rahul Buddhi",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20597.png"
+          },
+          {
+            "id": "shivalik-sharma",
+            "name": "Shivalik Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3108.png"
+          },
+          {
+            "id": "rohit-sharma",
+            "name": "Rohit Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/6.png"
+          },
+          {
+            "id": "surya-kumar-yadav",
+            "name": "Surya Kumar Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/174.png"
+          },
+          {
+            "id": "naman-dhir",
+            "name": "Naman Dhir",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3107.png"
+          },
+          {
+            "id": "bevon-jacobs",
+            "name": "Bevon Jacobs",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3567.png"
+          },
+          {
+            "id": "charith-asalanka",
+            "name": "Charith Asalanka",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/605.png"
+          },
+          {
+            "id": "danish-malewar",
+            "name": "Danish Malewar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4546.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "riley-meredith",
+            "name": "Riley Meredith",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/4055.png"
+          },
+          {
+            "id": "dhawal-kulkarni",
+            "name": "Dhawal Kulkarni",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/101.png"
+          },
+          {
+            "id": "piyush-chawla",
+            "name": "Piyush Chawla",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/149.png"
+          },
+          {
+            "id": "james-pattinson",
+            "name": "James Pattinson",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/199.png"
+          },
+          {
+            "id": "basil-thampi",
+            "name": "Basil Thampi",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/3825.png"
+          },
+          {
+            "id": "mitchell-mcclenaghan",
+            "name": "Mitchell McClenaghan",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/730.png"
+          },
+          {
+            "id": "jason-behrendorff",
+            "name": "Jason Behrendorff",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/4.png"
+          },
+          {
+            "id": "akila-dananjaya",
+            "name": "Akila Dananjaya",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/588.png"
+          },
+          {
+            "id": "barinder-sran",
+            "name": "Barinder Sran",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/2746.png"
+          },
+          {
+            "id": "tymal-mills",
+            "name": "Tymal Mills",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/3319.png"
+          },
+          {
+            "id": "lasith-malinga",
+            "name": "Lasith Malinga",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/211.png"
+          },
+          {
+            "id": "marchant-de-lange",
+            "name": "Marchant de Lange",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "beuran-hendricks",
+            "name": "Beuran Hendricks",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1752.png"
+          },
+          {
+            "id": "pragyan-ojha",
+            "name": "Pragyan Ojha",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "krishmar-santokie",
+            "name": "Krishmar Santokie",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "robin-peterson",
+            "name": "Robin Peterson",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abhimanyu-mithun",
+            "name": "Abhimanyu Mithun",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ray-price",
+            "name": "Ray Price",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "jerome-taylor",
+            "name": "Jerome Taylor",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dilhara-fernando",
+            "name": "Dilhara Fernando",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rahil-shaikh",
+            "name": "Rahil Shaikh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "chetanya-nanda",
+            "name": "Chetanya Nanda",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rajesh-pawar",
+            "name": "Rajesh Pawar",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/339.png"
+          },
+          {
+            "id": "pankaj-jaiswal",
+            "name": "Pankaj Jaiswal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kyle-mills",
+            "name": "Kyle Mills",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "javed-khan",
+            "name": "Javed Khan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "akshay-wakhare",
+            "name": "Akshay Wakhare",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "prince-balwant-rai",
+            "name": "Prince Balwant Rai",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "md-nidheesh",
+            "name": "MD Nidheesh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "digvijay-deshmukh",
+            "name": "Digvijay Deshmukh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "roosh-kalaria",
+            "name": "Roosh Kalaria",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "hrithik-shokeen",
+            "name": "Hrithik Shokeen",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/992.png"
+          },
+          {
+            "id": "raghav-goyal",
+            "name": "Raghav Goyal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1933.png"
+          },
+          {
+            "id": "duan-jansen",
+            "name": "Duan Jansen",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1227.png"
+          },
+          {
+            "id": "richard-gleeson",
+            "name": "Richard Gleeson",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1219.png"
+          },
+          {
+            "id": "trent-boult",
+            "name": "Trent Boult",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/66.png"
+          },
+          {
+            "id": "deepak-chahar",
+            "name": "Deepak Chahar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/91.png"
+          },
+          {
+            "id": "jasprit-bumrah",
+            "name": "Jasprit Bumrah",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/9.png"
+          },
+          {
+            "id": "karn-sharma",
+            "name": "Karn Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/98.png"
+          },
+          {
+            "id": "reece-topley",
+            "name": "Reece Topley",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/574.png"
+          },
+          {
+            "id": "lizaad-williams",
+            "name": "Lizaad Williams",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/631.png"
+          },
+          {
+            "id": "ashwani-kumar",
+            "name": "Ashwani Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3569.png"
+          },
+          {
+            "id": "satyanarayana-raju",
+            "name": "Satyanarayana Raju",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3568.png"
+          },
+          {
+            "id": "mujeeb-ur-rahman",
+            "name": "Mujeeb Ur Rahman",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/134.png"
+          },
+          {
+            "id": "raghu-sharma",
+            "name": "Raghu Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3869.png"
+          },
+          {
+            "id": "krish-bhagat",
+            "name": "Krish Bhagat",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/5034.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "mohammad-nabi",
+            "name": "Mohammad Nabi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/217.png"
+          },
+          {
+            "id": "chris-jordan",
+            "name": "Chris Jordan",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/1299.png"
+          },
+          {
+            "id": "fabian-allen",
+            "name": "Fabian Allen",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/1707.png"
+          },
+          {
+            "id": "kieron-pollard",
+            "name": "Kieron Pollard",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/210.png"
+          },
+          {
+            "id": "jean-paul-duminy",
+            "name": "Jean Paul Duminy",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/182.png"
+          },
+          {
+            "id": "jacob-oram",
+            "name": "Jacob Oram",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "james-franklin",
+            "name": "James Franklin",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "andrew-symonds",
+            "name": "Andrew Symonds",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mohammad-ashraful",
+            "name": "Mohammad Ashraful",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rohan-raje",
+            "name": "Rohan Raje",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shaun-pollock",
+            "name": "Shaun Pollock",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "deepak-punia",
+            "name": "Deepak Punia",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sanjay-yadav",
+            "name": "Sanjay Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "asela-gunaratne",
+            "name": "Asela Gunaratne",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "amitoze-singh",
+            "name": "Amitoze Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "santosh-yadav",
+            "name": "Santosh Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kishore-kamath",
+            "name": "Kishore Kamath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "karan-sharma",
+            "name": "Karan Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/986.png"
+          },
+          {
+            "id": "raj-angad-bawa",
+            "name": "Raj Angad Bawa",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/781.png"
+          },
+          {
+            "id": "shams-mulani",
+            "name": "Shams Mulani",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/600.png"
+          },
+          {
+            "id": "hardik-pandya",
+            "name": "Hardik Pandya",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/54.png"
+          },
+          {
+            "id": "mitchell-santner",
+            "name": "Mitchell Santner",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/75.png"
+          },
+          {
+            "id": "mayank-rawat",
+            "name": "Mayank Rawat",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1228.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "aditya-tare",
+            "name": "Aditya Tare",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/99.png"
+          },
+          {
+            "id": "chidhambaram-gautam",
+            "name": "Chidhambaram Gautam",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ben-dunk",
+            "name": "Ben Dunk",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "davy-jacobs",
+            "name": "Davy Jacobs",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "luke-ronchi",
+            "name": "Luke Ronchi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "harvik-desai",
+            "name": "Harvik Desai",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3154.png"
+          },
+          {
+            "id": "quinton-de-kock",
+            "name": "Quinton De Kock",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/170.png"
+          },
+          {
+            "id": "robin-minz",
+            "name": "Robin Minz",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3103.png"
+          },
+          {
+            "id": "ryan-rickelton",
+            "name": "Ryan Rickelton",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/743.png"
+          },
+          {
+            "id": "shrijith-krishnan",
+            "name": "Shrijith Krishnan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3570.png"
+          }
+        ]
+      }
+    },
+    "Punjab Kings": {
+      "code": "PBKS",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "dawid-malan",
+            "name": "Dawid Malan",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3318.png"
+          },
+          {
+            "id": "chris-gayle",
+            "name": "Chris Gayle",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/236.png"
+          },
+          {
+            "id": "shikhar-dhawan",
+            "name": "Shikhar Dhawan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/11.png"
+          },
+          {
+            "id": "manoj-tiwary",
+            "name": "Manoj Tiwary",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/89.png"
+          },
+          {
+            "id": "farhaan-behardien",
+            "name": "Farhaan Behardien",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "hashim-amla",
+            "name": "Hashim Amla",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shaun-marsh",
+            "name": "Shaun Marsh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rilee-rossouw",
+            "name": "Rilee Rossouw",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1426.png"
+          },
+          {
+            "id": "virender-sehwag",
+            "name": "Virender Sehwag",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "paul-valthaty",
+            "name": "Paul Valthaty",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "harpreet-singh-bhatia",
+            "name": "Harpreet Singh Bhatia",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1934.png"
+          },
+          {
+            "id": "siddharth-chitnis",
+            "name": "Siddharth Chitnis",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "adrian-barath",
+            "name": "Adrian Barath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "karan-goel",
+            "name": "Karan Goel",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "simon-katich",
+            "name": "Simon Katich",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "wilkin-mota",
+            "name": "Wilkin Mota",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ramnaresh-sarwan",
+            "name": "Ramnaresh Sarwan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "yogesh-golwalkar",
+            "name": "Yogesh Golwalkar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "armaan-jaffer",
+            "name": "Armaan Jaffer",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sahil-kukreja",
+            "name": "Sahil Kukreja",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bhanuka-rajapaksa",
+            "name": "Bhanuka Rajapaksa",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/372.png"
+          },
+          {
+            "id": "shivam-singh",
+            "name": "Shivam Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1936.png"
+          },
+          {
+            "id": "vishwanath-pratap-singh",
+            "name": "Vishwanath Pratap Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3110.png"
+          },
+          {
+            "id": "shreyas-iyer",
+            "name": "Shreyas Iyer",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/12.png"
+          },
+          {
+            "id": "shashank-singh",
+            "name": "Shashank Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/191.png"
+          },
+          {
+            "id": "nehal-wadhera",
+            "name": "Nehal Wadhera",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1541.png"
+          },
+          {
+            "id": "priyansh-arya",
+            "name": "Priyansh Arya",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3571.png"
+          },
+          {
+            "id": "harnoor-pannu",
+            "name": "Harnoor Pannu",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/784.png"
+          },
+          {
+            "id": "pyla-avinash",
+            "name": "Pyla Avinash",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3573.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "ishan-porel",
+            "name": "Ishan Porel",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/3777.png"
+          },
+          {
+            "id": "murali-kartik",
+            "name": "Murali Kartik",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sheldon-cottrell",
+            "name": "Sheldon Cottrell",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "praveen-dubey",
+            "name": "Praveen Dubey",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/548.png"
+          },
+          {
+            "id": "hardus-viljoen",
+            "name": "Hardus Viljoen",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kyle-abbott",
+            "name": "Kyle Abbott",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "parvinder-awana",
+            "name": "Parvinder Awana",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ryan-harris",
+            "name": "Ryan Harris",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "lakshmipathy-balaji",
+            "name": "Lakshmipathy Balaji",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bhargav-bhatt",
+            "name": "Bhargav Bhatt",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ramesh-powar",
+            "name": "Ramesh Powar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "nathan-rimmington",
+            "name": "Nathan Rimmington",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "love-ablish",
+            "name": "Love Ablish",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shalabh-srivastava",
+            "name": "Shalabh Srivastava",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vikram-singh",
+            "name": "Vikram Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "yusuf-abdulla",
+            "name": "Yusuf Abdulla",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ranadeb-bose",
+            "name": "Ranadeb Bose",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ben-dwarshuis",
+            "name": "Ben Dwarshuis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/632.png"
+          },
+          {
+            "id": "stuart-broad",
+            "name": "Stuart Broad",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "burt-cockley",
+            "name": "Burt Cockley",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "gagandeep-singh",
+            "name": "Gagandeep Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "baltej-singh",
+            "name": "Baltej Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/994.png"
+          },
+          {
+            "id": "ansh-patel",
+            "name": "Ansh Patel",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20608.png"
+          },
+          {
+            "id": "vidhwath-kaverappa",
+            "name": "Vidhwath Kaverappa",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1564.png"
+          },
+          {
+            "id": "vyshak-vijaykumar",
+            "name": "Vyshak Vijaykumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2034.png"
+          },
+          {
+            "id": "prince-choudhary",
+            "name": "Prince Choudhary",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3111.png"
+          },
+          {
+            "id": "harpreet-brar",
+            "name": "Harpreet Brar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/130.png"
+          },
+          {
+            "id": "yuzvendra-chahal",
+            "name": "Yuzvendra Chahal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/10.png"
+          },
+          {
+            "id": "arshdeep-singh",
+            "name": "Arshdeep Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/125.png"
+          },
+          {
+            "id": "yash-thakur",
+            "name": "Yash Thakur",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1550.png"
+          },
+          {
+            "id": "xavier-bartlett",
+            "name": "Xavier Bartlett",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3572.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "chris-woakes",
+            "name": "Chris Woakes",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/314.png"
+          },
+          {
+            "id": "jalaj-saxena",
+            "name": "Jalaj Saxena",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1087.png"
+          },
+          {
+            "id": "moises-henriques",
+            "name": "Moises Henriques",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/388.png"
+          },
+          {
+            "id": "ben-cutting",
+            "name": "Ben Cutting",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/913.png"
+          },
+          {
+            "id": "pardeep-sahu",
+            "name": "Pardeep Sahu",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/2745.png"
+          },
+          {
+            "id": "rishi-dhawan",
+            "name": "Rishi Dhawan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/996.png"
+          },
+          {
+            "id": "shivam-sharma",
+            "name": "Shivam Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "karanveer-singh",
+            "name": "Karanveer Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "michael-neser",
+            "name": "Michael Neser",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dimitri-mascarenhas",
+            "name": "Dimitri Mascarenhas",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "reetinder-sodhi",
+            "name": "Reetinder Sodhi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "taruwar-kohli",
+            "name": "Taruwar Kohli",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "saurabh-kumar",
+            "name": "Saurabh Kumar",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3836.png"
+          },
+          {
+            "id": "utkarsh-singh",
+            "name": "Utkarsh Singh",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3841.png"
+          },
+          {
+            "id": "amit-yadav",
+            "name": "Amit Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "agnivesh-ayachi",
+            "name": "Agnivesh Ayachi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ravikant-shukla",
+            "name": "Ravikant Shukla",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "manzoor-dar",
+            "name": "Manzoor Dar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tajinder-singh",
+            "name": "Tajinder Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "writtick-chatterjee",
+            "name": "Writtick Chatterjee",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20606.png"
+          },
+          {
+            "id": "sikandar-raza",
+            "name": "Sikandar Raza",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/820.png"
+          },
+          {
+            "id": "benny-howell",
+            "name": "Benny Howell",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20605.png"
+          },
+          {
+            "id": "tanay-thyagarajan",
+            "name": "Tanay Thyagarajan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1491.png"
+          },
+          {
+            "id": "suryansh-shedge",
+            "name": "Suryansh Shedge",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2146.png"
+          },
+          {
+            "id": "marcus-stoinis",
+            "name": "Marcus Stoinis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/23.png"
+          },
+          {
+            "id": "marco-jansen",
+            "name": "Marco Jansen",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/586.png"
+          },
+          {
+            "id": "azmatullah-omarzai",
+            "name": "Azmatullah Omarzai",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1354.png"
+          },
+          {
+            "id": "aaron-hardie",
+            "name": "Aaron Hardie",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/2704.png"
+          },
+          {
+            "id": "musheer-khan",
+            "name": "Musheer Khan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2813.png"
+          },
+          {
+            "id": "mitchell-owen",
+            "name": "Mitchell Owen",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3870.png"
+          },
+          {
+            "id": "cooper-connolly",
+            "name": "Cooper Connolly",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/848.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "jonny-bairstow",
+            "name": "Jonny Bairstow",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/216.png"
+          },
+          {
+            "id": "adam-gilchrist",
+            "name": "Adam Gilchrist",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "nitin-saini",
+            "name": "Nitin Saini",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sunny-singh",
+            "name": "Sunny Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "uday-kaul",
+            "name": "Uday Kaul",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pankaj-dharmani",
+            "name": "Pankaj Dharmani",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/323.png"
+          },
+          {
+            "id": "prabhsimran-singh",
+            "name": "Prabhsimran Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/137.png"
+          },
+          {
+            "id": "vishnu-vinod",
+            "name": "Vishnu Vinod",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/581.png"
+          }
+        ]
+      }
+    },
+    "Rajasthan Royals": {
+      "code": "RR",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "prashant-chopra",
+            "name": "Prashant Chopra",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3226.png"
+          },
+          {
+            "id": "brad-hodge",
+            "name": "Brad Hodge",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "faiz-fazal",
+            "name": "Faiz Fazal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "swapnil-asnodkar",
+            "name": "Swapnil Asnodkar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rob-quiney",
+            "name": "Rob Quiney",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "adam-voges",
+            "name": "Adam Voges",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "damien-martyn",
+            "name": "Damien Martyn",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "darren-lehmann",
+            "name": "Darren Lehmann",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "younis-khan",
+            "name": "Younis Khan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "niraj-patel",
+            "name": "Niraj Patel",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aryaman-birla",
+            "name": "Aryaman Birla",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dinesh-chandimal",
+            "name": "Dinesh Chandimal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sagar-trivedi",
+            "name": "Sagar Trivedi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sumit-khatri",
+            "name": "Sumit Khatri",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abdulahad-malek",
+            "name": "Abdulahad Malek",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kumar-boresa",
+            "name": "Kumar Boresa",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rassie-van-der-dussen",
+            "name": "Rassie van der Dussen",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20619.png"
+          },
+          {
+            "id": "joe-root",
+            "name": "Joe Root",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/312.png"
+          },
+          {
+            "id": "tom-kohler-cadmore",
+            "name": "Tom Kohler-Cadmore",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3113.png"
+          },
+          {
+            "id": "yashasvi-jaiswal",
+            "name": "Yashasvi Jaiswal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/533.png"
+          },
+          {
+            "id": "shimron-hetmyer",
+            "name": "Shimron Hetmyer",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/210.png"
+          },
+          {
+            "id": "shubham-dubey",
+            "name": "Shubham Dubey",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3112.png"
+          },
+          {
+            "id": "vaibhav-sooryavanshi",
+            "name": "Vaibhav Sooryavanshi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3498.png"
+          },
+          {
+            "id": "ravi-singh",
+            "name": "Ravi Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4550.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "nathan-coulter-nile",
+            "name": "Nathan Coulter Nile",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/840.png"
+          },
+          {
+            "id": "km-asif",
+            "name": "KM Asif",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/88.png"
+          },
+          {
+            "id": "tabraiz-shamsi",
+            "name": "Tabraiz Shamsi",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3309.png"
+          },
+          {
+            "id": "murugan-ashwin",
+            "name": "Murugan Ashwin",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/135.png"
+          },
+          {
+            "id": "adam-milne",
+            "name": "Adam Milne",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/157.png"
+          },
+          {
+            "id": "jofra-archer",
+            "name": "Jofra Archer",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/181.png"
+          },
+          {
+            "id": "ish-sodhi",
+            "name": "Ish Sodhi",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1304.png"
+          },
+          {
+            "id": "oshane-thomas",
+            "name": "Oshane Thomas",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/5146.png"
+          },
+          {
+            "id": "kc-cariappa",
+            "name": "KC Cariappa",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/227.png"
+          },
+          {
+            "id": "ben-laughlin",
+            "name": "Ben Laughlin",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/921.png"
+          },
+          {
+            "id": "tejas-baroka",
+            "name": "Tejas Baroka",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/3827.png"
+          },
+          {
+            "id": "anureet-singh",
+            "name": "Anureet Singh",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/412.png"
+          },
+          {
+            "id": "rusty-theron",
+            "name": "Rusty Theron",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "harmeet-singh",
+            "name": "Harmeet Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sreesanth",
+            "name": "Sreesanth",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "siddharth-trivedi",
+            "name": "Siddharth Trivedi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ajit-chandila",
+            "name": "Ajit  Chandila",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "amit-singh",
+            "name": "Amit Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "nayan-doshi",
+            "name": "Nayan Doshi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shrikant-wagh",
+            "name": "Shrikant Wagh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "amit-uniyal",
+            "name": "Amit Uniyal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aditya-dole",
+            "name": "Aditya Dole",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tyron-henderson",
+            "name": "Tyron Henderson",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shane-warne",
+            "name": "Shane Warne",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "fidel-edwards",
+            "name": "Fidel Edwards",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sohail-tanvir",
+            "name": "Sohail Tanvir",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "gajendra-singh",
+            "name": "Gajendra Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dinesh-salunkhe",
+            "name": "Dinesh Salunkhe",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shane-harwood",
+            "name": "Shane Harwood",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "samad-fallah",
+            "name": "Samad Fallah",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "anup-revandkar",
+            "name": "Anup Revandkar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pushkaraj-chavan",
+            "name": "Pushkaraj Chavan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "anunay-singh",
+            "name": "Anunay Singh",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20622.png"
+          },
+          {
+            "id": "obed-mccoy",
+            "name": "Obed McCoy",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/645.png"
+          },
+          {
+            "id": "kumar-kartikeya",
+            "name": "Kumar Kartikeya",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1015.png"
+          },
+          {
+            "id": "sushant-mishra",
+            "name": "Sushant Mishra",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1016.png"
+          },
+          {
+            "id": "nandre-burger",
+            "name": "Nandre Burger",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2806.png"
+          },
+          {
+            "id": "abid-mushtaq",
+            "name": "Abid Mushtaq",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1591.png"
+          },
+          {
+            "id": "ravi-bishnoi",
+            "name": "Ravi Bishnoi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/520.png"
+          },
+          {
+            "id": "sandeep-sharma",
+            "name": "Sandeep Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/220.png"
+          },
+          {
+            "id": "tushar-deshpande",
+            "name": "Tushar Deshpande",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/539.png"
+          },
+          {
+            "id": "fazalhaq-farooqi",
+            "name": "Fazalhaq Farooqi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1011.png"
+          },
+          {
+            "id": "maheesh-theekshana",
+            "name": "Maheesh Theekshana",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/629.png"
+          },
+          {
+            "id": "kuldeep-sen",
+            "name": "Kuldeep Sen",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1005.png"
+          },
+          {
+            "id": "akash-madhwal",
+            "name": "Akash Madhwal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1045.png"
+          },
+          {
+            "id": "kwena-maphaka",
+            "name": "Kwena Maphaka",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/801.png"
+          },
+          {
+            "id": "vignesh-puthur",
+            "name": "Vignesh Puthur",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3566.png"
+          },
+          {
+            "id": "yash-raj-punja",
+            "name": "Yash Raj Punja",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4553.png"
+          },
+          {
+            "id": "brijesh-sharma",
+            "name": "Brijesh Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4551.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "jimmy-neesham",
+            "name": "Jimmy Neesham",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20615.png"
+          },
+          {
+            "id": "chris-morris",
+            "name": "Chris Morris",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/836.png"
+          },
+          {
+            "id": "sudhesan-midhun",
+            "name": "Sudhesan Midhun",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/4950.png"
+          },
+          {
+            "id": "ankit-sharma",
+            "name": "Ankit Sharma",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/32.png"
+          },
+          {
+            "id": "darcy-short",
+            "name": "D&#039;Arcy Short",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3887.png"
+          },
+          {
+            "id": "stuart-binny",
+            "name": "Stuart Binny",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/148.png"
+          },
+          {
+            "id": "kevon-cooper",
+            "name": "Kevon Cooper",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ankeet-chavan",
+            "name": "Ankeet Chavan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "owais-shah",
+            "name": "Owais Shah",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abhishek-nayar",
+            "name": "Abhishek Nayar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "harmeet-singh",
+            "name": "Harmeet Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ashok-menaria",
+            "name": "Ashok Menaria",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abhishek-raut",
+            "name": "Abhishek Raut",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "lee-carseldine",
+            "name": "Lee Carseldine",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "yudhvir-singh-charak",
+            "name": "Yudhvir Singh Charak",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/587.png"
+          },
+          {
+            "id": "atul-sharma",
+            "name": "Atul Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "jatin-saxena",
+            "name": "Jatin Saxena",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aditya-angle",
+            "name": "Aditya Angle",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shubham-ranjane",
+            "name": "Shubham Ranjane",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shubham-garhwal",
+            "name": "Shubham Garhwal",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20621.png"
+          },
+          {
+            "id": "akash-vashist",
+            "name": "Akash Vashist",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1938.png"
+          },
+          {
+            "id": "abdul-basith",
+            "name": "Abdul Basith",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tanush-kotian",
+            "name": "Tanush Kotian",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3118.png"
+          },
+          {
+            "id": "riyan-parag",
+            "name": "Riyan Parag",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/189.png"
+          },
+          {
+            "id": "sam-curran",
+            "name": "Sam Curran",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/Default-Men.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "dishant-yagnik",
+            "name": "Dishant Yagnik",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kusal-perera",
+            "name": "Kusal Perera",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pinal-shah",
+            "name": "Pinal Shah",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kamran-akmal",
+            "name": "Kamran Akmal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kunal-singh-rathore",
+            "name": "Kunal Singh Rathore",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1540.png"
+          },
+          {
+            "id": "dhruv-jurel",
+            "name": "Dhruv Jurel",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1004.png"
+          },
+          {
+            "id": "lhuan-dre-pretorius",
+            "name": "Lhuan dre Pretorius",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2827.png"
+          }
+        ]
+      }
+    },
+    "Royal Challengers Bengaluru": {
+      "code": "RCB",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "sunil-joshi",
+            "name": "Sunil Joshi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mayank-agarwal",
+            "name": "Mayank Agarwal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/55.png"
+          },
+          {
+            "id": "wasim-jaffer",
+            "name": "Wasim Jaffer",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ab-de-villiers",
+            "name": "AB de Villiers",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/233.png"
+          },
+          {
+            "id": "akshdeep-nath",
+            "name": "Akshdeep Nath",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/3177.png"
+          },
+          {
+            "id": "prayas-ray-barman",
+            "name": "Prayas Ray Barman",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/5439.png"
+          },
+          {
+            "id": "nic-maddinson",
+            "name": "Nic Maddinson",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vijay-zol",
+            "name": "Vijay Zol",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "s-badrinath",
+            "name": "S Badrinath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "luke-pomersbach",
+            "name": "Luke Pomersbach",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tillakaratne-dilshan",
+            "name": "Tillakaratne Dilshan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abhinav-mukund",
+            "name": "Abhinav Mukund",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "asad-pathan",
+            "name": "Asad Pathan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tanmay-mishra",
+            "name": "Tanmay Mishra",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mohammad-kaif",
+            "name": "Mohammad Kaif",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sunny-sohal",
+            "name": "Sunny Sohal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sridharan-sriram",
+            "name": "Sridharan Sriram",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rajesh-bishnoi",
+            "name": "Rajesh Bishnoi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dillon-du-preez",
+            "name": "Dillon du Preez",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "misbah-ul-haq",
+            "name": "Misbah ul Haq",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shivnarine-chanderpaul",
+            "name": "Shivnarine Chanderpaul",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "suyash-prabhudessai",
+            "name": "Suyash Prabhudessai",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/598.png"
+          },
+          {
+            "id": "jagadeesh-arunkumar",
+            "name": "Jagadeesh Arunkumar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "s-thiyagarajan",
+            "name": "S Thiyagarajan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "udit-patel",
+            "name": "Udit Patel",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "shishir-bhavane",
+            "name": "Shishir  Bhavane",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vaibhav-rawal",
+            "name": "Vaibhav Rawal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "jonathan-vandiar",
+            "name": "Jonathan Vandiar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "aneeshwar-gautam",
+            "name": "Aneeshwar Gautam",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20614.png"
+          },
+          {
+            "id": "mohit-rathee",
+            "name": "Mohit Rathee",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "swastik-chhikara",
+            "name": "Swastik Chhikara",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/3102.png"
+          },
+          {
+            "id": "saurav-chauhan",
+            "name": "Saurav Chauhan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3114.png"
+          },
+          {
+            "id": "rajat-patidar",
+            "name": "Rajat Patidar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/597.png"
+          },
+          {
+            "id": "venkatesh-iyer",
+            "name": "Venkatesh Iyer",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/584.png"
+          },
+          {
+            "id": "tim-david",
+            "name": "Tim David",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/636.png"
+          },
+          {
+            "id": "virat-kohli",
+            "name": "Virat Kohli",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/2.png"
+          },
+          {
+            "id": "jacob-bethell",
+            "name": "Jacob Bethell",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/869.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "george-garton",
+            "name": "George Garton",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/2942.png"
+          },
+          {
+            "id": "josh-hazlewood",
+            "name": "Josh Hazlewood",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/36.png"
+          },
+          {
+            "id": "kane-richardson",
+            "name": "Kane Richardson",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/798.png"
+          },
+          {
+            "id": "siddarth-kaul",
+            "name": "Siddarth Kaul",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/64.png"
+          },
+          {
+            "id": "alzarri-joseph",
+            "name": "Alzarri Joseph",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/229.png"
+          },
+          {
+            "id": "isuru-udana",
+            "name": "Isuru Udana",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/690.png"
+          },
+          {
+            "id": "dale-steyn",
+            "name": "Dale Steyn",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/180.png"
+          },
+          {
+            "id": "aniket-choudhary",
+            "name": "Aniket Choudhary",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1111.png"
+          },
+          {
+            "id": "samuel-badree",
+            "name": "Samuel Badree",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sreenath-aravind",
+            "name": "Sreenath Aravind",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ravi-rampaul",
+            "name": "Ravi Rampaul",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abu-nechim",
+            "name": "Abu Nechim",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "vikramjeet-malik",
+            "name": "Vikramjeet Malik",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "muttiah-muralitharan",
+            "name": "Muttiah Muralitharan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "jamaluddin-syed-mohammad",
+            "name": "Jamaluddin Syed Mohammad",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "prasanth-parameswaran",
+            "name": "Prasanth Parameswaran",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kp-appanna",
+            "name": "KP Appanna",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pankaj-singh",
+            "name": "Pankaj Singh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abrar-kazi",
+            "name": "Abrar Kazi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "anil-kumble",
+            "name": "Anil Kumble",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "thilan-thushara",
+            "name": "Thilan Thushara",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "abdur-razzak",
+            "name": "Abdur Razzak",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "chama-milind",
+            "name": "Chama Milind",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/1751.png"
+          },
+          {
+            "id": "vikas-tokas",
+            "name": "Vikas Tokas",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "nathan-bracken",
+            "name": "Nathan Bracken",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "neravanda-aiyappa",
+            "name": "Neravanda Aiyappa",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mayank-dagar",
+            "name": "Mayank Dagar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1547.png"
+          },
+          {
+            "id": "nuwan-pradeep",
+            "name": "Nuwan Pradeep",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rangaraj-suthesh",
+            "name": "Rangaraj Suthesh",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "rasikh-dar-salam",
+            "name": "Rasikh Dar Salam",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/172.png"
+          },
+          {
+            "id": "vicky-ostwal",
+            "name": "Vicky Ostwal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/786.png"
+          },
+          {
+            "id": "rajan-kumar",
+            "name": "Rajan Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1503.png"
+          },
+          {
+            "id": "himanshu-sharma",
+            "name": "Himanshu Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1568.png"
+          },
+          {
+            "id": "avinash-kumar-singh",
+            "name": "Avinash Kumar Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1939.png"
+          },
+          {
+            "id": "bhuvneshwar-kumar",
+            "name": "Bhuvneshwar Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/15.png"
+          },
+          {
+            "id": "yash-dayal",
+            "name": "Yash Dayal",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/978.png"
+          },
+          {
+            "id": "suyash-sharma",
+            "name": "Suyash Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1932.png"
+          },
+          {
+            "id": "nuwan-thushara",
+            "name": "Nuwan Thushara",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/813.png"
+          },
+          {
+            "id": "abhinandan-singh",
+            "name": "Abhinandan Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3574.png"
+          },
+          {
+            "id": "blessing-muzarabani",
+            "name": "Blessing Muzarabani",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/827.png"
+          },
+          {
+            "id": "jacob-duffy",
+            "name": "Jacob Duffy",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1701.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "daniel-christian",
+            "name": "Daniel Christian",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/181.png"
+          },
+          {
+            "id": "kedar-jadhav",
+            "name": "Kedar Jadhav",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/297.png"
+          },
+          {
+            "id": "tom-curran",
+            "name": "Tom Curran",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/309.png"
+          },
+          {
+            "id": "ashley-noffke",
+            "name": "Ashley Noffke",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "colin-de-grandhomme",
+            "name": "Colin de Grandhomme",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/820.png"
+          },
+          {
+            "id": "corey-anderson",
+            "name": "Corey Anderson",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/968.png"
+          },
+          {
+            "id": "scott-kuggeleijn",
+            "name": "Scott Kuggeleijn",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "iqbal-abdullah",
+            "name": "Iqbal Abdullah",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "parvez-rasool",
+            "name": "Parvez Rasool",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "wayne-parnell",
+            "name": "Wayne Parnell",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "andrew-mcdonald",
+            "name": "Andrew McDonald",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "johan-van-der-wath",
+            "name": "Johan van der Wath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ryan-ninan",
+            "name": "Ryan Ninan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "daniel-vettori",
+            "name": "Daniel Vettori",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "raju-bhatkal",
+            "name": "Raju Bhatkal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "pavan-deshpande",
+            "name": "Pavan Deshpande",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/4957.png"
+          },
+          {
+            "id": "gaurav-dhiman",
+            "name": "Gaurav Dhiman",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "saurabh-bandekar",
+            "name": "Saurabh Bandekar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "milind-kumar",
+            "name": "Milind Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "akshay-karnewar",
+            "name": "Akshay Karnewar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bn-bharath",
+            "name": "BN Bharath",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "chris-barnwell",
+            "name": "Chris Barnwell",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sonu-yadav",
+            "name": "Sonu Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1940.png"
+          },
+          {
+            "id": "michael-bracewell",
+            "name": "Michael Bracewell",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1465.png"
+          },
+          {
+            "id": "glenn-maxwell",
+            "name": "Glenn Maxwell",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/28.png"
+          },
+          {
+            "id": "krunal-pandya",
+            "name": "Krunal Pandya",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/17.png"
+          },
+          {
+            "id": "swapnil-singh",
+            "name": "Swapnil Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1483.png"
+          },
+          {
+            "id": "romario-shepherd",
+            "name": "Romario Shepherd",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/371.png"
+          },
+          {
+            "id": "manoj-bhandage",
+            "name": "Manoj Bhandage",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1485.png"
+          },
+          {
+            "id": "mohit-rathee",
+            "name": "Mohit Rathee",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1935.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "brendon-mccullum",
+            "name": "Brendon McCullum",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/202.png"
+          },
+          {
+            "id": "dinesh-karthik",
+            "name": "Dinesh Karthik",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/13.png"
+          },
+          {
+            "id": "josh-philippe",
+            "name": "Josh Philippe",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/4518.png"
+          },
+          {
+            "id": "parthiv-patel",
+            "name": "Parthiv Patel",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/44.png"
+          },
+          {
+            "id": "manvinder-bisla",
+            "name": "Manvinder  Bisla",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "yogesh-takawale",
+            "name": "Yogesh Takawale",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "arun-karthik",
+            "name": "Arun Karthik",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mohammed-azharuddeen",
+            "name": "Mohammed Azharuddeen",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/7743.png"
+          },
+          {
+            "id": "devraj-patil",
+            "name": "Devraj Patil",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "phil-salt",
+            "name": "Phil Salt",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1220.png"
+          },
+          {
+            "id": "jitesh-sharma",
+            "name": "Jitesh Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1000.png"
+          }
+        ]
+      }
+    },
+    "Sunrisers Hyderabad": {
+      "code": "SRH",
+      "categories": {
+        "Batsman": [
+          {
+            "id": "anmolpreet-singh",
+            "name": "Anmolpreet Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/159.png"
+          },
+          {
+            "id": "sachin-baby",
+            "name": "Sachin Baby",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/599.png"
+          },
+          {
+            "id": "virat-singh",
+            "name": "Virat Singh",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/6966.png"
+          },
+          {
+            "id": "cameron-white",
+            "name": "Cameron White",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "martin-guptill",
+            "name": "Martin Guptill",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/431.png"
+          },
+          {
+            "id": "akshath-reddy",
+            "name": "Akshath Reddy",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "dwaraka-ravi-teja",
+            "name": "Dwaraka Ravi Teja",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "venugopal-rao",
+            "name": "Venugopal Rao",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tirumalasetti-suman",
+            "name": "Tirumalasetti Suman",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "manprit-juneja",
+            "name": "Manprit Juneja",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "thalaivan-sargunam",
+            "name": "Thalaivan Sargunam",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "padmanabhan-prasanth",
+            "name": "Padmanabhan Prasanth",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bavanaka-sandeep",
+            "name": "Bavanaka Sandeep",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "tanmay-agarwal",
+            "name": "Tanmay Agarwal",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "ravikumar-samarth",
+            "name": "Ravikumar Samarth",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/20611.png"
+          },
+          {
+            "id": "samarth-vyas",
+            "name": "Samarth Vyas",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1534.png"
+          },
+          {
+            "id": "abhishek-sharma",
+            "name": "Abhishek Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/212.png"
+          },
+          {
+            "id": "travis-head",
+            "name": "Travis Head",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/37.png"
+          },
+          {
+            "id": "abhinav-manohar",
+            "name": "Abhinav Manohar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/974.png"
+          },
+          {
+            "id": "atharva-taide",
+            "name": "Atharva Taide",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1001.png"
+          },
+          {
+            "id": "aniket-verma",
+            "name": "Aniket Verma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3576.png"
+          },
+          {
+            "id": "smaran-r",
+            "name": "Smaran-R",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3752.png"
+          }
+        ],
+        "Bowler": [
+          {
+            "id": "adil-rashid",
+            "name": "Adil Rashid",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/311.png"
+          },
+          {
+            "id": "jagadeesha-suchith",
+            "name": "Jagadeesha Suchith",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/2741.png"
+          },
+          {
+            "id": "shivam-mavi",
+            "name": "Shivam Mavi",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/154.png"
+          },
+          {
+            "id": "billy-stanlake",
+            "name": "Billy Stanlake",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/1521.png"
+          },
+          {
+            "id": "ashish-nehra",
+            "name": "Ashish Nehra",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sean-abbott",
+            "name": "Sean Abbott",
+            "image_url": "https://assets.iplt20.com/ipl/IPLHeadshot2022/942.png"
+          },
+          {
+            "id": "anand-rajan",
+            "name": "Anand Rajan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "clint-mckay",
+            "name": "Clint McKay",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "nathan-mccullum",
+            "name": "Nathan McCullum",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sudeep-tyagi",
+            "name": "Sudeep Tyagi",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "mehdi-hassan",
+            "name": "Mehdi Hassan",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "jhatavedh-subramanyan",
+            "name": "Jhatavedh Subramanyan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/2195.png"
+          },
+          {
+            "id": "sakib-hussain",
+            "name": "Sakib Hussain",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3104.png"
+          },
+          {
+            "id": "vijayakanth-viyaskanth",
+            "name": "Vijayakanth Viyaskanth",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/3153.png"
+          },
+          {
+            "id": "harshal-patel",
+            "name": "Harshal Patel",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/114.png"
+          },
+          {
+            "id": "jaydev-unadkat",
+            "name": "Jaydev Unadkat",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/180.png"
+          },
+          {
+            "id": "pat-cummins",
+            "name": "Pat Cummins",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/33.png"
+          },
+          {
+            "id": "adam-zampa",
+            "name": "Adam Zampa",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/24.png"
+          },
+          {
+            "id": "simarjeet-singh",
+            "name": "Simarjeet Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/622.png"
+          },
+          {
+            "id": "zeeshan-ansari",
+            "name": "Zeeshan Ansari",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3575.png"
+          },
+          {
+            "id": "eshan-malinga",
+            "name": "Eshan Malinga",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/3339.png"
+          },
+          {
+            "id": "shivang-kumar",
+            "name": "Shivang Kumar",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4561.png"
+          },
+          {
+            "id": "praful-hinge",
+            "name": "Praful Hinge",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4558.png"
+          },
+          {
+            "id": "david-payne",
+            "name": "David Payne",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/5007.png"
+          }
+        ],
+        "All Rounder": [
+          {
+            "id": "yusuf-pathan",
+            "name": "Yusuf Pathan",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/96.png"
+          },
+          {
+            "id": "ashish-reddy",
+            "name": "Ashish Reddy",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "bipul-sharma",
+            "name": "Bipul Sharma",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/69.png"
+          },
+          {
+            "id": "ravi-bopara",
+            "name": "Ravi Bopara",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "biplab-samantray",
+            "name": "Biplab Samantray",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "sanvir-singh",
+            "name": "Sanvir Singh",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1943.png"
+          },
+          {
+            "id": "vivrant-sharma",
+            "name": "Vivrant Sharma",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2023/1942.png"
+          },
+          {
+            "id": "liam-livingstone",
+            "name": "Liam Livingstone",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/183.png"
+          },
+          {
+            "id": "nitish-kumar-reddy",
+            "name": "Nitish Kumar Reddy",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1944.png"
+          },
+          {
+            "id": "brydon-carse",
+            "name": "Brydon Carse",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1221.png"
+          },
+          {
+            "id": "kamindu-mendis",
+            "name": "Kamindu Mendis",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/627.png"
+          },
+          {
+            "id": "wiaan-mulder",
+            "name": "Wiaan Mulder",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2025/630.png"
+          },
+          {
+            "id": "harsh-dubey",
+            "name": "Harsh Dubey",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/1494.png"
+          }
+        ],
+        "Wicket Keeper": [
+          {
+            "id": "shreevats-goswami",
+            "name": "Shreevats Goswami",
+            "image_url": "https://documents.iplt20.com/playerheadshot/ipl/100x115/95.png"
+          },
+          {
+            "id": "srikkanth-anirudha",
+            "name": "Srikkanth Anirudha",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "kumar-sangakkara",
+            "name": "Kumar Sangakkara",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "amit-paunikar",
+            "name": "Amit Paunikar",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "brendan-taylor",
+            "name": "Brendan Taylor",
+            "image_url": "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+          },
+          {
+            "id": "upendra-yadav",
+            "name": "Upendra Yadav",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2024/1472.png"
+          },
+          {
+            "id": "ishan-kishan",
+            "name": "Ishan Kishan",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/164.png"
+          },
+          {
+            "id": "heinrich-klaasen",
+            "name": "Heinrich Klaasen",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/202.png"
+          },
+          {
+            "id": "salil-arora",
+            "name": "Salil Arora",
+            "image_url": "https://documents.iplt20.com/ipl/IPLHeadshot2026/4556.png"
+          }
+        ]
+      }
+    }
+  }
+}
