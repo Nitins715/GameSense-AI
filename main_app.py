@@ -487,4 +487,8 @@ def get_api_over_momentum():
     return jsonify(stats)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5005)
+    # Render binds services to the PORT environment variable
+    port = int(os.environ.get("PORT", 5005))
+    # Run in production-friendly mode if deployed, else local debug
+    is_prod = "PORT" in os.environ
+    app.run(host="0.0.0.0", port=port, debug=not is_prod)
