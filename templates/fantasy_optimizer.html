@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricSense | AI Fantasy Optimizer & Squad Builder</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        /* Custom localized style overrides for Fantasy Optimizer */
+        .fantasy-accent-text {
+            background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .role-section-title {
+            color: var(--text-muted);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 15px 0 10px 0;
+            text-align: center;
+            width: 100%;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            padding-bottom: 5px;
+        }
+
+        .fantasy-field-pitch {
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(6, 78, 59, 0.35) 70%, rgba(7, 9, 19, 0.6) 100%),
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 30px, rgba(0, 0, 0, 0.08) 30px, rgba(0, 0, 0, 0.08) 60px);
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            border-radius: 24px;
+            padding: 25px;
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.15), inset 0 0 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .fantasy-field-pitch::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            right: 10%;
+            bottom: 10%;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .player-row-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            z-index: 2;
+        }
+
+        .fantasy-player-card {
+            background: rgba(19, 25, 48, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            width: 155px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .fantasy-player-card:hover {
+            transform: translateY(-4px);
+            border-color: #a855f7;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.35);
+        }
+
+        .fantasy-player-card.is-captain {
+            border: 1.5px solid #f59e0b;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+        }
+
+        .fantasy-player-card.is-vice-captain {
+            border: 1.5px solid #3b82f6;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+        }
+
+        .captain-tag {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #000;
+            font-size: 10px;
+            font-weight: 900;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 8px #f59e0b;
+            z-index: 10;
+        }
+
+        .vice-captain-tag {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: #fff;
+            font-size: 9px;
+            font-weight: 900;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 8px #3b82f6;
+            z-index: 10;
+        }
+
+        .player-avatar-box {
+            position: relative;
+            width: 54px;
+            height: 54px;
+            margin-bottom: 6px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .player-avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .player-team-mini {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(7, 9, 19, 0.9);
+            color: var(--text-main);
+            font-size: 8px;
+            font-weight: 800;
+            padding: 1px 5px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.5px;
+        }
+
+        .player-info-name {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            margin-bottom: 3px;
+        }
+
+        .player-points-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 4px;
+            padding-top: 4px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .points-badge {
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            color: #c084fc;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 1px 5px;
+            border-radius: 4px;
+        }
+
+        .credits-val {
+            font-size: 10px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .tactical-tag-tooltip {
+            margin-top: 6px;
+            font-size: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            padding: 2px 4px;
+            color: var(--text-muted);
+            max-height: 24px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .tag-bonus {
+            color: #4ade80;
+            background: rgba(34, 197, 94, 0.08);
+            border-color: rgba(34, 197, 94, 0.15);
+        }
+
+        .tag-penalty {
+            color: #f87171;
+            background: rgba(239, 68, 68, 0.08);
+            border-color: rgba(239, 68, 68, 0.15);
+        }
+
+        /* Bench alternate card styling */
+        .bench-card {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .bench-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(168, 85, 247, 0.2);
+            transform: translateX(4px);
+        }
+
+        .bench-avatar {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-right: 12px;
+            overflow: hidden;
+        }
+
+        .bench-details {
+            flex-grow: 1;
+        }
+
+        .bench-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .bench-sub {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .bench-stat {
+            text-align: right;
+        }
+
+        /* Nav links coloring override */
+        .glass-nav .nav-links .fantasy-link-nav.active {
+            color: #c084fc;
+            text-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+        }
+
+        .fantasy-btn-gradient {
+            background: linear-gradient(135deg, #a855f7, #6b21a8);
+            color: #fff;
+            border: none;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+        }
+
+        .fantasy-btn-gradient:hover {
+            background: linear-gradient(135deg, #c084fc, #7e22ce);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Impact selector panel layout */
+        .impact-results-box {
+            display: flex;
+            align-items: center;
+            background: rgba(168, 85, 247, 0.05);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+            border-left: 4px solid #a855f7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .impact-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid #a855f7;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+            margin-right: 20px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .impact-text-area {
+            flex-grow: 1;
+        }
+
+        .impact-rec-title {
+            color: #c084fc;
+            font-size: 15px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .impact-desc-p {
+            font-size: 12.5px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stadium-overlay"></div>
+
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <nav class="glass-nav glass-card" style="margin-bottom: 30px;">
+            <div class="nav-brand">
+                <span class="logo-badge"
+                    style="background: linear-gradient(135deg, #a855f7, #7e22ce); color: #fff; font-weight: 800;">FANTASY
+                    ARCHITECT</span>
+                <span class="nav-title">CRICSENSE <span class="accent-text"
+                        style="background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OPTIMIZER</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home Dashboard</a>
+                <a href="/simulator" class="nav-link simulate-link-nav">⚡ GameSense AI Simulator</a>
+                <a href="/ground-analysis" class="nav-link ground-link-nav">🏟️ Ground Analysis</a>
+                <a href="/fantasy-optimizer" class="nav-link fantasy-link-nav active">🔮 AI Fantasy Optimizer</a>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-badge"
+                    style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25);">MATCHUP-AWARE
+                    KNAPSACK</span>
+                <h1 class="logo-text" style="text-shadow: 0 0 20px rgba(168, 85, 247, 0.2);">CRICSENSE <span
+                        class="fantasy-accent-text">OPTIMIZER</span></h1>
+            </div>
+            <p class="tagline">Statistically optimal 11-player Dream Squad generator within 100 credits</p>
+        </header>
+
+        <!-- Configuration Banner -->
+        <section class="ground-selector-banner glass-card"
+            style="border-color: rgba(168, 85, 247, 0.15); box-shadow: 0 0 25px rgba(168, 85, 247, 0.08);">
+            <div class="selector-content"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; align-items: end;">
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="color: #c084fc;">🏏 TEAM A (FRANCHISE 1)</label>
+                    <div class="custom-select-wrapper">
+                        <select id="team-a-select" class="stadium-dropdown"
+                            style="border-color: rgba(168, 85, 247, 0.25);">
+                            {% for t in teams %}
+                            <option value="{{ t.code }}" {% if t.code=='RCB' %}selected{% endif %}>{{ t.name }} ({{
+                                t.code }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="color: #c084fc;">🛡️ TEAM B (FRANCHISE 2)</label>
+                    <div class="custom-select-wrapper">
+                        <select id="team-b-select" class="stadium-dropdown"
+                            style="border-color: rgba(168, 85, 247, 0.25);">
+                            {% for t in teams %}
+                            <option value="{{ t.code }}" {% if t.code=='GT' %}selected{% endif %}>{{ t.name }} ({{
+                                t.code }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="color: #c084fc;">🏟️ MATCH VENUE (PITCH PROFILE)</label>
+                    <div class="custom-select-wrapper">
+                        <select id="venue-select" class="stadium-dropdown"
+                            style="border-color: rgba(168, 85, 247, 0.25);">
+                            {% for venue in venues %}
+                            <option value="{{ venue }}" {% if venue=='Wankhede Stadium, Mumbai' %}selected{% endif %}>{{
+                                venue }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col" style="text-align: center;">
+                    <button id="generate-squad-btn" class="promo-cta-btn fantasy-btn-gradient"
+                        style="width: 100%; height: 50px; font-weight: 700;">🔮 BUILD DREAM SQUAD</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="hidden">
+            <div class="spinner-container">
+                <div class="loading-double-bounce">
+                    <div class="bounce1" style="background-color: #a855f7;"></div>
+                    <div class="bounce2" style="background-color: #a855f7;"></div>
+                </div>
+                <p class="loading-label" style="color: #c084fc;">Running dynamic point projections & combinatorial
+                    Knapsack optimization...</p>
+            </div>
+        </div>
+
+        <!-- Main Results Grid (Hidden initially) -->
+        <main id="optimizer-dashboard" class="dashboard-core-grid hidden" style="margin-top: 30px;">
+
+            <!-- Left Column: Dream XI Visual Pitch Field -->
+            <div class="dashboard-left-col" style="display: flex; flex-direction: column; gap: 20px;">
+
+                <section class="glass-card" style="padding: 20px; border-color: rgba(168, 85, 247, 0.15);">
+                    <div class="section-header-row"
+                        style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 15px;">
+                        <span class="logo-badge"
+                            style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 800;">OPTIMAL
+                            11</span>
+                        <h3 class="card-subtitle" style="margin: 0;"><span class="fantasy-accent-text">Best Squad</span>
+                            - Pitch Visualization</h3>
+                    </div>
+
+                    <!-- Grass Pitch Representation -->
+                    <div class="fantasy-field-pitch" id="squad-pitch">
+
+                        <!-- Role WK Rows -->
+                        <div class="role-section-title">Wicket Keepers</div>
+                        <div class="player-row-container" id="row-wk"></div>
+
+                        <!-- Role BAT Rows -->
+                        <div class="role-section-title">Batsmen</div>
+                        <div class="player-row-container" id="row-bat"></div>
+
+                        <!-- Role AR Rows -->
+                        <div class="role-section-title">All Rounders</div>
+                        <div class="player-row-container" id="row-ar"></div>
+
+                        <!-- Role BOWL Rows -->
+                        <div class="role-section-title">Bowlers</div>
+                        <div class="player-row-container" id="row-bowl"></div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column: Summary stats, Matchup reasons, Bench, and Impact selector -->
+            <div class="caps-sidebar"
+                style="width: 100%; max-width: 100%; display: flex; flex-direction: column; gap: 25px;">
+
+                <!-- Squad Summary Metrics -->
+                <section class="glass-card" style="padding: 25px; border-color: rgba(168, 85, 247, 0.15);">
+                    <h3 class="card-subtitle" style="margin-bottom: 20px;"><span class="fantasy-accent-text">Squad
+                            Overview</span> - Statistical Index</h3>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; text-align: center;">
+                        <div
+                            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 12px;">
+                            <span
+                                style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 5px;">Projected
+                                Points</span>
+                            <span id="proj-points-lbl" class="fantasy-accent-text"
+                                style="font-family: var(--font-outfit); font-size: 26px; font-weight: 800;">724.8</span>
+                        </div>
+                        <div
+                            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 12px;">
+                            <span
+                                style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 5px;">Credits
+                                Used</span>
+                            <span id="credits-used-lbl"
+                                style="font-family: var(--font-outfit); font-size: 26px; font-weight: 800; color: #10b981;">98.5</span>
+                            <span style="font-size: 9px; color: var(--text-muted); display: block;">/ 100.0 Max</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;">
+                        <span class="card-sub-lbl" style="margin-bottom: 8px;">Franchise Density (Max 7)</span>
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <span id="team-a-code-lbl" class="font-bold" style="font-size: 12.5px;">RCB</span>
+                            <span id="team-a-density-lbl" class="font-bold" style="font-size: 12.5px; color: #a855f7;">6
+                                players</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span id="team-b-code-lbl" class="font-bold" style="font-size: 12.5px;">GT</span>
+                            <span id="team-b-density-lbl" class="font-bold" style="font-size: 12.5px; color: #a855f7;">5
+                                players</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- High-projected Bench Alternatives -->
+                <section class="glass-card" style="padding: 25px; border-color: rgba(168, 85, 247, 0.15);">
+                    <h3 class="card-subtitle" style="margin-bottom: 15px;"><span class="fantasy-accent-text">Tactical
+                            Bench</span> - Budget Alternatives</h3>
+                    <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.4;">
+                        Alternate top-tier players that fit the credit structure in case of late team line-up
+                        alterations.</p>
+                    <div id="bench-list"></div>
+                </section>
+
+                <!-- Matchup Strategic Insights -->
+                <section class="glass-card" style="padding: 25px; border-color: rgba(168, 85, 247, 0.15);">
+                    <h3 class="card-subtitle" style="margin-bottom: 15px;"><span class="fantasy-accent-text">Strategic
+                            Insights</span> - Selection Logic</h3>
+                    <div id="strategic-tags-container" style="display: flex; flex-direction: column; gap: 8px;"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Tactical Innings-Break Impact Player Selector (Standalone card) -->
+        <section id="impact-player-section" class="glass-card hidden"
+            style="margin-top: 30px; border-color: rgba(168, 85, 247, 0.15);">
+            <div class="section-header-row"
+                style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 20px;">
+                <span class="logo-badge"
+                    style="background: linear-gradient(135deg, #a855f7, #6b21a8); color: #fff; font-weight: 800;">TACTICAL
+                    SUB</span>
+                <h3 class="card-subtitle" style="margin: 0;"><span class="fantasy-accent-text">Impact Player
+                        Selector</span> - Innings Break Strategist</h3>
+            </div>
+
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">At the
+                innings break, the team captain can substitute a player to balance matchups. Input the exact match state
+                below to receive the AI's optimized tactical advisor suggestion.</p>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: end;">
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px;">🏏 BATTING TEAM</label>
+                    <div class="custom-select-wrapper">
+                        <select id="impact-batting-select" class="stadium-dropdown"></select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px;">🥎 BOWLING TEAM</label>
+                    <div class="custom-select-wrapper">
+                        <select id="impact-bowling-select" class="stadium-dropdown"></select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px;">💥 RUNS SCORED</label>
+                    <input type="number" id="impact-runs-input" class="stadium-dropdown" value="135" min="0" max="300"
+                        style="padding-left: 12px; background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgba(255,255,255,0.08); height: 40px; border-radius: 8px;">
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px;"> विकेट WICKETS LOST</label>
+                    <div class="custom-select-wrapper">
+                        <select id="impact-wickets-select" class="stadium-dropdown">
+                            <option value="0">0 wickets lost</option>
+                            <option value="1">1 wicket lost</option>
+                            <option value="2">2 wickets lost</option>
+                            <option value="3">3 wickets lost</option>
+                            <option value="4">4 wickets lost</option>
+                            <option value="5">5 wickets lost</option>
+                            <option value="6">6 wickets lost</option>
+                            <option value="7">7 wickets lost</option>
+                            <option value="8" selected>8 wickets lost (Collapse)</option>
+                            <option value="9">9 wickets lost</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px;">📅 INNINGS BREAK</label>
+                    <div class="custom-select-wrapper">
+                        <select id="impact-innings-select" class="stadium-dropdown">
+                            <option value="1" selected>1st Innings Completed</option>
+                            <option value="2">2nd Innings Run Chase</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px;">🧙‍♂️ OPPONENT SPIN OPTIONS LEFT</label>
+                    <div class="custom-select-wrapper">
+                        <select id="impact-spin-select" class="stadium-dropdown">
+                            <option value="0" selected>0 spinners remaining</option>
+                            <option value="1">1 spinner remaining</option>
+                            <option value="2">2 spinners remaining</option>
+                            <option value="3">3 spinners remaining</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <button id="advise-impact-btn" class="promo-cta-btn fantasy-btn-gradient"
+                        style="width: 100%; height: 40px; font-size: 12px;">🧠 ADVISE SUBSTITUTION</button>
+                </div>
+            </div>
+
+            <!-- Impact Player Suggestion Result -->
+            <div id="impact-recommendation-result" class="hidden">
+                <div class="impact-results-box">
+                    <div class="impact-avatar">
+                        <img id="impact-player-img" src="https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
+                            class="player-avatar-img" alt="Impact Player">
+                    </div>
+                    <div class="impact-text-area">
+                        <span class="logo-badge"
+                            style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.2); font-size: 9px; padding: 2px 6px;"
+                            id="impact-badge-action">DEFENSIVE BOOST</span>
+                        <h4 class="impact-rec-title" id="impact-rec-name">SUBSTITUTE SPECIALIST FINISHER</h4>
+                        <p class="impact-desc-p" id="impact-rec-desc">Recommends substituting George Garton. Defending
+                            135 requires maximum wickets.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Frontend logic handler -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const generateSquadBtn = document.getElementById("generate-squad-btn");
+            const teamASelect = document.getElementById("team-a-select");
+            const teamBSelect = document.getElementById("team-b-select");
+            const venueSelect = document.getElementById("venue-select");
+
+            const loadingSpinner = document.getElementById("loading-spinner");
+            const optimizerDashboard = document.getElementById("optimizer-dashboard");
+            const impactPlayerSection = document.getElementById("impact-player-section");
+
+            // Impact form fields
+            const adviseImpactBtn = document.getElementById("advise-impact-btn");
+            const impactBattingSelect = document.getElementById("impact-batting-select");
+            const impactBowlingSelect = document.getElementById("impact-bowling-select");
+            const impactRunsInput = document.getElementById("impact-runs-input");
+            const impactWicketsSelect = document.getElementById("impact-wickets-select");
+            const impactInningsSelect = document.getElementById("impact-innings-select");
+            const impactSpinSelect = document.getElementById("impact-spin-select");
+            const impactResultDiv = document.getElementById("impact-recommendation-result");
+
+            generateSquadBtn.addEventListener("click", buildDreamSquad);
+            adviseImpactBtn.addEventListener("click", adviseImpactPlayer);
+
+            function buildDreamSquad() {
+                const teamA = teamASelect.value;
+                const teamB = teamBSelect.value;
+                const venue = venueSelect.value;
+
+                if (teamA === teamB) {
+                    alert("Please select two different teams for a valid fixture!");
+                    return;
+                }
+
+                // Show spinner, hide dashboard & impact
+                loadingSpinner.classList.remove("hidden");
+                optimizerDashboard.classList.add("hidden");
+                impactPlayerSection.classList.add("hidden");
+
+                const url = `/api/fantasy-squad?team_a=${teamA}&team_b=${teamB}&venue=${encodeURIComponent(venue)}`;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (!data.status) {
+                            alert("Optimization failed: " + data.error);
+                            loadingSpinner.classList.add("hidden");
+                            return;
+                        }
+
+                        renderOptimizerUI(data, teamA, teamB);
+                        populateImpactTeams(teamA, teamB);
+
+                        loadingSpinner.classList.add("hidden");
+                        optimizerDashboard.classList.remove("hidden");
+                        impactPlayerSection.classList.remove("hidden");
+                    })
+                    .catch(err => {
+                        console.error("[Error] Failed to fetch optimized squad:", err);
+                        alert("An error occurred during fantasy optimization. Please try again.");
+                        loadingSpinner.classList.add("hidden");
+                    });
+            }
+
+            function renderOptimizerUI(data, teamA, teamB) {
+                const squad = data.squad;
+                const bench = data.bench;
+                const summary = data.summary;
+
+                // Clear previous pitch players
+                document.getElementById("row-wk").innerHTML = "";
+                document.getElementById("row-bat").innerHTML = "";
+                document.getElementById("row-ar").innerHTML = "";
+                document.getElementById("row-bowl").innerHTML = "";
+
+                // Summary labels
+                document.getElementById("proj-points-lbl").textContent = summary.total_points;
+                document.getElementById("credits-used-lbl").textContent = summary.credits_used.toFixed(1);
+
+                document.getElementById("team-a-code-lbl").textContent = teamA;
+                document.getElementById("team-a-density-lbl").textContent = `${summary.team_a_count} players`;
+                document.getElementById("team-b-code-lbl").textContent = teamB;
+                document.getElementById("team-b-density-lbl").textContent = `${summary.team_b_count} players`;
+
+                // Tactical tag lists
+                const strategicContainer = document.getElementById("strategic-tags-container");
+                strategicContainer.innerHTML = "";
+                let uniqueInsights = [];
+
+                // Render pitch players by role
+                squad.forEach(p => {
+                    const rowId = `row-${p.role.toLowerCase()}`;
+                    const row = document.getElementById(rowId);
+
+                    const card = document.createElement("div");
+                    card.className = "fantasy-player-card";
+                    if (p.captain) card.classList.add("is-captain");
+                    if (p.vice_captain) card.classList.add("is-vice-captain");
+
+                    let roleBadge = "";
+                    if (p.captain) roleBadge = `<div class="captain-tag">C</div>`;
+                    else if (p.vice_captain) roleBadge = `<div class="vice-captain-tag">VC</div>`;
+
+                    // Select a tactical tag to display under the player
+                    let tagHtml = "";
+                    if (p.matchup_tags && p.matchup_tags.length > 0) {
+                        const topTag = p.matchup_tags[0];
+                        const c = topTag.type === "bonus" ? "tag-bonus" : "tag-penalty";
+                        tagHtml = `<div class="tactical-tag-tooltip ${c}">${topTag.reason}</div>`;
+
+                        // Collect global strategic insight
+                        if (!uniqueInsights.includes(topTag.reason)) {
+                            uniqueInsights.push({ text: topTag.reason, type: topTag.type });
+                        }
+                    } else {
+                        tagHtml = `<div class="tactical-tag-tooltip">Standard core metrics</div>`;
+                    }
+
+                    card.innerHTML = `
+                        ${roleBadge}
+                        <div class="player-avatar-box">
+                            <img src="${p.image_url}" class="player-avatar-img" alt="${p.name}" onerror="this.src='https://documents.iplt20.com/ipl/assets/images/Default-Men.png'">
+                            <span class="player-team-mini">${p.team_code}</span>
+                        </div>
+                        <div class="player-info-name">${p.name}</div>
+                        <div class="player-points-row">
+                            <span class="points-badge">${p.projected_points} Pts</span>
+                            <span class="credits-val">${p.credits} Cr</span>
+                        </div>
+                        ${tagHtml}
+                    `;
+                    row.appendChild(card);
+                });
+
+                // Fill global insights
+                if (uniqueInsights.length === 0) {
+                    strategicContainer.innerHTML = `<div style="font-size: 12px; color: var(--text-muted); text-align: center; padding: 15px;">Ideal physical characteristics are standard across both rosters.</div>`;
+                } else {
+                    uniqueInsights.slice(0, 4).forEach(ins => {
+                        const badgeClass = ins.type === "bonus" ? "badge-today" : "live-today";
+                        const indicatorDot = ins.type === "bonus" ? `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background-color:#22c55e; margin-right:8px;"></span>` : `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background-color:#ef4444; margin-right:8px;"></span>`;
+                        const card = document.createElement("div");
+                        card.style.display = "flex";
+                        card.style.alignItems = "center";
+                        card.style.background = "rgba(255,255,255,0.01)";
+                        card.style.border = "1px solid rgba(255,255,255,0.03)";
+                        card.style.borderRadius = "8px";
+                        card.style.padding = "8px 12px";
+                        card.style.fontSize = "12px";
+                        card.innerHTML = `${indicatorDot} <span>${ins.text}</span>`;
+                        strategicContainer.appendChild(card);
+                    });
+                }
+
+                // Render bench alternatives
+                const benchList = document.getElementById("bench-list");
+                benchList.innerHTML = "";
+
+                bench.forEach(p => {
+                    const bCard = document.createElement("div");
+                    bCard.className = "bench-card";
+                    bCard.innerHTML = `
+                        <div class="bench-avatar">
+                            <img src="${p.image_url}" class="player-avatar-img" alt="${p.name}" onerror="this.src='https://documents.iplt20.com/ipl/assets/images/Default-Men.png'">
+                        </div>
+                        <div class="bench-details">
+                            <div class="bench-name">${p.name}</div>
+                            <div class="bench-sub">${p.team_code} | ${p.category}</div>
+                        </div>
+                        <div class="bench-stat">
+                            <div class="points-badge" style="display:inline-block;">${p.projected_points} Pts</div>
+                            <div class="credits-val" style="margin-top:4px;">${p.credits} Cr</div>
+                        </div>
+                    `;
+                    benchList.appendChild(bCard);
+                });
+            }
+
+            function populateImpactTeams(teamA, teamB) {
+                impactBattingSelect.innerHTML = `
+                    <option value="${teamA}">${teamA} (Batting First)</option>
+                    <option value="${teamB}">${teamB} (Batting First)</option>
+                `;
+                impactBowlingSelect.innerHTML = `
+                    <option value="${teamB}">${teamB} (Bowling First)</option>
+                    <option value="${teamA}">${teamA} (Bowling First)</option>
+                `;
+
+                // Synchronize selectors when batting changes
+                impactBattingSelect.addEventListener("change", () => {
+                    const bat = impactBattingSelect.value;
+                    const bowl = bat === teamA ? teamB : teamA;
+                    impactBowlingSelect.value = bowl;
+                });
+            }
+
+            function adviseImpactPlayer() {
+                const teamBat = impactBattingSelect.value;
+                const teamBowl = impactBowlingSelect.value;
+                const runs = impactRunsInput.value;
+                const wickets = impactWicketsSelect.value;
+                const innings = impactInningsSelect.value;
+                const spin = impactSpinSelect.value;
+
+                if (!teamBat || !teamBowl) return;
+
+                const url = `/api/impact-player?team_batting=${teamBat}&team_bowling=${teamBowl}&score=${runs}&wickets=${wickets}&innings=${innings}&opponent_spin=${spin}`;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (!data.status) {
+                            alert("Impact Advisor failed: " + data.error);
+                            return;
+                        }
+
+                        // Display impact selection details
+                        const badgeAction = document.getElementById("impact-badge-action");
+                        const recName = document.getElementById("impact-rec-name");
+                        const recDesc = document.getElementById("impact-rec-desc");
+                        const playerImg = document.getElementById("impact-player-img");
+
+                        badgeAction.textContent = data.action;
+
+                        if (data.player) {
+                            recName.textContent = `${data.recommendation} | ${data.player.name} (${data.player.category})`;
+                            playerImg.src = data.player.image_url;
+                            playerImg.onerror = () => {
+                                playerImg.src = "https://documents.iplt20.com/ipl/assets/images/Default-Men.png";
+                            };
+                        } else {
+                            recName.textContent = data.recommendation;
+                            playerImg.src = "https://documents.iplt20.com/ipl/assets/images/Default-Men.png";
+                        }
+
+                        recDesc.textContent = data.tactical_description;
+
+                        impactResultDiv.classList.remove("hidden");
+                    })
+                    .catch(err => {
+                        console.error("[Error] Failed to fetch impact advice:", err);
+                        alert("An error occurred while advising the Impact Player strategy. Please try again.");
+                    });
+            }
+        });
+    </script>
+</body>
+
+</html>

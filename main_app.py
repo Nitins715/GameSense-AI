@@ -7,6 +7,7 @@ import urllib.parse
 from datetime import datetime, timezone
 from modules.matchup_simulator.data_engine import IPLDataEngine
 from modules.ground_analysis.ground_engine import IPLVenueEngine
+from modules.fantasy_optimizer.fantasy_engine import IPLFantasyEngine
 
 app = Flask(__name__)
 
@@ -158,6 +159,7 @@ def resolve_player_bio(player_id, player_name, team_code):
 init_app_databases()
 data_engine = IPLDataEngine()
 venue_engine = IPLVenueEngine()
+fantasy_engine = IPLFantasyEngine(data_engine=data_engine, venue_engine=venue_engine)
 
 @app.route('/')
 def home():
@@ -354,6 +356,63 @@ def get_api_venue_stats():
         return jsonify({"status": False, "error": "Venue name parameter is required."}), 400
     stats = venue_engine.get_venue_stats(venue_name)
     return jsonify(stats)
+
+@app.route('/fantasy-optimizer')
+def fantasy_optimizer():
+    """Renders the AI Fantasy Optimizer (Squad Builder) page."""
+    teams = [
+        {"name": "Royal Challengers Bengaluru", "code": "RCB"},
+        {"name": "Gujarat Titans", "code": "GT"},
+        {"name": "Sunrisers Hyderabad", "code": "SRH"},
+        {"name": "Rajasthan Royals", "code": "RR"},
+        {"name": "Punjab Kings", "code": "PBKS"},
+        {"name": "Delhi Capitals", "code": "DC"},
+        {"name": "Kolkata Knight Riders", "code": "KKR"},
+        {"name": "Chennai Super Kings", "code": "CSK"},
+        {"name": "Mumbai Indians", "code": "MI"},
+        {"name": "Lucknow Super Giants", "code": "LSG"}
+    ]
+    venues = venue_engine.get_all_venues()
+    return render_template('fantasy_optimizer.html', teams=teams, venues=venues)
+
+@app.route('/api/fantasy-squad')
+def get_api_fantasy_squad():
+    """Exposes REST API endpoint to generate statistically optimal 11-player fantasy squad."""
+    team_a = request.args.get('team_a')
+    team_b = request.args.get('team_b')
+    venue = request.args.get('venue', 'Wankhede Stadium, Mumbai')
+    
+    if not team_a or not team_b:
+        return jsonify({"status": False, "error": "Both team_a and team_b parameters are required."}), 400
+        
+    if team_a == team_b:
+        return jsonify({"status": False, "error": "Please select two different teams."}), 400
+        
+    squad_data = fantasy_engine.optimize_squad(team_a, team_b, venue)
+    return jsonify(squad_data)
+
+@app.route('/api/impact-player')
+def get_api_impact_player():
+    """Exposes REST API endpoint for tactical innings break Impact Player suggestions."""
+    team_bat = request.args.get('team_batting')
+    team_bowl = request.args.get('team_bowling')
+    wickets = int(request.args.get('wickets', 0))
+    score = int(request.args.get('score', 0))
+    innings = int(request.args.get('innings', 1))
+    opponent_spin = int(request.args.get('opponent_spin', 0))
+    
+    if not team_bat or not team_bowl:
+        return jsonify({"status": False, "error": "Both team_batting and team_bowling parameters are required."}), 400
+        
+    suggestion = fantasy_engine.suggest_impact_player(
+        team_batting_code=team_bat,
+        team_bowling_code=team_bowl,
+        wickets=wickets,
+        score=score,
+        innings_num=innings,
+        opponent_spin_count=opponent_spin
+    )
+    return jsonify(suggestion)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5005)
