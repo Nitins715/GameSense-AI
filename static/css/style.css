@@ -6,26 +6,30 @@
 /* Core Custom Properties & Design Tokens */
 :root {
     --bg-base: #070913;
-    --bg-surface: rgba(19, 25, 48, 0.72);
+    --bg-surface: rgba(19, 25, 48, 0.90);
     --bg-surface-hover: rgba(26, 34, 64, 0.85);
     --border-glass: rgba(29, 78, 216, 0.18);
     --border-glass-focus: rgba(249, 115, 22, 0.5);
-    
-    --primary: #f97316; /* Electric Orange */
+
+    --primary: #f97316;
+    /* Electric Orange */
     --primary-glow: rgba(249, 115, 22, 0.35);
-    --secondary: #3b82f6; /* Electric Blue */
+    --secondary: #3b82f6;
+    /* Electric Blue */
     --secondary-glow: rgba(59, 130, 246, 0.3);
-    
-    --text-main: #f3f4f6; /* Warm White */
-    --text-muted: #9ca3af; /* Cool Gray */
+
+    --text-main: #f3f4f6;
+    /* Warm White */
+    --text-muted: #9ca3af;
+    /* Cool Gray */
     --text-dark: #111827;
-    
+
     --danger: #ef4444;
     --success: #22c55e;
-    
+
     --font-outfit: 'Outfit', sans-serif;
     --font-inter: 'Inter', sans-serif;
-    
+
     --shadow-neon: 0 0 20px rgba(59, 130, 246, 0.15);
     --shadow-accent: 0 0 25px rgba(249, 115, 22, 0.25);
     --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -54,7 +58,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
         radial-gradient(circle at 85% 15%, rgba(249, 115, 22, 0.1) 0%, transparent 60%),
         linear-gradient(rgba(7, 9, 19, 0.8), rgba(7, 9, 19, 0.95)),
@@ -108,6 +112,7 @@ body {
 .accent-text {
     background: linear-gradient(135deg, var(--primary) 30%, #ffedd5 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -354,9 +359,20 @@ body {
 }
 
 @keyframes vsPulse {
-    0% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.2); opacity: 0.1; }
-    100% { transform: scale(1); opacity: 0.5; }
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
 }
 
 /* Simulate Button CTA */
@@ -415,8 +431,13 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* Simulator Output Dashboard Grid */
@@ -598,12 +619,15 @@ body {
 
 .gauge-fill {
     fill: none;
-    stroke: url(#gauge-gradient); /* Will use orange/blue indicator */
+    stroke: url(#gauge-gradient);
+    /* Will use orange/blue indicator */
     stroke: var(--primary);
     stroke-width: 8;
     stroke-linecap: round;
-    stroke-dasharray: 126; /* Arc circumference */
-    stroke-dashoffset: 63; /* Dynamic based on percentage */
+    stroke-dasharray: 126;
+    /* Arc circumference */
+    stroke-dashoffset: 63;
+    /* Dynamic based on percentage */
     transition: stroke-dashoffset 1s ease-in-out;
 }
 
@@ -788,7 +812,8 @@ body {
     height: 100%;
     background: linear-gradient(90deg, var(--primary), #ea580c);
     border-radius: 4px;
-    width: 0%; /* Dynamic animation in JS */
+    width: 0%;
+    /* Dynamic animation in JS */
     transition: width 1s ease-out;
 }
 
@@ -886,29 +911,30 @@ body {
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
-    
-    .player-card, .battleground-card {
+
+    .player-card,
+    .battleground-card {
         grid-column: auto;
     }
-    
+
     .border-left-desk {
         border-left: none;
         padding-left: 0;
     }
-    
+
     .archetype-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .text-right-desktop {
         text-align: left;
     }
-    
+
     .player-header {
         flex-direction: row;
     }
-    
+
     .bowler-theme .player-header {
         flex-direction: row-reverse;
         justify-content: flex-end;
@@ -919,15 +945,15 @@ body {
     .selectors-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .vs-badge-container {
         margin: 10px 0;
     }
-    
+
     .logo-text {
         font-size: 32px;
     }
-    
+
     .archetype-metrics {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -979,7 +1005,8 @@ body {
     transition: var(--transition-smooth);
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover,
+.nav-link.active {
     color: var(--text-main);
 }
 
@@ -991,7 +1018,8 @@ body {
     color: var(--primary) !important;
 }
 
-.simulate-link-nav:hover, .simulate-link-nav.active {
+.simulate-link-nav:hover,
+.simulate-link-nav.active {
     background: var(--primary);
     color: var(--text-main) !important;
     box-shadow: 0 0 10px var(--primary-glow);
@@ -1078,7 +1106,8 @@ body {
     margin-top: 15px;
 }
 
-.standings-table th, .standings-table td {
+.standings-table th,
+.standings-table td {
     padding: 14px 12px;
     font-size: 14px;
 }
@@ -1181,7 +1210,8 @@ body {
 }
 
 .purple-bg {
-    background-color: #7c3aed; /* Velvet Purple */
+    background-color: #7c3aed;
+    /* Velvet Purple */
     color: var(--text-main);
     box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
 }
@@ -1275,11 +1305,11 @@ body {
         align-items: flex-start;
         gap: 20px;
     }
-    
+
     .promo-text-side {
         max-width: 100%;
     }
-    
+
     .promo-cta-btn {
         width: 100%;
         text-align: center;
@@ -1380,9 +1410,11 @@ body {
     0% {
         box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5);
     }
+
     70% {
         box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
     }
+
     100% {
         box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
     }
@@ -1763,15 +1795,15 @@ body {
         align-items: stretch;
         gap: 20px;
     }
-    
+
     .selector-text-side {
         max-width: 100%;
     }
-    
+
     .selector-action-side {
         min-width: 100%;
     }
-    
+
     .venue-summary-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1782,15 +1814,163 @@ body {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .dew-gauge-box {
         border-right: none;
         padding-right: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         padding-bottom: 25px;
     }
-    
+
     .venue-summary-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* --- Global Mobile Phone Optimizations (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    body,
+    html {
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .app-container {
+        padding: 15px 10px;
+    }
+
+    .glass-card {
+        padding: 15px;
+    }
+
+    /* Nav Bar stacking */
+    .glass-nav {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .nav-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 11.5px;
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    /* Header fonts */
+    .logo-text {
+        font-size: 28px;
+    }
+
+    .tagline {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    /* Promo Banner */
+    .simulator-promo-banner {
+        padding: 20px 15px;
+        margin-bottom: 25px;
+    }
+
+    .simulator-promo-banner .promo-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .simulator-promo-banner .promo-text-side {
+        max-width: 100%;
+    }
+
+    .simulator-promo-banner .promo-action-side {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .promo-cta-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    /* Simulator players selection grid */
+    .selectors-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .vs-badge-container {
+        padding: 5px 0;
+    }
+
+    .vs-glow-badge {
+        width: 44px;
+        height: 44px;
+        font-size: 15px;
+    }
+
+    /* Playoffs */
+    .playoffs-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .playoff-match-card {
+        min-height: 150px;
+        padding: 12px;
+    }
+}
+
+/* --- Micro Mobile Optimizations (max-width: 480px) --- */
+@media (max-width: 480px) {
+    .team-fullname {
+        display: none;
+        /* Hide full name to prevent table scrolling */
+    }
+
+    .team-shortname {
+        display: inline !important;
+        font-weight: 700;
+    }
+
+    .standings-table th,
+    .standings-table td {
+        padding: 10px 4px;
+        font-size: 11px;
+    }
+
+    .cap-player-row {
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .cap-player-name {
+        font-size: 13px;
+    }
+
+    .cap-player-sub {
+        font-size: 10px;
     }
 }

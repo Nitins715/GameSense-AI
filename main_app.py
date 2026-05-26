@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from modules.matchup_simulator.data_engine import IPLDataEngine
 from modules.ground_analysis.ground_engine import IPLVenueEngine
 from modules.fantasy_optimizer.fantasy_engine import IPLFantasyEngine
+from modules.live_predictor.live_engine import IPLLivePredictorEngine
 
 app = Flask(__name__)
 
@@ -160,6 +161,7 @@ init_app_databases()
 data_engine = IPLDataEngine()
 venue_engine = IPLVenueEngine()
 fantasy_engine = IPLFantasyEngine(data_engine=data_engine, venue_engine=venue_engine)
+live_engine = IPLLivePredictorEngine(data_engine=data_engine, venue_engine=venue_engine)
 
 @app.route('/')
 def home():
@@ -426,6 +428,63 @@ def get_api_player_prediction():
         
     prediction = fantasy_engine.predict_player_performance(player_id, opponent, venue)
     return jsonify(prediction)
+
+@app.route('/live-predictor')
+def live_predictor():
+    """Renders the Live Match Predictor (Dynamic Win Engine) page."""
+    teams = [
+        {"name": "Royal Challengers Bengaluru", "code": "RCB"},
+        {"name": "Gujarat Titans", "code": "GT"},
+        {"name": "Sunrisers Hyderabad", "code": "SRH"},
+        {"name": "Rajasthan Royals", "code": "RR"},
+        {"name": "Punjab Kings", "code": "PBKS"},
+        {"name": "Delhi Capitals", "code": "DC"},
+        {"name": "Kolkata Knight Riders", "code": "KKR"},
+        {"name": "Chennai Super Kings", "code": "CSK"},
+        {"name": "Mumbai Indians", "code": "MI"},
+        {"name": "Lucknow Super Giants", "code": "LSG"}
+    ]
+    venues = venue_engine.get_all_venues()
+    return render_template('live_predictor.html', teams=teams, venues=venues)
+
+@app.route('/api/live-prediction')
+def get_api_live_prediction():
+    """Exposes REST API endpoint for real-time win probability and score forecasts."""
+    innings = int(request.args.get('innings', 1))
+    batting = request.args.get('batting_team')
+    bowling = request.args.get('bowling_team')
+    venue = request.args.get('venue')
+    over = int(request.args.get('over', 0))
+    ball = int(request.args.get('ball', 1))
+    runs = int(request.args.get('runs', 0))
+    wickets = int(request.args.get('wickets', 0))
+    target = int(request.args.get('target', 0))
+    striker = request.args.get('striker')
+    bowler = request.args.get('bowler')
+    
+    if not batting or not bowling or not venue:
+        return jsonify({"status": False, "error": "Batting team, bowling team, and venue parameters are required."}), 400
+        
+    prediction = live_engine.predict_match_state(
+        innings=innings,
+        batting_team=batting,
+        bowling_team=bowling,
+        venue=venue,
+        over=over,
+        ball=ball,
+        runs=runs,
+        wickets=wickets,
+        target=target,
+        striker=striker,
+        bowler=bowler
+    )
+    return jsonify(prediction)
+
+@app.route('/api/over-momentum')
+def get_api_over_momentum():
+    """Exposes REST API endpoint for the 6-ball over boundary and wicket probabilities."""
+    stats = live_engine.get_over_momentum_stats()
+    return jsonify(stats)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5005)

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CricSense | AI Live Match Predictor & Over Momentum Analyst</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <style>
+        /* Custom localized style overrides for Live Match Predictor */
+        .live-accent-text {
+            background: linear-gradient(135deg, #f97316 30%, #ef4444 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .live-accent-blue {
+            background: linear-gradient(135deg, #3b82f6 30%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gauge-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .gauge-svg-container {
+            position: relative;
+            width: 280px;
+            height: 160px;
+        }
+
+        .gauge-needle {
+            transform-origin: 140px 140px;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.6));
+        }
+
+        .probability-split-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+
+        .prob-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .prob-team-code {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .prob-percentage {
+            font-family: var(--font-outfit);
+            font-size: 28px;
+            font-weight: 900;
+            margin-top: 2px;
+        }
+
+        /* 6-Ball Momentum Heatmap Styles */
+        .momentum-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .momentum-ball-card {
+            background: rgba(19, 25, 48, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .momentum-ball-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .ball-glow-four {
+            border-color: rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.15);
+        }
+
+        .ball-glow-six {
+            border-color: rgba(59, 130, 246, 0.35);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.18);
+        }
+
+        .ball-glow-wicket {
+            border-color: rgba(239, 68, 68, 0.3);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.15);
+        }
+
+        .momentum-ball-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+        }
+
+        .ball-glow-four::before { background: var(--success); }
+        .ball-glow-six::before { background: var(--secondary); }
+        .ball-glow-wicket::before { background: var(--danger); }
+
+        .ball-number-lbl {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .ball-circle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-outfit);
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        .ball-glow-four .ball-circle {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: var(--success);
+            color: #4ade80;
+        }
+
+        .ball-glow-six .ball-circle {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--secondary);
+            color: #60a5fa;
+        }
+
+        .ball-glow-wicket .ball-circle {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--danger);
+            color: #f87171;
+        }
+
+        .metric-mini-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-top: 5px;
+        }
+
+        .metric-mini-lbl {
+            font-size: 9px;
+            color: var(--text-muted);
+        }
+
+        .metric-mini-val {
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .metric-mini-val.val-four { color: #4ade80; }
+        .metric-mini-val.val-six { color: #60a5fa; }
+        .metric-mini-val.val-wicket { color: #f87171; }
+
+        /* Custom styling for inputs & sliders */
+        .live-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.08);
+            outline: none;
+            margin: 12px 0;
+            transition: opacity .2s;
+        }
+
+        .live-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        .live-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .glass-nav .nav-links .live-link-nav {
+            color: var(--primary) !important;
+            text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+        }
+
+        /* Matchup selection inputs */
+        .matchup-mini-panel {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* Autocomplete suggestions dropdown overlay */
+        .autocomplete-items {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #0b0f19;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 8px;
+            max-height: 180px;
+            overflow-y: auto;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .autocomplete-item {
+            padding: 8px 12px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 12px;
+            transition: var(--transition-smooth);
+            background: #0b0f19;
+        }
+
+        .autocomplete-item:hover {
+            background: rgba(249, 115, 22, 0.15);
+            color: #fff;
+        }
+
+        .autocomplete-item-hover {
+            background: rgba(249, 115, 22, 0.15) !important;
+            color: #fff;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .player-input-wrapper {
+            position: relative;
+        }
+
+        /* Responsive overrides for live predictor on mobile screens */
+        @media (max-width: 500px) {
+            .momentum-grid {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 8px !important;
+            }
+            .momentum-ball-card {
+                padding: 10px 5px !important;
+                border-radius: 8px !important;
+            }
+            .ball-circle {
+                width: 28px !important;
+                height: 28px !important;
+                font-size: 12px !important;
+                margin-bottom: 4px !important;
+            }
+            .ball-number-lbl {
+                font-size: 8px !important;
+                margin-bottom: 4px !important;
+            }
+            .metric-mini-row {
+                gap: 0px !important;
+            }
+            .metric-mini-lbl {
+                font-size: 7.5px !important;
+            }
+            .metric-mini-val {
+                font-size: 9.5px !important;
+            }
+            .matchup-mini-panel {
+                grid-template-columns: 1fr !important;
+                gap: 10px !important;
+                padding: 10px !important;
+            }
+            .autocomplete-items {
+                max-height: 130px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stadium-overlay"></div>
+
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <nav class="glass-nav glass-card" style="margin-bottom: 30px;">
+            <div class="nav-brand">
+                <span class="logo-badge" style="background: linear-gradient(135deg, #f97316, #ef4444); color: #fff; font-weight: 800;">DYNAMIC ENGINE</span>
+                <span class="nav-title">CRICSENSE <span class="accent-text">PREDICTOR</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home Dashboard</a>
+                <a href="/simulator" class="nav-link simulate-link-nav">⚡ GameSense AI Simulator</a>
+                <a href="/ground-analysis" class="nav-link ground-link-nav">🏟️ Ground Analysis</a>
+                <a href="/fantasy-optimizer" class="nav-link fantasy-link-nav">🔮 AI Fantasy Optimizer</a>
+                <a href="/live-predictor" class="nav-link live-link-nav active">📺 Live Predictor</a>
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="logo-badge" style="background: rgba(249, 115, 22, 0.15); color: #f97316; border: 1px solid rgba(249, 115, 22, 0.25);">BAYESIAN SCORE FORECASTER & LIVE INDEX</span>
+                <h1 class="logo-text" style="text-shadow: 0 0 20px rgba(249, 115, 22, 0.2);">LIVE MATCH <span class="live-accent-text">PREDICTOR</span></h1>
+            </div>
+            <p class="tagline">Real-time log-odds win probability and boundary/wicket over momentum analyst</p>
+        </header>
+
+        <!-- Main Live Predictor Core Layout -->
+        <main class="dashboard-core-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: start;">
+            
+            <!-- Left Side Panel: Inputs & Interactive State Controller -->
+            <section class="glass-card" style="border-color: rgba(249, 115, 22, 0.15); box-shadow: 0 0 25px rgba(249, 115, 22, 0.08);">
+                <div class="section-header-row" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 20px;">
+                    <span class="logo-badge" style="background: linear-gradient(135deg, #f97316, #d97706); color: #fff; font-weight: 800;">MATCH STATE CONTROL</span>
+                    <h3 class="card-subtitle" style="margin: 0;"><span class="live-accent-text">Match Parameters</span></h3>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 18px;">
+                    
+                    <!-- Innings & Teams Selection -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group-col">
+                            <label class="selector-label" style="color: #f97316;">📺 INNINGS</label>
+                            <div class="custom-select-wrapper">
+                                <select id="innings-select" class="stadium-dropdown" style="border-color: rgba(249, 115, 22, 0.25);">
+                                    <option value="1">1st Innings</option>
+                                    <option value="2" selected>2nd Innings</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group-col">
+                            <label class="selector-label" style="color: #f97316;">🏟️ VENUE</label>
+                            <div class="custom-select-wrapper">
+                                <select id="venue-select" class="stadium-dropdown" style="border-color: rgba(249, 115, 22, 0.25);">
+                                    {% for v in venues %}
+                                    <option value="{{ v }}" {% if v == "Wankhede Stadium, Mumbai" %}selected{% endif %}>{{ v }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group-col">
+                            <label class="selector-label" style="color: #f97316;">🏏 BATTING TEAM</label>
+                            <div class="custom-select-wrapper">
+                                <select id="batting-select" class="stadium-dropdown" style="border-color: rgba(249, 115, 22, 0.25);">
+                                    {% for t in teams %}
+                                    <option value="{{ t.code }}" {% if t.code == "RCB" %}selected{% endif %}>{{ t.name }} ({{ t.code }})</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group-col">
+                            <label class="selector-label" style="color: #f97316;">🛡️ BOWLING TEAM</label>
+                            <div class="custom-select-wrapper">
+                                <select id="bowling-select" class="stadium-dropdown" style="border-color: rgba(249, 115, 22, 0.25);">
+                                    {% for t in teams %}
+                                    <option value="{{ t.code }}" {% if t.code == "GT" %}selected{% endif %}>{{ t.name }} ({{ t.code }})</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Target Runs Selector (Only active in 2nd Innings) -->
+                    <div id="target-runs-row" class="form-group-col">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <label class="selector-label" style="color: #f97316;">🎯 TARGET SET</label>
+                            <span id="target-val" style="font-weight: 800; color: #fff;">180 runs</span>
+                        </div>
+                        <input type="range" id="target-slider" class="live-slider" min="100" max="250" value="180">
+                    </div>
+
+                    <!-- Live Match Progress Runs & Wickets sliders -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group-col">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <label class="selector-label" style="color: #f97316;">🏏 RUNS SCORED</label>
+                                <span id="runs-val" style="font-weight: 800; color: #fff;">110</span>
+                            </div>
+                            <input type="range" id="runs-slider" class="live-slider" min="0" max="250" value="110">
+                        </div>
+
+                        <div class="form-group-col">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <label class="selector-label" style="color: #f97316;">☝️ WICKETS LOST</label>
+                                <span id="wickets-val" style="font-weight: 800; color: #fff;">4</span>
+                            </div>
+                            <input type="range" id="wickets-slider" class="live-slider" min="0" max="10" value="4">
+                        </div>
+                    </div>
+
+                    <!-- Overs completed sliders -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="form-group-col">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <label class="selector-label" style="color: #f97316;">⌛ OVERS COMPLETED</label>
+                                <span id="overs-val" style="font-weight: 800; color: #fff;">14</span>
+                            </div>
+                            <input type="range" id="overs-slider" class="live-slider" min="0" max="19" value="14">
+                        </div>
+
+                        <div class="form-group-col">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <label class="selector-label" style="color: #f97316;">⚾ BALL OF OVER</label>
+                                <span id="balls-val" style="font-weight: 800; color: #fff;">2</span>
+                            </div>
+                            <input type="range" id="balls-slider" class="live-slider" min="1" max="6" value="2">
+                        </div>
+                    </div>
+
+                    <!-- Batter vs Bowler active Matchup Bonus selectors -->
+                    <div>
+                        <label class="selector-label" style="color: #f97316; font-size: 10px; display: block; margin-bottom: 5px;">👥 OPTIONAL H2H ACTIVE MATCHUP ADVISEMENT</label>
+                        <div class="matchup-mini-panel">
+                            <div class="player-input-wrapper">
+                                <span style="font-size: 8.5px; color: var(--text-muted); display: block; margin-bottom: 4px;">🏏 STRIKER</span>
+                                <input type="text" id="striker-input" placeholder="Search Striker..." autocomplete="off" class="stadium-dropdown" style="height: 34px; padding-left: 8px; font-size: 11.5px; background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgba(249, 115, 22, 0.2);">
+                                <div id="striker-autocomplete-list" class="autocomplete-items hidden"></div>
+                            </div>
+                            <div class="player-input-wrapper">
+                                <span style="font-size: 8.5px; color: var(--text-muted); display: block; margin-bottom: 4px;">⚾ ACTIVE BOWLER</span>
+                                <input type="text" id="bowler-input" placeholder="Search Bowler..." autocomplete="off" class="stadium-dropdown" style="height: 34px; padding-left: 8px; font-size: 11.5px; background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgba(249, 115, 22, 0.2);">
+                                <div id="bowler-autocomplete-list" class="autocomplete-items hidden"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Right Side Panel: Output Analytics Dashboards -->
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                
+                <!-- Win Probability Gauge glassmorphic panel -->
+                <section class="glass-card" style="border-color: rgba(249, 115, 22, 0.15); box-shadow: 0 0 25px rgba(249, 115, 22, 0.08);">
+                    <div class="section-header-row" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 15px;">
+                        <span class="logo-badge" style="background: linear-gradient(135deg, #3b82f6, #06b6d4); color: #fff; font-weight: 800;">REAL-TIME LIVE INDEX</span>
+                        <h3 class="card-subtitle" style="margin: 0;"><span class="live-accent-text">AI Win Probability</span></h3>
+                    </div>
+
+                    <div class="gauge-section">
+                        <!-- Dual gauge SVG dial -->
+                        <div class="gauge-svg-container">
+                            <svg width="280" height="160" viewBox="0 0 280 160">
+                                <defs>
+                                    <linearGradient id="gauge-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#ef4444" /> <!-- Bowling / low batting win chance -->
+                                        <stop offset="50%" stop-color="#eab308" /> <!-- Balanced -->
+                                        <stop offset="100%" stop-color="#22c55e" /> <!-- Batting dominance -->
+                                    </linearGradient>
+                                </defs>
+                                <!-- Outer arc track -->
+                                <path d="M 30,140 A 110,110 0 0,1 250,140" fill="none" stroke="#1e293b" stroke-width="18" stroke-linecap="round" />
+                                <!-- Glowing active track -->
+                                <path d="M 30,140 A 110,110 0 0,1 250,140" fill="none" stroke="url(#gauge-grad)" stroke-width="18" stroke-linecap="round" stroke-dasharray="346" stroke-dashoffset="0" />
+                                
+                                <!-- Center core point -->
+                                <circle cx="140" cy="140" r="14" fill="#0b0f19" stroke="#3b82f6" stroke-width="3" />
+                                <circle cx="140" cy="140" r="6" fill="#f97316" />
+                                
+                                <!-- Needle -->
+                                <g id="gauge-needle-group" class="gauge-needle" style="transform: rotate(0deg);">
+                                    <polygon points="137,140 143,140 141,15 139,15" fill="#f97316" />
+                                </g>
+                            </svg>
+                        </div>
+
+                        <!-- Split Probability readout -->
+                        <div class="probability-split-container">
+                            <div class="prob-box">
+                                <span id="bat-team-code" class="prob-team-code">RCB</span>
+                                <span id="bat-percentage" class="prob-percentage" style="color: var(--primary);">50.0%</span>
+                            </div>
+                            <div style="font-size: 11px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; border: 1px solid rgba(255,255,255,0.06); padding: 4px 8px; border-radius: 20px; background: rgba(0,0,0,0.2);">CHASE RATIO</div>
+                            <div class="prob-box">
+                                <span id="bowl-team-code" class="prob-team-code">GT</span>
+                                <span id="bowl-percentage" class="prob-percentage" style="color: var(--secondary);">50.0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bayesian Score Forecaster Outputs panel -->
+                <section class="glass-card" style="border-color: rgba(249, 115, 22, 0.15); box-shadow: 0 0 25px rgba(249, 115, 22, 0.08);">
+                    <div class="section-header-row" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 15px;">
+                        <span class="logo-badge" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 800;">DYNAMIC SCORE FORECASTER</span>
+                        <h3 class="card-subtitle" style="margin: 0;"><span class="live-accent-text">AI Score & Pace Predictor</span></h3>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 15px;">
+                            <span id="forecast-header-lbl" style="font-size: 10.5px; color: var(--primary); font-weight: 800; display: block; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">1st Innings Final Score Prediction</span>
+                            
+                            <div id="first-innings-forecast-block" style="display: flex; align-items: baseline; gap: 15px; margin-bottom: 8px;">
+                                <span id="forecast-main-score" style="font-family: var(--font-outfit); font-size: 38px; font-weight: 900; color: #fff;">184</span>
+                                <span id="forecast-score-range" style="font-size: 15px; font-weight: 600; color: var(--text-muted);">(Range: 168 - 192)</span>
+                            </div>
+
+                            <p id="forecast-narrative" style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;"></p>
+                        </div>
+
+                        <!-- Live Commentary Narrative -->
+                        <div style="background: rgba(249, 115, 22, 0.03); border: 1px solid rgba(249, 115, 22, 0.15); border-left: 4px solid var(--primary); border-radius: 12px; padding: 15px;">
+                            <span style="font-size: 9.5px; color: var(--text-muted); font-weight: 700; display: block; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">🤖 AI MATCH ANALYSIS & COMMENTARY</span>
+                            <p id="commentary-p" style="font-size: 12.5px; color: var(--text-main); line-height: 1.6;"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6-Ball Over Momentum Heatmap panel -->
+                <section class="glass-card" style="border-color: rgba(249, 115, 22, 0.15); box-shadow: 0 0 25px rgba(249, 115, 22, 0.08); margin-bottom: 20px;">
+                    <div class="section-header-row" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 12px;">
+                        <span class="logo-badge" style="background: linear-gradient(135deg, #a855f7, #7e22ce); color: #fff; font-weight: 800;">OVER MOMENTUM HEATMAP</span>
+                        <h3 class="card-subtitle" style="margin: 0;"><span class="live-accent-text">Over Momentum Analyst</span></h3>
+                    </div>
+
+                    <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">Parsed across 293,000+ historical balls to capture boundary & wicket spikes per delivery position (Balls 1-6) within an over.</p>
+
+                    <!-- Horizontal Grid representation -->
+                    <div class="momentum-grid" id="momentum-circles-container">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Statistics Summary verdict from live prediction -->
+                    <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 12px; margin-top: 15px; font-size: 11.5px; color: var(--text-muted); line-height: 1.5;" id="momentum-verdict-box">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Autocomplete and Dynamic routing scripts -->
+    <script>
+        // Global variables
+        let playerRoster = [];
+        let overMomentumData = null;
+
+        // Form fields DOM
+        const selectInnings = document.getElementById("innings-select");
+        const selectVenue = document.getElementById("venue-select");
+        const selectBatting = document.getElementById("batting-select");
+        const selectBowling = document.getElementById("bowling-select");
+
+        const sliderTarget = document.getElementById("target-slider");
+        const labelTarget = document.getElementById("target-val");
+        const rowTarget = document.getElementById("target-runs-row");
+
+        const sliderRuns = document.getElementById("runs-slider");
+        const labelRuns = document.getElementById("runs-val");
+
+        const sliderWickets = document.getElementById("wickets-slider");
+        const labelWickets = document.getElementById("wickets-val");
+
+        const sliderOvers = document.getElementById("overs-slider");
+        const labelOvers = document.getElementById("overs-val");
+
+        const sliderBalls = document.getElementById("balls-slider");
+        const labelBalls = document.getElementById("balls-val");
+
+        const inputStriker = document.getElementById("striker-input");
+        const inputBowler = document.getElementById("bowler-input");
+
+        // Autocomplete list views
+        const strikerList = document.getElementById("striker-autocomplete-list");
+        const bowlerList = document.getElementById("bowler-autocomplete-list");
+
+        // Output DOM
+        const needle = document.getElementById("gauge-needle-group");
+        const readBatCode = document.getElementById("bat-team-code");
+        const readBatPct = document.getElementById("bat-percentage");
+        const readBowlCode = document.getElementById("bowl-team-code");
+        const readBowlPct = document.getElementById("bowl-percentage");
+
+        const forecastHeader = document.getElementById("forecast-header-lbl");
+        const forecastScore = document.getElementById("forecast-main-score");
+        const forecastRange = document.getElementById("forecast-score-range");
+        const forecastDesc = document.getElementById("forecast-narrative");
+        const readCommentary = document.getElementById("commentary-p");
+        const firstInningsForecastBlock = document.getElementById("first-innings-forecast-block");
+
+        const momentumContainer = document.getElementById("momentum-circles-container");
+        const momentumVerdictBox = document.getElementById("momentum-verdict-box");
+
+        // Initialize autocomplete index
+        async function fetchRoster() {
+            try {
+                const response = await fetch('/api/players');
+                playerRoster = await response.json();
+                console.log("[Live Predictor] Roster cached locally, total count:", playerRoster.length);
+            } catch (err) {
+                console.error("[Live Predictor] Failed to fetch players roster index:", err);
+            }
+        }
+
+        // Setup Player Autocompletes
+        function setupAutocomplete(inputEl, dropdownEl) {
+            let currentFocus = -1;
+
+            inputEl.addEventListener("input", function() {
+                const val = this.value.trim();
+                closeAllLists();
+                if (!val) return;
+
+                currentFocus = -1;
+                dropdownEl.classList.remove("hidden");
+
+                const query = val.toLowerCase();
+                // Filter top 8 matches
+                const matches = playerRoster.filter(p => p.name.toLowerCase().includes(query)).slice(0, 8);
+
+                matches.forEach((player, idx) => {
+                    const item = document.createElement("div");
+                    item.className = "autocomplete-item";
+                    item.innerHTML = `<strong>${player.name}</strong> <span style="font-size: 9px; color: var(--text-muted); float: right;">${player.team_code} | ${player.category}</span>`;
+                    
+                    item.addEventListener("click", function() {
+                        inputEl.value = player.name;
+                        closeAllLists();
+                        triggerPrediction();
+                    });
+
+                    dropdownEl.appendChild(item);
+                });
+
+                if (dropdownEl.children.length === 0) {
+                    dropdownEl.classList.add("hidden");
+                }
+            });
+
+            inputEl.addEventListener("keydown", function(e) {
+                const items = dropdownEl.getElementsByClassName("autocomplete-item");
+                if (e.keyCode === 40) { // Down
+                    currentFocus++;
+                    addActive(items);
+                } else if (e.keyCode === 38) { // Up
+                    currentFocus--;
+                    addActive(items);
+                } else if (e.keyCode === 13) { // Enter
+                    e.preventDefault();
+                    if (currentFocus > -1 && items.length > 0) {
+                        items[currentFocus].click();
+                    }
+                }
+            });
+
+            function addActive(items) {
+                if (!items || items.length === 0) return;
+                removeActive(items);
+                if (currentFocus >= items.length) currentFocus = 0;
+                if (currentFocus < 0) currentFocus = items.length - 1;
+                items[currentFocus].classList.add("autocomplete-item-hover");
+                items[currentFocus].scrollIntoView({ block: 'nearest' });
+            }
+
+            function removeActive(items) {
+                for (let i = 0; i < items.length; i++) {
+                    items[i].classList.remove("autocomplete-item-hover");
+                }
+            }
+
+            function closeAllLists() {
+                dropdownEl.innerHTML = "";
+                dropdownEl.classList.add("hidden");
+            }
+
+            // Close on clicking outside
+            document.addEventListener("click", function(e) {
+                if (e.target !== inputEl && e.target !== dropdownEl) {
+                    closeAllLists();
+                }
+            });
+        }
+
+        // Fetch Over Momentum compiled statistics
+        async function fetchOverMomentum() {
+            try {
+                const res = await fetch('/api/over-momentum');
+                const data = await res.json();
+                if (data.status) {
+                    overMomentumData = data;
+                    renderOverMomentumGrid(data.momentum);
+                    momentumVerdictBox.innerHTML = data.verdict;
+                }
+            } catch (err) {
+                console.error("[Live Predictor] Over momentum metrics error:", err);
+            }
+        }
+
+        // Render visual momentum cards
+        function renderOverMomentumGrid(momentumList) {
+            momentumContainer.innerHTML = "";
+
+            momentumList.forEach(m => {
+                const card = document.createElement("div");
+                card.className = "momentum-ball-card";
+
+                // Apply dynamic styles based on statistical hotspots
+                // Wickets peaks on Ball 2. Sixes peaks on Ball 3. Fours peaks on Ball 4.
+                if (m.ball === 2) {
+                    card.classList.add("ball-glow-wicket");
+                } else if (m.ball === 3) {
+                    card.classList.add("ball-glow-six");
+                } else if (m.ball === 4) {
+                    card.classList.add("ball-glow-four");
+                }
+
+                card.innerHTML = `
+                    <span class="ball-number-lbl">BALL ${m.ball}</span>
+                    <div class="ball-circle">${m.ball}</div>
+                    <div class="metric-mini-row">
+                        <span class="metric-mini-lbl">Four %</span>
+                        <span class="metric-mini-val val-four">${m.four_pct}%</span>
+                    </div>
+                    <div class="metric-mini-row" style="margin-top: 4px;">
+                        <span class="metric-mini-lbl">Six %</span>
+                        <span class="metric-mini-val val-six">${m.six_pct}%</span>
+                    </div>
+                    <div class="metric-mini-row" style="margin-top: 4px; border-top: 1px dashed rgba(255,255,255,0.06); padding-top: 4px;">
+                        <span class="metric-mini-lbl">Wicket %</span>
+                        <span class="metric-mini-val val-wicket">${m.wicket_pct}%</span>
+                    </div>
+                `;
+
+                // Add clickable active highlighting to balls-slider linking
+                card.addEventListener("click", () => {
+                    sliderBalls.value = m.ball;
+                    labelBalls.innerText = m.ball;
+                    triggerPrediction();
+                });
+
+                momentumContainer.appendChild(card);
+            });
+        }
+
+        // Run match state log-odds and Bayesian forecaster analysis
+        async function triggerPrediction() {
+            const innings = parseInt(selectInnings.value);
+            const venue = selectVenue.value;
+            const battingTeam = selectBatting.value;
+            const bowlingTeam = selectBowling.value;
+
+            const targetVal = parseInt(sliderTarget.value);
+            const runsVal = parseInt(sliderRuns.value);
+            const wicketsVal = parseInt(sliderWickets.value);
+            const oversVal = parseInt(sliderOvers.value);
+            const ballsVal = parseInt(sliderBalls.value);
+
+            const strikerVal = inputStriker.value.trim();
+            const bowlerVal = inputBowler.value.trim();
+
+            // RRR display update
+            if (innings === 1) {
+                rowTarget.classList.add("hidden");
+                forecastHeader.innerText = "1st Innings Final Score Prediction";
+                firstInningsForecastBlock.classList.remove("hidden");
+            } else {
+                rowTarget.classList.remove("hidden");
+                forecastHeader.innerText = "2nd Innings Target Chase Progression";
+            }
+
+            // Sync selectors text labels
+            labelTarget.innerText = `${targetVal} runs`;
+            labelRuns.innerText = runsVal;
+            labelWickets.innerText = wicketsVal;
+            labelOvers.innerText = oversVal;
+            labelBalls.innerText = ballsVal;
+
+            // Protect innings parameters safety: runs in 2nd innings can't exceed target
+            if (innings === 2 && runsVal >= targetVal) {
+                // target reached
+                sliderRuns.max = targetVal + 10;
+            } else if (innings === 2) {
+                sliderRuns.max = targetVal;
+            } else {
+                sliderRuns.max = 250;
+            }
+
+            // Query REST API
+            const params = new URLSearchParams({
+                innings: innings,
+                batting_team: battingTeam,
+                bowling_team: bowlingTeam,
+                venue: venue,
+                over: oversVal,
+                ball: ballsVal,
+                runs: runsVal,
+                wickets: wicketsVal,
+                target: innings === 2 ? targetVal : 0
+            });
+
+            if (strikerVal && bowlerVal) {
+                params.append("striker", strikerVal);
+                params.append("bowler", bowlerVal);
+            }
+
+            try {
+                const res = await fetch(`/api/live-prediction?${params.toString()}`);
+                const data = await res.json();
+                
+                if (data.status) {
+                    // 1. Update Gauge needle rotations
+                    // -90deg is 0% win chance, 0deg is 50%, +90deg is 100% win chance
+                    const winPct = data.win_probability.batting_team_pct;
+                    const rotationDeg = ((winPct / 100.0) * 180.0) - 90.0;
+                    needle.style.transform = `rotate(${rotationDeg}deg)`;
+
+                    // 2. Probability readouts
+                    readBatCode.innerText = battingTeam;
+                    readBatPct.innerText = `${winPct}%`;
+                    readBowlCode.innerText = bowlingTeam;
+                    readBowlPct.innerText = `${data.win_probability.bowling_team_pct}%`;
+
+                    // 3. Dynamic Forecasting Cards
+                    if (innings === 1) {
+                        forecastScore.innerText = data.score_forecast.projected_score;
+                        forecastRange.innerText = `(Range: ${data.score_forecast.score_low} - ${data.score_forecast.score_high})`;
+                        firstInningsForecastBlock.style.display = "flex";
+                    } else {
+                        firstInningsForecastBlock.style.display = "none";
+                    }
+                    forecastDesc.innerHTML = data.score_forecast.description;
+
+                    // 4. Commentary Verdict
+                    readCommentary.innerHTML = data.commentary;
+                }
+            } catch (err) {
+                console.error("[Live Predictor] Fetch prediction error:", err);
+            }
+        }
+
+        // Add visual link highlighting to active ball selected in momentum cards
+        function highlightSelectedBall(ballNum) {
+            const cards = momentumContainer.getElementsByClassName("momentum-ball-card");
+            for (let i = 0; i < cards.length; i++) {
+                cards[i].style.transform = "none";
+                cards[i].style.borderColor = "rgba(255, 255, 255, 0.05)";
+                if (i === (ballNum - 1)) {
+                    cards[i].style.borderColor = "var(--primary)";
+                    cards[i].style.transform = "translateY(-4px)";
+                }
+            }
+        }
+
+        // On document loaded
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Pre-load autocomplete indexes
+            await fetchRoster();
+            
+            // Setup search autocompletes
+            setupAutocomplete(inputStriker, strikerList);
+            setupAutocomplete(inputBowler, bowlerList);
+
+            // Fetch momentum heatmaps
+            await fetchOverMomentum();
+
+            // Bind update events to all parameters sliders & dropdowns
+            const triggers = [
+                selectInnings, selectVenue, selectBatting, selectBowling,
+                sliderTarget, sliderRuns, sliderWickets, sliderOvers, sliderBalls
+            ];
+
+            triggers.forEach(element => {
+                element.addEventListener("input", triggerPrediction);
+                element.addEventListener("change", triggerPrediction);
+            });
+
+            // Specific highlight linkage for legal balls selection
+            sliderBalls.addEventListener("input", (e) => {
+                highlightSelectedBall(parseInt(e.target.value));
+            });
+
+            // Initial calculation execute
+            triggerPrediction();
+        });
+    </script>
+</body>
+
+</html>

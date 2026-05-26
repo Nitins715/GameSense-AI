@@ -17,6 +17,7 @@
         .fantasy-accent-text {
             background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -366,6 +367,63 @@
             background: rgba(168, 85, 247, 0.15) !important;
             color: #fff;
         }
+
+        /* Dynamic Dream XI Pitch optimizations for narrow mobile screens */
+        @media (max-width: 500px) {
+            .fantasy-field-pitch {
+                padding: 15px 5px !important;
+                border-radius: 16px !important;
+                box-shadow: 0 0 15px rgba(16, 185, 129, 0.1), inset 0 0 15px rgba(0, 0, 0, 0.5) !important;
+            }
+            .fantasy-player-card {
+                width: 78px !important;
+                padding: 5px !important;
+                border-radius: 8px !important;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4) !important;
+            }
+            .player-avatar-box {
+                width: 32px !important;
+                height: 32px !important;
+                border-width: 1px !important;
+            }
+            .player-team-mini {
+                font-size: 6.5px !important;
+                padding: 0.5px 3px !important;
+                border-radius: 4px !important;
+            }
+            .player-info-name {
+                font-size: 8.5px !important;
+                margin-bottom: 0px !important;
+            }
+            .player-points-row {
+                margin-top: 2px !important;
+                padding-top: 2px !important;
+            }
+            .points-badge {
+                font-size: 7px !important;
+                padding: 0px 2.5px !important;
+                border-radius: 2px !important;
+            }
+            .credits-val {
+                font-size: 7px !important;
+            }
+            .tactical-tag-tooltip {
+                display: none !important; /* Tooltips hidden to save massive layout space */
+            }
+            .captain-tag, .vice-captain-tag {
+                width: 16px !important;
+                height: 16px !important;
+                font-size: 7.5px !important;
+                top: -5px !important;
+                right: -5px !important;
+                box-shadow: 0 0 5px rgba(0,0,0,0.5) !important;
+            }
+            .role-section-title {
+                font-size: 9px !important;
+                margin: 10px 0 5px 0 !important;
+                letter-spacing: 1px !important;
+            }
+        }
     </style>
 </head>
 
@@ -377,13 +435,14 @@
         <nav class="glass-nav glass-card" style="margin-bottom: 30px;">
             <div class="nav-brand">
                 <span class="logo-badge" style="background: linear-gradient(135deg, #a855f7, #7e22ce); color: #fff; font-weight: 800;">FANTASY ARCHITECT</span>
-                <span class="nav-title">CRICSENSE <span class="accent-text" style="background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OPTIMIZER</span></span>
+                <span class="nav-title">CRICSENSE <span class="accent-text" style="background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">OPTIMIZER</span></span>
             </div>
             <div class="nav-links">
                 <a href="/" class="nav-link">Home Dashboard</a>
                 <a href="/simulator" class="nav-link simulate-link-nav">⚡ GameSense AI Simulator</a>
                 <a href="/ground-analysis" class="nav-link ground-link-nav">🏟️ Ground Analysis</a>
                 <a href="/fantasy-optimizer" class="nav-link fantasy-link-nav active">🔮 AI Fantasy Optimizer</a>
+                <a href="/live-predictor" class="nav-link live-link-nav">📺 Live Predictor</a>
             </div>
         </nav>
 
