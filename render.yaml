@@ -2,7 +2,7 @@ services:
   - type: web
     name: cricsense-ai
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r requirements.txt && python scripts/download_ipl_matches.py
     startCommand: gunicorn main_app:app
     envVars:
       - key: PORT
