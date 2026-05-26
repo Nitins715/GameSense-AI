@@ -643,6 +643,178 @@ class IPLFantasyEngine:
             "tactical_description": tactical_desc
         }
 
+    def predict_player_performance(self, player_id_or_name, opponent_team_code, pitch_venue_name):
+        """
+        Predicts how a selected player will perform in a specific matchup and ground setup.
+        Calculates career baselines, specific splits on this pitch, and generates a detailed AI forecast.
+        """
+        # Find player in the roster
+        player = None
+        for p in self.players_roster:
+            if p["id"] == player_id_or_name or p["name"].lower() == player_id_or_name.lower():
+                player = p
+                break
+                
+        if not player:
+            return {
+                "status": False,
+                "error": f"Player '{player_id_or_name}' not found in current active team rosters."
+            }
+            
+        role = self.map_role(player["category"])
+        name = player["name"]
+        
+        # 1. Fetch Pitch Archetype for venue
+        pitch_stats = self.venue_engine.get_venue_stats(pitch_venue_name)
+        pitch_arch = pitch_stats.get("pitch_index", {}).get("archetype", "Balanced Sporting Track")
+        
+        # 2. Run Points Projections & Matchup Analysis
+        proj = self.project_player_points(player, opponent_team_code, pitch_arch)
+        
+        # 3. Calculate Player Specific Stats ON THIS PITCH
+        c_name = self.data_engine.find_cricsheet_name(name)
+        
+        pitch_runs = 0
+        pitch_balls = 0
+        pitch_dismissals = 0
+        pitch_matches = set()
+        
+        pitch_overs_balls = 0
+        pitch_runs_conceded = 0
+        pitch_wickets = 0
+        
+        for d in self.data_engine.deliveries:
+            norm_v = self.venue_engine.normalize_venue(d["venue"])
+            if norm_v == pitch_venue_name:
+                # Batting stats
+                if d["batter"] == c_name:
+                    pitch_matches.add(d["match_id"])
+                    if d["extras_type"] != "wides":
+                        pitch_balls += 1
+                    pitch_runs += d["runs_batter"]
+                    if d["is_wicket"] and d["wicket_player_out"] == c_name:
+                        if d["wicket_kind"] not in ["run out", "retired hurt"]:
+                            pitch_dismissals += 1
+                # Bowling stats
+                if d["bowler"] == c_name:
+                    pitch_matches.add(d["match_id"])
+                    if d["extras_type"] not in ["wides", "noballs"]:
+                        pitch_overs_balls += 1
+                    if d["extras_type"] not in ["legbyes", "byes"]:
+                        pitch_runs_conceded += d["runs_batter"] + d["runs_extras"]
+                    if d["is_wicket"]:
+                        if d["wicket_kind"] not in ["run out", "retired hurt", "obstructing the field"]:
+                            pitch_wickets += 1
+                            
+        match_count = len(pitch_matches)
+        
+        # Calculate pitch statistics
+        pitch_stats_summary = {}
+        if role in ["BAT", "WK", "AR"]:
+            pitch_avg = round(pitch_runs / pitch_dismissals, 2) if pitch_dismissals > 0 else pitch_runs
+            pitch_sr = round(pitch_runs / pitch_balls * 100, 2) if pitch_balls > 0 else 0
+            pitch_stats_summary = {
+                "role_type": "batting",
+                "matches": match_count,
+                "runs": pitch_runs,
+                "dismissals": pitch_dismissals,
+                "average": pitch_avg,
+                "strike_rate": pitch_sr
+            }
+        else:
+            pitch_econ = round(pitch_runs_conceded / (pitch_overs_balls / 6), 2) if pitch_overs_balls > 0 else 0
+            pitch_stats_summary = {
+                "role_type": "bowling",
+                "matches": match_count,
+                "wickets": pitch_wickets,
+                "conceded": pitch_runs_conceded,
+                "economy": pitch_econ,
+                "average": round(pitch_runs_conceded / pitch_wickets, 2) if pitch_wickets > 0 else pitch_runs_conceded
+            }
+            
+        # 4. Generate AI Verdict & Projected Performance Range
+        projected = proj["projected_points"]
+        
+        # Determine verdict label based on projected points
+        if projected >= 65.0:
+            verdict = "EXCELLENT PICK (MUST HAVE)"
+            confidence = "High Confidence"
+            verdict_class = "success-text"
+            perf_range = f"{max(0, int(projected - 8))} - {int(projected + 12)} points"
+        elif projected >= 52.0:
+            verdict = "CORE OPTION (SAFE BET)"
+            confidence = "Medium-High Confidence"
+            verdict_class = "accent-text"
+            perf_range = f"{max(0, int(projected - 6))} - {int(projected + 8)} points"
+        elif projected >= 40.0:
+            verdict = "TACTICAL CHOICE (BALANCED)"
+            confidence = "Medium Confidence"
+            verdict_class = "text-main"
+            perf_range = f"{max(0, int(projected - 5))} - {int(projected + 5)} points"
+        else:
+            verdict = "RISKY DEEP BUY (MATCHUP AVOIDANCE)"
+            confidence = "Low-Medium Confidence"
+            verdict_class = "danger-text"
+            perf_range = f"{max(0, int(projected - 10))} - {int(projected + 4)} points"
+            
+        # Build AI textual prediction narrative (Report)
+        narrative = ""
+        team_display = player["team"]
+        
+        # A. Pitch report
+        pitch_intro = f"{name} is set to play at **{pitch_venue_name}** ({pitch_arch}). "
+        if match_count == 0:
+            pitch_exp = f"Historically, he has **not played any IPL matches** at this specific stadium in our database. The AI model has initialized his projection based on a general comfort scale on this pitch archetype."
+        else:
+            if role in ["BAT", "WK", "AR"]:
+                pitch_exp = f"In his {match_count} matches at this venue, he has scored **{pitch_runs} runs** at a standard average of **{pitch_avg}** and a strike rate of **{pitch_sr}**. "
+                if pitch_avg >= 35.0:
+                    pitch_exp += "He has demonstrated high scoring comfort here, thriving on this specific surface layout."
+                else:
+                    pitch_exp += "This ground has historically posed some challenges for his scoring consistency."
+            else:
+                pitch_exp = f"In his {match_count} appearances at this ground, he has scalped **{pitch_wickets} wickets** at a solid economy rate of **{pitch_econ} RPO**. "
+                if pitch_econ <= 7.8:
+                    pitch_exp += "His control here is exceptional, leveraging the boundary size and surface grip perfectly."
+                else:
+                    pitch_exp += "His bowling economy has been slightly elevated under these ground constraints."
+                    
+        # B. Matchup details
+        matchup_exp = "Analyzing opponent matchups: "
+        if proj["matchup_tags"]:
+            matchup_exp += " ".join(f"AI applied a **{int(abs(1.0 - t['weight'])*100)}% {t['type']}** because of: *{t['reason']}*." for t in proj["matchup_tags"])
+        else:
+            matchup_exp += f"No extreme tactical matchups are flagged against {opponent_team_code}. He is expected to perform in alignment with standard career averages."
+            
+        narrative = pitch_intro + pitch_exp + " " + matchup_exp
+        
+        return {
+            "status": True,
+            "player": {
+                "id": player["id"],
+                "name": name,
+                "team": team_display,
+                "team_code": player["team_code"],
+                "category": player["category"],
+                "image_url": player["image_url"],
+                "role": role
+            },
+            "opponent": opponent_team_code,
+            "venue": pitch_venue_name,
+            "pitch_stats": pitch_stats_summary,
+            "projections": {
+                "base_points": proj["base_points"],
+                "projected_points": projected,
+                "credits": proj["credits"],
+                "matchup_tags": proj["matchup_tags"],
+                "verdict": verdict,
+                "verdict_class": verdict_class,
+                "confidence": confidence,
+                "performance_range": perf_range
+            },
+            "narrative": narrative
+        }
+
 if __name__ == "__main__":
     engine = IPLFantasyEngine()
     print("Testing Optimizer for RCB vs GT:")

@@ -4,18 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CricSense | AI Fantasy Optimizer & Squad Builder</title>
+    <title>CricSense | AI Fantasy Optimizer & Matchup Analyst</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Main Style -->
     <link rel="stylesheet" href="/static/css/style.css">
 
     <style>
-        /* Custom localized style overrides for Fantasy Optimizer */
+        /* Custom localized style overrides for Fantasy Optimizer & Predictor */
         .fantasy-accent-text {
             background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%);
             -webkit-background-clip: text;
@@ -344,6 +342,30 @@
             color: var(--text-muted);
             line-height: 1.5;
         }
+
+        /* Autocomplete results dropdown overlay */
+        .autocomplete-items {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #0b0f19;
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            border-radius: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .autocomplete-item-hover {
+            transition: var(--transition-smooth);
+        }
+
+        .autocomplete-item-hover:hover {
+            background: rgba(168, 85, 247, 0.15) !important;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -354,11 +376,8 @@
         <!-- Top Navigation Bar -->
         <nav class="glass-nav glass-card" style="margin-bottom: 30px;">
             <div class="nav-brand">
-                <span class="logo-badge"
-                    style="background: linear-gradient(135deg, #a855f7, #7e22ce); color: #fff; font-weight: 800;">FANTASY
-                    ARCHITECT</span>
-                <span class="nav-title">CRICSENSE <span class="accent-text"
-                        style="background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OPTIMIZER</span></span>
+                <span class="logo-badge" style="background: linear-gradient(135deg, #a855f7, #7e22ce); color: #fff; font-weight: 800;">FANTASY ARCHITECT</span>
+                <span class="nav-title">CRICSENSE <span class="accent-text" style="background: linear-gradient(135deg, #a855f7 30%, #f472b6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">OPTIMIZER</span></span>
             </div>
             <div class="nav-links">
                 <a href="/" class="nav-link">Home Dashboard</a>
@@ -371,29 +390,22 @@
         <!-- Header -->
         <header class="app-header">
             <div class="logo-area">
-                <span class="logo-badge"
-                    style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25);">MATCHUP-AWARE
-                    KNAPSACK</span>
-                <h1 class="logo-text" style="text-shadow: 0 0 20px rgba(168, 85, 247, 0.2);">CRICSENSE <span
-                        class="fantasy-accent-text">OPTIMIZER</span></h1>
+                <span class="logo-badge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.25);">MATCHUP-AWARE KNAPSACK</span>
+                <h1 class="logo-text" style="text-shadow: 0 0 20px rgba(168, 85, 247, 0.2);">CRICSENSE <span class="fantasy-accent-text">OPTIMIZER</span></h1>
             </div>
             <p class="tagline">Statistically optimal 11-player Dream Squad generator within 100 credits</p>
         </header>
 
         <!-- Configuration Banner -->
-        <section class="ground-selector-banner glass-card"
-            style="border-color: rgba(168, 85, 247, 0.15); box-shadow: 0 0 25px rgba(168, 85, 247, 0.08);">
-            <div class="selector-content"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; align-items: end;">
+        <section class="ground-selector-banner glass-card" style="border-color: rgba(168, 85, 247, 0.15); box-shadow: 0 0 25px rgba(168, 85, 247, 0.08);">
+            <div class="selector-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; align-items: end;">
 
                 <div class="form-group-col">
                     <label class="selector-label" style="color: #c084fc;">🏏 TEAM A (FRANCHISE 1)</label>
                     <div class="custom-select-wrapper">
-                        <select id="team-a-select" class="stadium-dropdown"
-                            style="border-color: rgba(168, 85, 247, 0.25);">
+                        <select id="team-a-select" class="stadium-dropdown" style="border-color: rgba(168, 85, 247, 0.25);">
                             {% for t in teams %}
-                            <option value="{{ t.code }}" {% if t.code=='RCB' %}selected{% endif %}>{{ t.name }} ({{
-                                t.code }})</option>
+                            <option value="{{ t.code }}" {% if t.code=='RCB' %}selected{% endif %}>{{ t.name }} ({{ t.code }})</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -402,11 +414,9 @@
                 <div class="form-group-col">
                     <label class="selector-label" style="color: #c084fc;">🛡️ TEAM B (FRANCHISE 2)</label>
                     <div class="custom-select-wrapper">
-                        <select id="team-b-select" class="stadium-dropdown"
-                            style="border-color: rgba(168, 85, 247, 0.25);">
+                        <select id="team-b-select" class="stadium-dropdown" style="border-color: rgba(168, 85, 247, 0.25);">
                             {% for t in teams %}
-                            <option value="{{ t.code }}" {% if t.code=='GT' %}selected{% endif %}>{{ t.name }} ({{
-                                t.code }})</option>
+                            <option value="{{ t.code }}" {% if t.code=='GT' %}selected{% endif %}>{{ t.name }} ({{ t.code }})</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -415,21 +425,127 @@
                 <div class="form-group-col">
                     <label class="selector-label" style="color: #c084fc;">🏟️ MATCH VENUE (PITCH PROFILE)</label>
                     <div class="custom-select-wrapper">
-                        <select id="venue-select" class="stadium-dropdown"
-                            style="border-color: rgba(168, 85, 247, 0.25);">
+                        <select id="venue-select" class="stadium-dropdown" style="border-color: rgba(168, 85, 247, 0.25);">
                             {% for venue in venues %}
-                            <option value="{{ venue }}" {% if venue=='Wankhede Stadium, Mumbai' %}selected{% endif %}>{{
-                                venue }}</option>
+                            <option value="{{ venue }}" {% if venue=='Wankhede Stadium, Mumbai' %}selected{% endif %}>{{ venue }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
 
                 <div class="form-group-col" style="text-align: center;">
-                    <button id="generate-squad-btn" class="promo-cta-btn fantasy-btn-gradient"
-                        style="width: 100%; height: 50px; font-weight: 700;">🔮 BUILD DREAM SQUAD</button>
+                    <button id="generate-squad-btn" class="promo-cta-btn fantasy-btn-gradient" style="width: 100%; height: 50px; font-weight: 700;">🔮 BUILD DREAM SQUAD</button>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- AI Player Matchup & Performance Predictor -->
+        <section class="glass-card" style="margin-top: 30px; border-color: rgba(168, 85, 247, 0.15); box-shadow: 0 0 25px rgba(168, 85, 247, 0.08);">
+            <div class="section-header-row" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 20px;">
+                <span class="logo-badge" style="background: linear-gradient(135deg, #a855f7, #f43f5e); color: #fff; font-weight: 800;">AI MATCHUP ANALYST</span>
+                <h3 class="card-subtitle" style="margin: 0;"><span class="fantasy-accent-text">AI Player Predictor</span> - Ground & Matchup Analyst</h3>
+            </div>
+
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">Select a specific player, an opponent franchise, and a stadium to calculate their historical stats on this specific pitch and generate a matchup-aware points prediction forecast.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; align-items: end;">
+
+                <div class="form-group-col" style="position: relative;">
+                    <label class="selector-label" style="font-size: 9.5px; color: #c084fc;">👤 SELECT PLAYER</label>
+                    <input type="text" id="player-predict-input" placeholder="Type player name (e.g. Virat Kohli)..." autocomplete="off" class="stadium-dropdown" style="padding-left: 12px; background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgba(168, 85, 247, 0.25); height: 40px; border-radius: 8px; width: 100%;">
+                    <div id="predict-autocomplete-list" class="autocomplete-items hidden"></div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px; color: #c084fc;">🛡️ OPPONENT TEAM</label>
+                    <div class="custom-select-wrapper">
+                        <select id="player-predict-opponent" class="stadium-dropdown" style="border-color: rgba(168, 85, 247, 0.25);">
+                            {% for t in teams %}
+                            <option value="{{ t.code }}" {% if t.code=='GT' %}selected{% endif %}>{{ t.name }} ({{ t.code }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <label class="selector-label" style="font-size: 9.5px; color: #c084fc;">🏟️ MATCH GROUND</label>
+                    <div class="custom-select-wrapper">
+                        <select id="player-predict-venue" class="stadium-dropdown" style="border-color: rgba(168, 85, 247, 0.25);">
+                            {% for venue in venues %}
+                            <option value="{{ venue }}" {% if venue=='Wankhede Stadium, Mumbai' %}selected{% endif %}>{{ venue }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group-col">
+                    <button id="run-prediction-btn" class="promo-cta-btn fantasy-btn-gradient" style="width: 100%; height: 40px; font-size: 12px; font-weight: 700;">🔮 RUN PERFORMANCE ANALYSIS</button>
+                </div>
+            </div>
+
+            <!-- Prediction Results Display (Hidden initially) -->
+            <div id="player-prediction-result" class="hidden" style="margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 25px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
+
+                    <!-- Left inside: Player profile & Pitch stats -->
+                    <div style="background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+                        <div style="display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px;">
+                            <div class="player-avatar-box" style="width: 64px; height: 64px; border: 2px solid #a855f7; box-shadow: 0 0 15px rgba(168,85,247,0.3);">
+                                <img id="predict-p-img" src="https://documents.iplt20.com/ipl/assets/images/Default-Men.png" class="player-avatar-img" alt="Player">
+                                <span id="predict-p-team" class="player-team-mini">RCB</span>
+                            </div>
+                            <div>
+                                <h4 id="predict-p-name" style="font-family: var(--font-outfit); font-size: 18px; font-weight: 800;">Virat Kohli</h4>
+                                <span id="predict-p-meta" style="font-size: 11px; color: var(--text-muted);">Royal Challengers Bengaluru | Batsman</span>
+                            </div>
+                        </div>
+
+                        <!-- Pitch specific stats panel -->
+                        <div>
+                            <span class="card-sub-lbl" style="margin-bottom: 10px; color: #c084fc;">🏟️ Pitch Statistics splits (on this ground)</span>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center;">
+                                <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px;">
+                                    <span style="font-size: 9px; color: var(--text-muted); display: block;">Matches</span>
+                                    <span id="predict-pitch-matches" style="font-size: 16px; font-weight: 700; color: #fff;">0</span>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px;">
+                                    <span id="predict-pitch-stat1-lbl" style="font-size: 9px; color: var(--text-muted); display: block;">Avg Score</span>
+                                    <span id="predict-pitch-stat1-val" style="font-size: 16px; font-weight: 700; color: #fff;">0.00</span>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px;">
+                                    <span id="predict-pitch-stat2-lbl" style="font-size: 9px; color: var(--text-muted); display: block;">Strike Rate</span>
+                                    <span id="predict-pitch-stat2-val" style="font-size: 16px; font-weight: 700; color: #fff;">0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right inside: AI Projections & Text report -->
+                    <div style="background: rgba(168, 85, 247, 0.03); border: 1px solid rgba(168, 85, 247, 0.15); border-left: 4px solid #a855f7; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+                        <div>
+                            <span class="logo-badge" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.2); font-size: 9px; padding: 2px 6px;" id="predict-verdict-confidence">High Confidence</span>
+                            <h4 class="impact-rec-title" id="predict-verdict-title" style="margin-top: 5px; font-size: 16px; font-weight: 800;">EXCELLENT PICK (MUST HAVE)</h4>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 12px;">
+                            <div>
+                                <span style="font-size: 10px; color: var(--text-muted); display: block;">Projected Points Range</span>
+                                <span id="predict-projected-points" style="font-family: var(--font-outfit); font-size: 18px; font-weight: 800; color: #c084fc;">48 - 65 pts</span>
+                            </div>
+                            <div>
+                                <span style="font-size: 10px; color: var(--text-muted); display: block;">Base / Credits Cost</span>
+                                <span id="predict-credits-cost" style="font-family: var(--font-outfit); font-size: 18px; font-weight: 800; color: #10b981;">10.0 Credits</span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="card-sub-lbl" style="margin-bottom: 5px; color: #c084fc; font-size: 11px;">🔮 AI Performance Forecast Report</span>
+                            <p id="predict-narrative" style="font-size: 12.5px; color: var(--text-muted); line-height: 1.6;"></p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -440,8 +556,7 @@
                     <div class="bounce1" style="background-color: #a855f7;"></div>
                     <div class="bounce2" style="background-color: #a855f7;"></div>
                 </div>
-                <p class="loading-label" style="color: #c084fc;">Running dynamic point projections & combinatorial
-                    Knapsack optimization...</p>
+                <p class="loading-label" style="color: #c084fc;">Running dynamic point projections & combinatorial Knapsack optimization...</p>
             </div>
         </div>
 
@@ -452,13 +567,9 @@
             <div class="dashboard-left-col" style="display: flex; flex-direction: column; gap: 20px;">
 
                 <section class="glass-card" style="padding: 20px; border-color: rgba(168, 85, 247, 0.15);">
-                    <div class="section-header-row"
-                        style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 15px;">
-                        <span class="logo-badge"
-                            style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 800;">OPTIMAL
-                            11</span>
-                        <h3 class="card-subtitle" style="margin: 0;"><span class="fantasy-accent-text">Best Squad</span>
-                            - Pitch Visualization</h3>
+                    <div class="section-header-row" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 15px;">
+                        <span class="logo-badge" style="background: linear-gradient(135deg, #10b981, #059669); color: #fff; font-weight: 800;">OPTIMAL 11</span>
+                        <h3 class="card-subtitle" style="margin: 0;"><span class="fantasy-accent-text">Best Squad</span> - Pitch Visualization</h3>
                     </div>
 
                     <!-- Grass Pitch Representation -->
@@ -486,64 +597,47 @@
             </div>
 
             <!-- Right Column: Summary stats, Matchup reasons, Bench, and Impact selector -->
-            <div class="caps-sidebar"
-                style="width: 100%; max-width: 100%; display: flex; flex-direction: column; gap: 25px;">
+            <div class="caps-sidebar" style="width: 100%; max-width: 100%; display: flex; flex-direction: column; gap: 25px;">
 
                 <!-- Squad Summary Metrics -->
                 <section class="glass-card" style="padding: 25px; border-color: rgba(168, 85, 247, 0.15);">
-                    <h3 class="card-subtitle" style="margin-bottom: 20px;"><span class="fantasy-accent-text">Squad
-                            Overview</span> - Statistical Index</h3>
+                    <h3 class="card-subtitle" style="margin-bottom: 20px;"><span class="fantasy-accent-text">Squad Overview</span> - Statistical Index</h3>
 
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; text-align: center;">
-                        <div
-                            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 12px;">
-                            <span
-                                style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 5px;">Projected
-                                Points</span>
-                            <span id="proj-points-lbl" class="fantasy-accent-text"
-                                style="font-family: var(--font-outfit); font-size: 26px; font-weight: 800;">724.8</span>
+                        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 12px;">
+                            <span style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 5px;">Projected Points</span>
+                            <span id="proj-points-lbl" class="fantasy-accent-text" style="font-family: var(--font-outfit); font-size: 26px; font-weight: 800;">724.8</span>
                         </div>
-                        <div
-                            style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 12px;">
-                            <span
-                                style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 5px;">Credits
-                                Used</span>
-                            <span id="credits-used-lbl"
-                                style="font-family: var(--font-outfit); font-size: 26px; font-weight: 800; color: #10b981;">98.5</span>
+                        <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 15px; border-radius: 12px;">
+                            <span style="font-size: 11px; color: var(--text-muted); display: block; margin-bottom: 5px;">Credits Used</span>
+                            <span id="credits-used-lbl" style="font-family: var(--font-outfit); font-size: 26px; font-weight: 800; color: #10b981;">98.5</span>
                             <span style="font-size: 9px; color: var(--text-muted); display: block;">/ 100.0 Max</span>
                         </div>
                     </div>
 
                     <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;">
                         <span class="card-sub-lbl" style="margin-bottom: 8px;">Franchise Density (Max 7)</span>
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
                             <span id="team-a-code-lbl" class="font-bold" style="font-size: 12.5px;">RCB</span>
-                            <span id="team-a-density-lbl" class="font-bold" style="font-size: 12.5px; color: #a855f7;">6
-                                players</span>
+                            <span id="team-a-density-lbl" class="font-bold" style="font-size: 12.5px; color: #a855f7;">6 players</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="team-b-code-lbl" class="font-bold" style="font-size: 12.5px;">GT</span>
-                            <span id="team-b-density-lbl" class="font-bold" style="font-size: 12.5px; color: #a855f7;">5
-                                players</span>
+                            <span id="team-b-density-lbl" class="font-bold" style="font-size: 12.5px; color: #a855f7;">5 players</span>
                         </div>
                     </div>
                 </section>
 
                 <!-- High-projected Bench Alternatives -->
                 <section class="glass-card" style="padding: 25px; border-color: rgba(168, 85, 247, 0.15);">
-                    <h3 class="card-subtitle" style="margin-bottom: 15px;"><span class="fantasy-accent-text">Tactical
-                            Bench</span> - Budget Alternatives</h3>
-                    <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.4;">
-                        Alternate top-tier players that fit the credit structure in case of late team line-up
-                        alterations.</p>
+                    <h3 class="card-subtitle" style="margin-bottom: 15px;"><span class="fantasy-accent-text">Tactical Bench</span> - Budget Alternatives</h3>
+                    <p style="font-size: 11.5px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.4;">Alternate top-tier players that fit the credit structure in case of late team line-up alterations.</p>
                     <div id="bench-list"></div>
                 </section>
 
                 <!-- Matchup Strategic Insights -->
                 <section class="glass-card" style="padding: 25px; border-color: rgba(168, 85, 247, 0.15);">
-                    <h3 class="card-subtitle" style="margin-bottom: 15px;"><span class="fantasy-accent-text">Strategic
-                            Insights</span> - Selection Logic</h3>
+                    <h3 class="card-subtitle" style="margin-bottom: 15px;"><span class="fantasy-accent-text">Strategic Insights</span> - Selection Logic</h3>
                     <div id="strategic-tags-container" style="display: flex; flex-direction: column; gap: 8px;"></div>
                 </section>
 
@@ -551,23 +645,15 @@
         </main>
 
         <!-- Tactical Innings-Break Impact Player Selector (Standalone card) -->
-        <section id="impact-player-section" class="glass-card hidden"
-            style="margin-top: 30px; border-color: rgba(168, 85, 247, 0.15);">
-            <div class="section-header-row"
-                style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 20px;">
-                <span class="logo-badge"
-                    style="background: linear-gradient(135deg, #a855f7, #6b21a8); color: #fff; font-weight: 800;">TACTICAL
-                    SUB</span>
-                <h3 class="card-subtitle" style="margin: 0;"><span class="fantasy-accent-text">Impact Player
-                        Selector</span> - Innings Break Strategist</h3>
+        <section id="impact-player-section" class="glass-card hidden" style="margin-top: 30px; border-color: rgba(168, 85, 247, 0.15);">
+            <div class="section-header-row" style="border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; margin-bottom: 20px;">
+                <span class="logo-badge" style="background: linear-gradient(135deg, #a855f7, #6b21a8); color: #fff; font-weight: 800;">TACTICAL SUB</span>
+                <h3 class="card-subtitle" style="margin: 0;"><span class="fantasy-accent-text">Impact Player Selector</span> - Innings Break Strategist</h3>
             </div>
 
-            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">At the
-                innings break, the team captain can substitute a player to balance matchups. Input the exact match state
-                below to receive the AI's optimized tactical advisor suggestion.</p>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5;">At the innings break, the team captain can substitute a player to balance matchups. Input the exact match state below to receive the AI's optimized tactical advisor suggestion.</p>
 
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: end;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; align-items: end;">
 
                 <div class="form-group-col">
                     <label class="selector-label" style="font-size: 9.5px;">🏏 BATTING TEAM</label>
@@ -585,8 +671,7 @@
 
                 <div class="form-group-col">
                     <label class="selector-label" style="font-size: 9.5px;">💥 RUNS SCORED</label>
-                    <input type="number" id="impact-runs-input" class="stadium-dropdown" value="135" min="0" max="300"
-                        style="padding-left: 12px; background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgba(255,255,255,0.08); height: 40px; border-radius: 8px;">
+                    <input type="number" id="impact-runs-input" class="stadium-dropdown" value="135" min="0" max="300" style="padding-left: 12px; background: rgba(255,255,255,0.03); color: #fff; border: 1px solid rgba(255,255,255,0.08); height: 40px; border-radius: 8px;">
                 </div>
 
                 <div class="form-group-col">
@@ -630,8 +715,7 @@
                 </div>
 
                 <div class="form-group-col">
-                    <button id="advise-impact-btn" class="promo-cta-btn fantasy-btn-gradient"
-                        style="width: 100%; height: 40px; font-size: 12px;">🧠 ADVISE SUBSTITUTION</button>
+                    <button id="advise-impact-btn" class="promo-cta-btn fantasy-btn-gradient" style="width: 100%; height: 40px; font-size: 12px;">🧠 ADVISE SUBSTITUTION</button>
                 </div>
             </div>
 
@@ -639,16 +723,12 @@
             <div id="impact-recommendation-result" class="hidden">
                 <div class="impact-results-box">
                     <div class="impact-avatar">
-                        <img id="impact-player-img" src="https://documents.iplt20.com/ipl/assets/images/Default-Men.png"
-                            class="player-avatar-img" alt="Impact Player">
+                        <img id="impact-player-img" src="https://documents.iplt20.com/ipl/assets/images/Default-Men.png" class="player-avatar-img" alt="Impact Player">
                     </div>
                     <div class="impact-text-area">
-                        <span class="logo-badge"
-                            style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.2); font-size: 9px; padding: 2px 6px;"
-                            id="impact-badge-action">DEFENSIVE BOOST</span>
+                        <span class="logo-badge" style="background: rgba(34, 197, 94, 0.12); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.2); font-size: 9px; padding: 2px 6px;" id="impact-badge-action">DEFENSIVE BOOST</span>
                         <h4 class="impact-rec-title" id="impact-rec-name">SUBSTITUTE SPECIALIST FINISHER</h4>
-                        <p class="impact-desc-p" id="impact-rec-desc">Recommends substituting George Garton. Defending
-                            135 requires maximum wickets.</p>
+                        <p class="impact-desc-p" id="impact-rec-desc">Recommends substituting George Garton. Defending 135 requires maximum wickets.</p>
                     </div>
                 </div>
             </div>
@@ -678,8 +758,153 @@
             const impactSpinSelect = document.getElementById("impact-spin-select");
             const impactResultDiv = document.getElementById("impact-recommendation-result");
 
+            // Player Predictor Form fields
+            const runPredictionBtn = document.getElementById("run-prediction-btn");
+            const playerPredictInput = document.getElementById("player-predict-input");
+            const playerPredictOpponent = document.getElementById("player-predict-opponent");
+            const playerPredictVenue = document.getElementById("player-predict-venue");
+            const playerPredictionResult = document.getElementById("player-prediction-result");
+
             generateSquadBtn.addEventListener("click", buildDreamSquad);
             adviseImpactBtn.addEventListener("click", adviseImpactPlayer);
+            runPredictionBtn.addEventListener("click", runPlayerPrediction);
+
+            // Fetch and set up autocomplete search index
+            let masterPlayersList = [];
+            fetch('/api/players')
+                .then(res => res.json())
+                .then(data => {
+                    masterPlayersList = data;
+                    setupAutocomplete(playerPredictInput, data);
+                })
+                .catch(err => console.error("[Error] Autocomplete failed to load:", err));
+
+            function setupAutocomplete(input, list) {
+                const listContainer = document.getElementById("predict-autocomplete-list");
+
+                input.addEventListener("input", () => {
+                    const val = input.value.trim().toLowerCase();
+                    listContainer.innerHTML = "";
+                    if (!val) {
+                        listContainer.classList.add("hidden");
+                        return;
+                    }
+
+                    const matches = list.filter(p => p.name.toLowerCase().includes(val)).slice(0, 10);
+                    if (matches.length === 0) {
+                        listContainer.classList.add("hidden");
+                        return;
+                    }
+
+                    matches.forEach(p => {
+                        const item = document.createElement("div");
+                        item.style.padding = "10px 15px";
+                        item.style.cursor = "pointer";
+                        item.style.borderBottom = "1px solid rgba(255,255,255,0.03)";
+                        item.style.fontSize = "12.5px";
+                        item.style.display = "flex";
+                        item.style.alignItems = "center";
+                        item.style.gap = "10px";
+                        item.className = "autocomplete-item-hover";
+
+                        item.innerHTML = `
+                            <img src="${p.image_url}" style="width:24px; height:24px; border-radius:50%; object-fit:cover;" onerror="this.src='https://documents.iplt20.com/ipl/assets/images/Default-Men.png'">
+                            <span>${p.name} <small style="color:var(--text-muted);">(${p.team_code})</small></span>
+                        `;
+
+                        item.addEventListener("click", () => {
+                            input.value = p.name;
+                            input.setAttribute("data-player-id", p.id);
+                            listContainer.classList.add("hidden");
+                        });
+                        listContainer.appendChild(item);
+                    });
+                    listContainer.classList.remove("hidden");
+                });
+
+                // Hide list container when clicking outside
+                document.addEventListener("click", (e) => {
+                    if (e.target !== input && e.target !== listContainer) {
+                        listContainer.classList.add("hidden");
+                    }
+                });
+            }
+
+            function runPlayerPrediction() {
+                const pName = playerPredictInput.value.trim();
+                const opponent = playerPredictOpponent.value;
+                const venue = playerPredictVenue.value;
+                const pId = playerPredictInput.getAttribute("data-player-id") || pName;
+
+                if (!pName) {
+                    alert("Please type and select a player first!");
+                    return;
+                }
+
+                // Hide previous result
+                playerPredictionResult.classList.add("hidden");
+
+                const url = `/api/player-prediction?player_id=${encodeURIComponent(pId)}&opponent=${opponent}&venue=${encodeURIComponent(venue)}`;
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (!data.status) {
+                            alert("Analysis failed: " + data.error);
+                            return;
+                        }
+
+                        // Populate predictive details
+                        document.getElementById("predict-p-name").textContent = data.player.name;
+                        document.getElementById("predict-p-meta").textContent = `${data.player.team} | ${data.player.category}`;
+                        document.getElementById("predict-p-team").textContent = data.player.team_code;
+                        
+                        const pImg = document.getElementById("predict-p-img");
+                        pImg.src = data.player.image_url;
+                        pImg.onerror = () => { pImg.src = "https://documents.iplt20.com/ipl/assets/images/Default-Men.png"; };
+
+                        // Ground Splits
+                        const pitch = data.pitch_stats;
+                        document.getElementById("predict-pitch-matches").textContent = pitch.matches;
+
+                        if (pitch.role_type === "batting") {
+                            document.getElementById("predict-pitch-stat1-lbl").textContent = "Average Runs";
+                            document.getElementById("predict-pitch-stat1-val").textContent = pitch.average;
+                            document.getElementById("predict-pitch-stat2-lbl").textContent = "Strike Rate";
+                            document.getElementById("predict-pitch-stat2-val").textContent = pitch.strike_rate;
+                        } else {
+                            document.getElementById("predict-pitch-stat1-lbl").textContent = "Wickets Taken";
+                            document.getElementById("predict-pitch-stat1-val").textContent = pitch.wickets;
+                            document.getElementById("predict-pitch-stat2-lbl").textContent = "Economy RPO";
+                            document.getElementById("predict-pitch-stat2-val").textContent = pitch.economy;
+                        }
+
+                        // Projections & Forecast Narrative
+                        const proj = data.projections;
+                        const badgeConf = document.getElementById("predict-verdict-confidence");
+                        const vTitle = document.getElementById("predict-verdict-title");
+
+                        badgeConf.textContent = proj.confidence;
+                        vTitle.textContent = proj.verdict;
+                        vTitle.className = "impact-rec-title " + proj.verdict_class;
+
+                        document.getElementById("predict-projected-points").textContent = proj.performance_range;
+                        document.getElementById("predict-credits-cost").textContent = `${proj.credits.toFixed(1)} Credits`;
+
+                        // Display formatted narrative markdown
+                        // Replace simple markdown stars with bold markers in HTML
+                        let formattedNarrative = data.narrative.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+                        formattedNarrative = formattedNarrative.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+                        document.getElementById("predict-narrative").innerHTML = formattedNarrative;
+
+                        // Slide down panel smoothly
+                        playerPredictionResult.classList.remove("hidden");
+                    })
+                    .catch(err => {
+                        console.error("[Error] Matchup Analysis failed:", err);
+                        alert("An error occurred during matchup analysis. Please try again.");
+                    });
+            }
 
             function buildDreamSquad() {
                 const teamA = teamASelect.value;
@@ -796,7 +1021,6 @@
                     strategicContainer.innerHTML = `<div style="font-size: 12px; color: var(--text-muted); text-align: center; padding: 15px;">Ideal physical characteristics are standard across both rosters.</div>`;
                 } else {
                     uniqueInsights.slice(0, 4).forEach(ins => {
-                        const badgeClass = ins.type === "bonus" ? "badge-today" : "live-today";
                         const indicatorDot = ins.type === "bonus" ? `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background-color:#22c55e; margin-right:8px;"></span>` : `<span style="display:inline-block; width:8px; height:8px; border-radius:50%; background-color:#ef4444; margin-right:8px;"></span>`;
                         const card = document.createElement("div");
                         card.style.display = "flex";

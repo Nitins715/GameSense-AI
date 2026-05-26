@@ -414,5 +414,18 @@ def get_api_impact_player():
     )
     return jsonify(suggestion)
 
+@app.route('/api/player-prediction')
+def get_api_player_prediction():
+    """Exposes REST API endpoint for matchup-aware player performance predictions."""
+    player_id = request.args.get('player_id')
+    opponent = request.args.get('opponent')
+    venue = request.args.get('venue')
+    
+    if not player_id or not opponent or not venue:
+        return jsonify({"status": False, "error": "Player ID, opponent, and venue parameters are required."}), 400
+        
+    prediction = fantasy_engine.predict_player_performance(player_id, opponent, venue)
+    return jsonify(prediction)
+
 if __name__ == '__main__':
     app.run(debug=True, port=5005)
