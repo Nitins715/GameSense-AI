@@ -211,6 +211,7 @@ class IPLLivePredictorEngine:
         else:
             # 2nd Innings: Predict chase over completion
             runs_needed = target - runs
+            rrr = 0.0
             
             if runs_needed <= 0:
                 forecast_desc = f"Target successfully chased! Match won by batting team in the **{over}th over**."

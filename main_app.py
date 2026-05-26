@@ -9,6 +9,7 @@ from modules.matchup_simulator.data_engine import IPLDataEngine
 from modules.ground_analysis.ground_engine import IPLVenueEngine
 from modules.fantasy_optimizer.fantasy_engine import IPLFantasyEngine
 from modules.live_predictor.live_engine import IPLLivePredictorEngine
+from modules.past_analysis.past_engine import IPLPastAnalysisEngine
 
 app = Flask(__name__)
 
@@ -162,6 +163,7 @@ data_engine = IPLDataEngine()
 venue_engine = IPLVenueEngine()
 fantasy_engine = IPLFantasyEngine(data_engine=data_engine, venue_engine=venue_engine)
 live_engine = IPLLivePredictorEngine(data_engine=data_engine, venue_engine=venue_engine)
+past_engine = IPLPastAnalysisEngine(data_engine=data_engine, venue_engine=venue_engine, live_engine=live_engine)
 
 @app.route('/')
 def home():
@@ -485,6 +487,26 @@ def get_api_over_momentum():
     """Exposes REST API endpoint for the 6-ball over boundary and wicket probabilities."""
     stats = live_engine.get_over_momentum_stats()
     return jsonify(stats)
+
+@app.route('/past-analysis')
+def past_analysis():
+    """Renders the Past Match Analyst & Pressure Tracker page."""
+    return render_template('past_analysis.html')
+
+@app.route('/api/past-matches')
+def get_api_past_matches():
+    """Exposes REST API endpoint for indexing the lightweight matches metadata dropdown."""
+    matches = past_engine.get_all_matches()
+    return jsonify(matches)
+
+@app.route('/api/past-match-timeline')
+def get_api_past_match_timeline():
+    """Exposes REST API endpoint for dynamic ball-by-ball match pressure and win indexes."""
+    match_id = request.args.get('match_id')
+    if not match_id:
+        return jsonify({"status": False, "error": "Match ID parameter is required."}), 400
+    timeline = past_engine.analyze_match_timeline(match_id)
+    return jsonify(timeline)
 
 if __name__ == '__main__':
     # Render binds services to the PORT environment variable
