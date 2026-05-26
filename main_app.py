@@ -160,6 +160,14 @@ def resolve_player_bio(player_id, player_name, team_code):
 # Initialize data engines
 init_app_databases()
 data_engine = IPLDataEngine()
+
+# Compile bowler stumping records for high-fidelity spinner classification
+BOWLER_STUMPINGS = {}
+for d in data_engine.deliveries:
+    if d["is_wicket"] and d["wicket_kind"] == "stumped":
+        b = d["bowler"]
+        BOWLER_STUMPINGS[b] = BOWLER_STUMPINGS.get(b, 0) + 1
+
 venue_engine = IPLVenueEngine()
 fantasy_engine = IPLFantasyEngine(data_engine=data_engine, venue_engine=venue_engine)
 live_engine = IPLLivePredictorEngine(data_engine=data_engine, venue_engine=venue_engine)
@@ -188,6 +196,113 @@ def ground_analysis():
 def get_players():
     """Serves the complete roster for search autocomplete suggestions."""
     return jsonify(player_roster)
+
+# ==========================================
+# PLAYER CLASSIFICATION LOOKUPS & HEURISTICS
+# ==========================================
+
+KNOWN_SPINNERS = {
+    # Cricsheet / Short names
+    "ys chahal", "r ashwin", "sp narine", "ra jadeja", "pp chawla", "ar patel", "rashid khan",
+    "harbhajan singh", "a mishra", "kh pandya", "kuldeep yadav", "cv varun", "pp ojha",
+    "ravi bishnoi", "rd chahar", "kv sharma", "m muralitharan", "shakib al hasan", "s nadeem",
+    "imran tahir", "sk warne", "washington sundar", "m kartik", "yk pathan", "noor ahmad",
+    "mujeeb ur rahman", "karan sharma", "sandeep lamichhane", "krishnappa gowtham", "k gowtham",
+    "shahbaz ahmed", "maheesh theekshana", "suyash sharma", "adil rashid", "tabraiz shamsi",
+    "adam zampa", "rahul sharma", "muralitharan", "ish sodhi", "laba", "fabian allen",
+    "sikandar raza", "deepak hooda", "lalit yadav", "r sai kishore", "sai kishore",
+    "hrithik shokeen", "glenn maxwell", "g maxwell", "shreyas iyer", "rohit sharma",
+    "abhishek sharma", "tilak varma", "nitish rana", "aidan markram", "liam livingstone",
+    "l livingstone", "allah ghazanfar", "manav suthar", "tanush kotian", "shreyas gopal", "s gopal",
+    
+    # Full / Roster names
+    "yuzvendra chahal", "ravichandran ashwin", "sunil narine", "ravindra jadeja", "piyush chawla",
+    "axar patel", "harbhajan singh", "amit mishra", "krunal pandya", "varun chakaravarthy",
+    "pragyan ojha", "rahul chahar", "karn sharma", "muttiah muralitharan", "shahbaz nadeem",
+    "shane warne", "muralitaran kartik", "yusuf pathan"
+}
+
+KNOWN_LEFT_HANDERS = {
+    # Cricsheet / Short names
+    "s raina", "da warner", "ch gayle", "g gambhir", "s dhawan", "ishan kishan", "i kishan",
+    "rr pant", "ra jadeja", "q de kock", "n rana", "sp narine", "n pooran", "s dube",
+    "y jaiswal", "yashasvi jaiswal", "kh pandya", "vr iyer", "tilak varma", "t varma",
+    "rinku singh", "sai sudharsan", "b sai sudharsan", "dp conway", "abhishek sharma",
+    "vaibhav sooryavanshi", "sooryavanshi", "s hetmyer", "moeen ali", "k mayers", "sam curran",
+    "sm curran", "ar patel", "ben stokes", "ba stokes", "eoin morgan", "shaun marsh", "se marsh",
+    "yuvraj singh", "ss tiwary", "jp duminy", "ml hayden", "ac gilchrist", "ja morkel",
+    "st jayasuriya", "pa patel", "sa curran", "david miller", "da miller", "mandeep singh",
+    "harpreet brar", "h brar", "rachin ravindra", "r ravindra", "devdutt padikkal", "d padikkal",
+    "kk nair", "shahbaz ahmed", "s ahmed",
+    
+    # Full / Roster names
+    "suresh raina", "david warner", "chris gayle", "gautam gambhir", "shikhar dhawan",
+    "ravindra jadeja", "quinton de kock", "nitish rana", "sunil narine", "nicholas pooran",
+    "shivam dube", "krunal pandya", "venkatesh iyer", "devon conway", "shimron hetmyer",
+    "kyle mayers", "axar patel", "matthew hayden", "adam gilchrist", "albie morkel",
+    "sanath jayasuriya", "parthiv patel", "karun nair"
+}
+
+def find_bio_by_cricsheet_name(cric_name):
+    cric_clean = cric_name.lower().strip()
+    if cric_clean in player_bios:
+        return player_bios[cric_clean]
+    for pid, bio in player_bios.items():
+        if pid.lower() == cric_clean:
+            return bio
+        bio_name = bio.get("name", "").lower()
+        if bio_name == cric_clean:
+            return bio
+        cric_parts = cric_clean.split()
+        bio_parts = bio_name.split()
+        if cric_parts and bio_parts:
+            if cric_parts[-1] == bio_parts[-1]:
+                if cric_parts[0][0] == bio_parts[0][0]:
+                    return bio
+    return None
+
+def classify_bowler_style(cric_name):
+    bio = find_bio_by_cricsheet_name(cric_name)
+    if bio and bio.get("bowl_style") and bio["bowl_style"] != "N/A":
+        style = bio["bowl_style"].lower()
+    else:
+        cric_clean = cric_name.lower().strip()
+        is_spin = False
+        if cric_clean in KNOWN_SPINNERS:
+            is_spin = True
+        elif BOWLER_STUMPINGS.get(cric_name, 0) >= 3:
+            is_spin = True
+        else:
+            for s in KNOWN_SPINNERS:
+                if len(s) > 4 and s in cric_clean:
+                    is_spin = True
+                    break
+        style = "spin" if is_spin else "pace"
+        
+    if any(t in style for t in ["fast", "medium", "seam", "swing", "pace", "seamer"]):
+        return "Pace"
+    elif any(t in style for t in ["legbreak", "wrist", "chinaman", "googly"]):
+        return "Wrist Spin (Legbreak)"
+    elif any(t in style for t in ["offbreak", "finger", "orthodox", "off break", "off-break"]):
+        return "Finger Spin (Offbreak)"
+    elif "spin" in style:
+        return "Finger Spin (Offbreak)"
+    else:
+        return "Pace"
+
+def classify_batter_stance(cric_name):
+    bio = find_bio_by_cricsheet_name(cric_name)
+    if bio and bio.get("bat_style") and bio["bat_style"] != "N/A":
+        return bio["bat_style"]
+    
+    cric_clean = cric_name.lower().strip()
+    if cric_clean in KNOWN_LEFT_HANDERS:
+        return "Left Hand Bat"
+    for l in KNOWN_LEFT_HANDERS:
+        if len(l) > 4 and l in cric_clean:
+            return "Left Hand Bat"
+            
+    return "Right Hand Bat"
 
 @app.route('/api/matchup')
 def get_matchup():
@@ -234,26 +349,12 @@ def get_matchup():
     
     h2h = data_engine.get_head_to_head(batter_profile["name"], bowler_profile["name"])
     
-    batter_stance = batter_bio.get("bat_style", "Right Hand Bat")
-    bowler_style = bowler_bio.get("bowl_style", "Right Arm Fast")
+    c_batter = data_engine.find_cricsheet_name(batter_profile["name"])
+    c_bowler = data_engine.find_cricsheet_name(bowler_profile["name"])
     
-    bowler_style_clean = bowler_style.lower()
-    is_pace = any(t in bowler_style_clean for t in ["fast", "medium", "seam", "swing", "pace"])
-    style_label = "Pace" if is_pace else "Spin"
-    if "legbreak" in bowler_style_clean or "wrist" in bowler_style_clean or "chinaman" in bowler_style_clean:
-        style_label = "Wrist Spin (Legbreak)"
-    elif "offbreak" in bowler_style_clean or "finger" in bowler_style_clean or "orthodox" in bowler_style_clean:
-        style_label = "Finger Spin (Offbreak)"
-        
-    matching_bowler_names = []
-    for bid, binfo in player_bios.items():
-        bstyle = binfo.get("bowl_style", "").lower()
-        if style_label == "Pace" and any(t in bstyle for t in ["fast", "medium", "seam", "swing", "pace"]):
-            matching_bowler_names.append(binfo.get("name", bid))
-        elif style_label == "Wrist Spin (Legbreak)" and any(t in bstyle for t in ["legbreak", "wrist", "chinaman"]):
-            matching_bowler_names.append(binfo.get("name", bid))
-        elif style_label == "Finger Spin (Offbreak)" and any(t in bstyle for t in ["offbreak", "finger", "orthodox"]):
-            matching_bowler_names.append(binfo.get("name", bid))
+    batter_stance = classify_batter_stance(c_batter)
+    style_label = classify_bowler_style(c_bowler)
+    bowler_style = bowler_bio.get("bowl_style", "Right Arm Fast")
             
     arch_batter_runs = 0
     arch_batter_balls = 0
@@ -262,23 +363,20 @@ def get_matchup():
     arch_batter_sixes = 0
     
     for d in data_engine.deliveries:
-        if d["batter"] == batter_profile["name"] and d["bowler"] in matching_bowler_names and d["bowler"] != bowler_profile["name"]:
-            if d["extras_type"] != "wides":
-                arch_batter_balls += 1
-            arch_batter_runs += d["runs_batter"]
-            if d["runs_batter"] == 4: arch_batter_fours += 1
-            elif d["runs_batter"] == 6: arch_batter_sixes += 1
-            if d["is_wicket"] and d["wicket_player_out"] == batter_profile["name"]:
-                if d["wicket_kind"] not in ["run out", "retired hurt"]:
-                    arch_batter_dismissals += 1
+        if d["batter"] == c_batter and d["bowler"] != c_bowler:
+            b_style = classify_bowler_style(d["bowler"])
+            if b_style == style_label:
+                if d["extras_type"] != "wides":
+                    arch_batter_balls += 1
+                arch_batter_runs += d["runs_batter"]
+                if d["runs_batter"] == 4: arch_batter_fours += 1
+                elif d["runs_batter"] == 6: arch_batter_sixes += 1
+                if d["is_wicket"] and d["wicket_player_out"] == c_batter:
+                    if d["wicket_kind"] not in ["run out", "retired hurt"]:
+                        arch_batter_dismissals += 1
                     
     arch_batter_sr = (arch_batter_runs / arch_batter_balls * 100) if arch_batter_balls > 0 else 0
     arch_batter_avg = (arch_batter_runs / arch_batter_dismissals) if arch_batter_dismissals > 0 else arch_batter_runs
-    
-    matching_batter_names = []
-    for pid, pinfo in player_bios.items():
-        if pinfo.get("bat_style", "").lower() == batter_stance.lower():
-            matching_batter_names.append(pinfo.get("name", pid))
             
     arch_bowler_runs = 0
     arch_bowler_balls = 0
@@ -287,16 +385,18 @@ def get_matchup():
     arch_bowler_sixes = 0
     
     for d in data_engine.deliveries:
-        if d["bowler"] == bowler_profile["name"] and d["batter"] in matching_batter_names and d["batter"] != batter_profile["name"]:
-            if d["extras_type"] not in ["wides", "noballs"]:
-                arch_bowler_balls += 1
-            if d["extras_type"] not in ["legbyes", "byes"]:
-                arch_bowler_runs += d["runs_batter"] + d["runs_extras"]
-            if d["runs_batter"] == 4: arch_bowler_fours += 1
-            elif d["runs_batter"] == 6: arch_bowler_sixes += 1
-            if d["is_wicket"]:
-                if d["wicket_kind"] not in ["run out", "retired hurt"]:
-                    arch_bowler_wickets += 1
+        if d["bowler"] == c_bowler and d["batter"] != c_batter:
+            bat_stance = classify_batter_stance(d["batter"])
+            if bat_stance.lower() == batter_stance.lower():
+                if d["extras_type"] not in ["wides", "noballs"]:
+                    arch_bowler_balls += 1
+                if d["extras_type"] not in ["legbyes", "byes"]:
+                    arch_bowler_runs += d["runs_batter"] + d["runs_extras"]
+                if d["runs_batter"] == 4: arch_bowler_fours += 1
+                elif d["runs_batter"] == 6: arch_bowler_sixes += 1
+                if d["is_wicket"]:
+                    if d["wicket_kind"] not in ["run out", "retired hurt", "obstructing the field"]:
+                        arch_bowler_wickets += 1
                     
     arch_bowler_econ = (arch_bowler_runs / (arch_bowler_balls / 6)) if arch_bowler_balls > 0 else 0
     arch_bowler_sr = (arch_bowler_balls / arch_bowler_wickets) if arch_bowler_wickets > 0 else 0
